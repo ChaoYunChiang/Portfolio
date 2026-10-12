@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chao-Yun Chiang — Audience research and interactive media</title>
+<meta name="description" content="Portfolio of Chao-Yun Chiang (Ivory). Audience research and interactive media production, from VR heritage preservation to interface design.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1B2127;
+  --paper:#EDEEEA;
+  --brass:#A8793F;
+  --patina:#3F6B60;
+  --muted:#6E7570;
+  --rule:#D3D4CE;
+  --display:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
+  --text:"Source Serif 4",Georgia,"Times New Roman",serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 2rem)}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--text);
+  font-size:1.0625rem;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+img,video{max-width:100%;height:auto;display:block}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+
+/* ---------- layout ---------- */
+.shell{
+  max-width:60rem;
+  margin:0 auto;
+  padding:0 1.5rem 6rem;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:0;
+}
+@media (min-width:60rem){
+  .shell{grid-template-columns:11rem 1fr;column-gap:3.5rem;padding-right:2rem}
+}
+.col{min-width:0;max-width:40rem}
+
+/* ---------- node rail ---------- */
+.rail{display:none}
+@media (min-width:60rem){
+  .rail{
+    display:block;
+    position:sticky;
+    top:4rem;
+    align-self:start;
+    height:max-content;
+    padding-top:.4rem;
+  }
+}
+.rail ol{list-style:none;margin:0;padding:0;position:relative}
+.rail ol::before{
+  content:"";
+  position:absolute;
+  left:4px;top:.55rem;bottom:.55rem;
+  width:1px;background:var(--rule);
+  transform:scaleY(0);transform-origin:top;
+  animation:draw .9s .2s ease-out forwards;
+}
+@keyframes draw{to{transform:scaleY(1)}}
+.rail li{position:relative;padding:0 0 1.15rem 1.4rem;font-family:var(--display);font-size:.8125rem;letter-spacing:.01em}
+.rail li::before{
+  content:"";position:absolute;left:0;top:.5rem;
+  width:9px;height:9px;border-radius:50%;
+  border:1px solid var(--muted);background:var(--paper);
+  opacity:0;animation:pop .35s ease-out forwards;
+}
+.rail li:nth-child(1)::before{animation-delay:.35s}
+.rail li:nth-child(2)::before{animation-delay:.5s}
+.rail li:nth-child(3)::before{animation-delay:.65s}
+.rail li:nth-child(4)::before{animation-delay:.8s}
+.rail li:nth-child(5)::before{animation-delay:.95s}
+@keyframes pop{to{opacity:1}}
+.rail a{text-decoration:none;color:var(--muted);transition:color .15s}
+.rail a:hover{color:var(--ink)}
+.rail li.here::before{background:var(--brass);border-color:var(--brass)}
+.rail li.here a{color:var(--ink)}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .rail ol::before{animation:none;transform:scaleY(1)}
+  .rail li::before{animation:none;opacity:1}
+}
+
+/* ---------- masthead ---------- */
+.masthead{padding:5rem 0 3rem}
+.masthead h1{
+  font-family:var(--display);
+  font-weight:700;
+  font-size:clamp(2.1rem,5.5vw,3.1rem);
+  line-height:1.08;
+  letter-spacing:-.02em;
+  margin:0 0 1.25rem;
+  max-width:18ch;
+}
+.masthead .lede{font-size:1.1875rem;margin:0 0 1.75rem;max-width:52ch}
+.whoami{font-family:var(--display);font-size:.875rem;color:var(--muted);margin:0 0 .5rem}
+.contact{font-family:var(--display);font-size:.875rem;display:flex;flex-wrap:wrap;gap:.35rem 1.25rem;padding:0;margin:0;list-style:none}
+.contact a{text-decoration:none;border-bottom:1px solid var(--brass);padding-bottom:1px}
+.contact a:hover{color:var(--brass)}
+
+/* ---------- sections ---------- */
+section{padding:3.25rem 0;border-top:1px solid var(--rule)}
+h2{
+  font-family:var(--display);font-weight:700;
+  font-size:1.75rem;line-height:1.15;letter-spacing:-.015em;
+  margin:0 0 .35rem;
+}
+.sectnote{color:var(--muted);margin:0 0 2.5rem;font-size:.9375rem}
+
+/* ---------- project ---------- */
+.project{margin:0 0 4.5rem}
+.project:last-child{margin-bottom:0}
+.project h3{
+  font-family:var(--display);font-weight:700;
+  font-size:1.3125rem;line-height:1.2;margin:0 0 .75rem;
+}
+.facts{
+  display:grid;grid-template-columns:7.5rem 1fr;
+  gap:.3rem 1rem;margin:0 0 1.75rem;
+  font-family:var(--display);font-size:.8125rem;
+}
+.facts dt{color:var(--muted)}
+.facts dd{margin:0}
+.project h4{
+  font-family:var(--display);font-weight:500;font-size:.8125rem;
+  color:var(--patina);margin:1.75rem 0 .4rem;
+}
+.project p{margin:0 0 1rem}
+.project ul{margin:0 0 1rem;padding-left:1.1rem}
+.project li{margin-bottom:.35rem}
+
+figure{margin:1.75rem 0;}
+figure img,figure video{border:1px solid var(--rule)}
+figcaption{font-family:var(--display);font-size:.8125rem;color:var(--muted);margin-top:.5rem}
+.slot{
+  border:1px dashed var(--rule);
+  background:rgba(0,0,0,.015);
+  padding:2.25rem 1.25rem;
+  text-align:center;
+  font-family:var(--display);font-size:.8125rem;color:var(--muted);
+}
+
+/* visible placeholder — delete before publishing */
+.todo{
+  background:#FBF3DE;
+  border-left:3px solid var(--brass);
+  padding:.85rem 1rem;
+  font-family:var(--display);font-size:.875rem;
+  color:#6A4E1E;
+  margin:0 0 1rem;
+}
+
+/* ---------- skills ---------- */
+.skills{display:grid;gap:2rem}
+@media (min-width:36rem){.skills{grid-template-columns:1fr 1fr}}
+.skills h3{font-family:var(--display);font-size:.9375rem;font-weight:700;margin:0 0 .6rem}
+.skills ul{list-style:none;margin:0;padding:0;font-size:.9375rem}
+.skills li{padding:.2rem 0;border-bottom:1px solid var(--rule)}
+.skills li:last-child{border-bottom:0}
+
+footer{border-top:1px solid var(--rule);padding:2.5rem 0 0;font-family:var(--display);font-size:.8125rem;color:var(--muted)}
+footer a{color:var(--ink)}
+</style>
+</head>
+<body>
+
+<div class="shell">
+
+  <nav class="rail" aria-label="Sections">
+    <ol>
+      <li><a href="#brewery">Brewery VR</a></li>
+      <li><a href="#elderly">Elderly interface</a></li>
+      <li><a href="#cups">Adoption study</a></li>
+      <li><a href="#skills">What I use</a></li>
+    </ol>
+  </nav>
+
+  <div class="col">
+
+    <header class="masthead">
+      <p class="whoami">Chao-Yun Chiang (Ivory) · Taipei</p>
+      <h1>I work out what an audience is actually doing, then build for it.</h1>
+      <p class="lede">
+        Final-year student in Adult and Continuing Education at National Taiwan Normal
+        University. My training is in audience research; my project work is in making
+        things people step into, from a VR record of a working brewery to interfaces for
+        people the original design left out.
+      </p>
+      <ul class="contact">
+        <li><a href="mailto:liamchiang1030@gmail.com">liamchiang1030@gmail.com</a></li>
+        <li><a href="#">Résumé (PDF)</a></li>
+        <li><a href="#">GitHub</a></li>
+      </ul>
+    </header>
+
+    <section id="brewery">
+      <h2>Selected work</h2>
+      <p class="sectnote">Three projects, written up for what was decided rather than what was delivered.</p>
+
+      <article class="project">
+        <h3>A VR record of the Taipei Brewery</h3>
+        <dl class="facts">
+          <dt>Role</dt><dd>Research assistant, Virtual Reality Lab, NTNU</dd>
+          <dt>Team</dt><dd>Graduate-student-led lab project under Prof. Chang Chen-wei</dd>
+          <dt>Period</dt><dd>March 2025 – April 2026</dd>
+          <dt>Tools</dt><dd>360-degree capture, Pano2VR, Meta Quest</dd>
+        </dl>
+
+        <h4>Situation</h4>
+        <p>
+          The Taipei Brewery is Taiwan's first brewery and the only century-old factory
+          still in production in central Taipei. Its brewing hall is a designated
+          municipal monument and holds one of only ten sets of German copper mash kettles
+          ever built. The site is currently caught in a dispute over the redevelopment of
+          its land. The lab set out to record it in virtual reality so that the place
+          could be visited after any physical change to it, and eventually opened to the
+          public.
+        </p>
+
+        <h4>Task</h4>
+        <p>
+          Capture a working multi-storey industrial facility and build it into an
+          environment a visitor could move through without a guide, having never set foot
+          in the building.
+        </p>
+
+        <h4>What I did</h4>
+        <ul>
+          <li>Captured the 360-degree footage on site and built the environment in Pano2VR.</li>
+          <li>Built a web prototype first, to work out the spatial logic of a multi-storey layout and to map the photo nodes the team would align around.</li>
+          <li>Resolved a WebXR compatibility limitation on the HTC Vive by moving the system to Meta Quest.</li>
+          <li>Studied how commercial VR titles keep players oriented, and worked out my own placement rules for the transition points between nodes.</li>
+        </ul>
+
+        <figure>
+          <div class="slot">Screen recording — walking through one scene transition (20–30s)</div>
+          <figcaption>A still frame cannot show the part I worked on. The transition can.</figcaption>
+        </figure>
+
+        <figure>
+          <div class="slot">Node map — the spatial logic of the building, redrawn</div>
+          <figcaption>Redrawn from the web prototype used to align the team during capture.</figcaption>
+        </figure>
+
+        <h4>What I took from it</h4>
+        <p class="todo">
+          TO WRITE. Honest version: the medium carries a first visit on its own, and what
+          happens after that has to be designed. Do not claim the placement rules were
+          validated or that they measurably improved anything — neither is established.
+        </p>
+      </article>
+    </section>
+
+    <section id="elderly">
+      <article class="project">
+        <h3>A smartphone interface for older users</h3>
+        <dl class="facts">
+          <dt>Role</dt><dd>Team member, field observation and analysis</dd>
+          <dt>Context</dt><dd>Design Thinking, NTNU</dd>
+          <dt>Output</dt><dd>Paper prototype and interface mockups</dd>
+        </dl>
+
+        <h4>Situation</h4>
+        <p>
+          Older adults are handed interfaces designed by people who already know where
+          everything is. The course sent us out to sit with them while they used their own
+          phones, rather than designing from assumption.
+        </p>
+
+        <h4>Task</h4>
+        <p>
+          Design a smartphone interface for older users, starting from what we could
+          observe them actually doing.
+        </p>
+
+        <h4>What I did</h4>
+        <p>
+          Asked to tap the search bar, many of our participants could not complete the
+          task. The failures looked identical from the outside, so I separated them into
+          two causes. Some never located the search bar at all, since its placement is
+          obvious only to someone who already knows it is there. Others touched the right
+          spot and the phone registered nothing, because of the angle of the finger or the
+          fingernail. One is a problem of attention, the other of input, and they do not
+          share a solution.
+        </p>
+        <ul>
+          <li>For the first, we enlarged the icons and rebuilt the layout around a habit we kept seeing, steadying the phone in one hand and tapping with the other.</li>
+          <li>For the second, we proposed an input system that reads repeated taps in the same place as a single intended action.</li>
+        </ul>
+
+        <figure>
+          <div class="slot">Before and after — the search bar, original versus our layout</div>
+          <figcaption>Redrawn for this portfolio from the project's mockups.</figcaption>
+        </figure>
+
+        <h4>What I took from it</h4>
+        <p>
+          A design can be technically correct and still fail the person using it. Which of
+          the two it is only becomes visible when you watch someone try.
+        </p>
+      </article>
+    </section>
+
+    <section id="cups">
+      <article class="project">
+        <h3>Why people do not use reusable cups</h3>
+        <dl class="facts">
+          <dt>Role</dt><dd>Survey design and analysis</dd>
+          <dt>Context</dt><dd>Social and Cultural Market Research, NTNU</dd>
+          <dt>Sample</dt><dd>97 respondents</dd>
+        </dl>
+
+        <h4>Situation</h4>
+        <p>
+          The study began from something I kept noticing. Plenty of young people voice
+          support for environmental causes, while the people actually carrying their own
+          cups tend to be a generation older.
+        </p>
+
+        <h4>Task</h4>
+        <p>
+          Find out what determines whether someone adopts a reusable cup, rather than what
+          they say they believe about it.
+        </p>
+
+        <h4>What I did</h4>
+        <p>
+          I designed the survey so that stated values and actual behaviour could be
+          compared rather than conflated, measuring three dimensions separately:
+          environmental awareness, how often respondents took concrete environmental
+          action, and their past use of and intention to use reusable cups. Cross-analysis
+          showed awareness running high while intention stayed low, with almost no one
+          having actually used one. Concerns about hygiene came up repeatedly and
+          unprompted.
+        </p>
+        <p>
+          On that basis our team proposed a gamified system built around streak challenges
+          and badges, aimed at the friction rather than at awareness, which was never the
+          thing in short supply.
+        </p>
+
+        <h4>What I took from it</h4>
+        <p class="todo">
+          TO WRITE. One or two sentences. The method is the point: ask in a way that lets
+          the answer be checked against behaviour.
+        </p>
+      </article>
+    </section>
+
+    <section id="skills">
+      <h2>What I use</h2>
+      <p class="sectnote">Tools I have actually worked in, not a wish list.</p>
+      <div class="skills">
+        <div>
+          <h3>Research</h3>
+          <ul>
+            <li>Survey design and cross-analysis</li>
+            <li>Field observation</li>
+            <li>Stakeholder interviews</li>
+            <li>Usability testing</li>
+            <li>Workflow and journey mapping</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Production</h3>
+          <ul>
+            <li>360-degree capture</li>
+            <li>Pano2VR</li>
+            <li>Video direction and editing</li>
+            <li>HTML mockups and prototype specs</li>
+            <li>Template-based web platforms</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!--
+      PENDING CLEARANCE — do not publish until Datamana confirms.
+      · byACRE Taiwan website (live, client work)
+      · ManaOrder (platform not yet released to clients)
+      · FunShare (unreleased game design proposal)
+      Ask Eugenia. If only some are cleared, add them as further <article class="project">
+      blocks inside the "Selected work" section and add matching entries to the rail.
+    -->
+
+    <footer>
+      <p>Chao-Yun Chiang · <a href="mailto:liamchiang1030@gmail.com">liamchiang1030@gmail.com</a></p>
+    </footer>
+
+  </div>
+</div>
+
+<script>
+(function () {
+  var rail = document.querySelectorAll('.rail li');
+  var ids = [];
+  rail.forEach(function (li) {
+    var a = li.querySelector('a');
+    if (a) ids.push(a.getAttribute('href').slice(1));
+  });
+  var targets = ids.map(function (id) { return document.getElementById(id); }).filter(Boolean);
+  if (!('IntersectionObserver' in window) || !targets.length) return;
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      var i = targets.indexOf(e.target);
+      rail.forEach(function (li, n) { li.classList.toggle('here', n === i); });
+    });
+  }, { rootMargin: '-25% 0px -65% 0px' });
+
+  targets.forEach(function (t) { io.observe(t); });
+})();
+</script>
+
+</body>
+</html>
