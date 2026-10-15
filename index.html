@@ -100,29 +100,19 @@
 
     /* 下方 Main Content & Projects 區塊 */
     main {
-      margin-top: 100vh; /* 留出全版遮罩空間 */
+      margin-top: 100vh;
       min-height: 100vh;
       padding: 100px 10%;
       background: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=2000&q=80') center/cover fixed no-repeat;
       position: relative;
-}
-
-/* 2. 控制背景圖片的暗度：rgba 最後一個數值 (0.85) 越接近 1 越暗，能讓專案文字更清晰 */
-main::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(15, 17, 23, 0.85); 
-  z-index: 1;
-}
     }
 
-    /* 增加圖片暗色遮罩，維持文字可讀性 */
+    /* 控制背景圖片暗度 */
     main::before {
       content: "";
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(15, 17, 23, 0.85);
+      background: rgba(15, 17, 23, 0.85); 
       z-index: 1;
     }
 
@@ -154,6 +144,13 @@ main::before {
     .project-card:hover {
       transform: translateY(-8px);
       border-color: #6366f1;
+    }
+
+    /* 讓整個卡片的超連結滿版且無底線 */
+    .card-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
     }
 
     .card-thumbnail {
@@ -196,64 +193,4 @@ main::before {
       <h1>Hi! I'm Chao-Yun.</h1>
       <p>Here’s what I’ve been building.</p>
     </div>
-    <div class="scroll-hint" onclick="liftOverlay()">
-      Scroll or Click to explore
-      <span>↓</span>
-    </div>
-  </section>
-
-  <!-- 頁面主要內容：Projects 區塊 -->
-  <main id="projects">
-    <div class="container">
-      <h2 class="section-title">Selected Works</h2>
-      
-      <div class="projects-grid">
-        <!-- 專案 1 -->
-        <article class="project-card">
-          <div class="card-thumbnail" style="background-image: url('taipeibrewery.html');"></div>
-          <div class="card-info">
-            <h3>Taipei Brewery VR Tour</h3>
-            <p>Spatial media assembly & WebXR cross-platform optimization for heritage conservation.</p>
-          </div>
-        </article>
-
-        <!-- 專案 2 -->
-        <article class="project-card">
-          <div class="card-thumbnail" style="background-image: url('https://via.placeholder.com/600x400?text=FunShare+Gamification');"></div>
-          <div class="card-info">
-            <h3>FunShare Gamification</h3>
-            <p>LINE-based interactive game design utilizing Jesse Schell's interest curve analysis.</p>
-          </div>
-        </article>
-
-        <!-- 專案 3 -->
-        <article class="project-card">
-          <div class="card-thumbnail" style="background-image: url('https://via.placeholder.com/600x400?text=ManaOrder+SaaS');"></div>
-          <div class="card-info">
-            <h3>ManaOrder B2B SaaS UX</h3>
-            <p>Onboarding process mapping and user friction reduction through qualitative research.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </main>
-
-  <script>
-    const heroOverlay = document.getElementById('heroOverlay');
-
-    function liftOverlay() {
-      heroOverlay.classList.add('lifted');
-    }
-
-    // 監聽滾動事件：當使用者向下滑動時自動拉開遮罩
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 30) {
-        liftOverlay();
-      } else {
-        // 若使用者滾回頂端，恢復遮罩
-        heroOverlay.classList.remove('lifted');
-      }
-    });
-  </script>
-</body>
-</html>
+    <div class="scroll-hint" onclick="
