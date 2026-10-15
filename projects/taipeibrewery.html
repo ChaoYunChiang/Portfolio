@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Taipei Brewery VR Spatial Tour | Chao-Yun Chiang</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #0f1117;
+      color: #e2e8f0;
+      line-height: 1.7;
+      padding: 0 20px;
+    }
+    header {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 0 20px 0;
+    }
+    .back-btn {
+      color: #6366f1;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+    .back-btn:hover { color: #818cf8; }
+
+    main {
+      max-width: 900px;
+      margin: 0 auto 100px auto;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 48px;
+    }
+
+    .project-header { margin-bottom: 36px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 24px; }
+    .project-title { font-size: 2.5rem; color: #ffffff; margin-bottom: 12px; line-height: 1.2; }
+    .project-subtitle { font-size: 1.25rem; color: #a0aec0; margin-bottom: 20px; }
+    
+    .tags { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 24px; }
+    .tag {
+      background: rgba(99, 102, 241, 0.15);
+      color: #818cf8;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      background: rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 36px;
+    }
+    .meta-item h4 { font-size: 0.8rem; text-transform: uppercase; color: #718096; letter-spacing: 0.5px; }
+    .meta-item p { font-size: 0.95rem; color: #e2e8f0; font-weight: 500; margin-top: 4px; }
+
+    /* 圖片或示範區塊 */
+    .hero-image {
+      width: 100%;
+      height: 400px;
+      background-color: #1a202c;
+      background-size: cover;
+      background-position: center;
+      border-radius: 12px;
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #718096;
+      border: 1px dashed rgba(255, 255, 255, 0.2);
+    }
+
+    section { margin-bottom: 40px; }
+    h2 { font-size: 1.6rem; color: #ffffff; margin-bottom: 16px; border-left: 4px solid #6366f1; padding-left: 12px; }
+    h3 { font-size: 1.2rem; color: #cbd5e0; margin: 20px 0 8px 0; }
+    p { margin-bottom: 16px; color: #cbd5e0; }
+    ul { margin-left: 20px; margin-bottom: 16px; color: #cbd5e0; }
+    li { margin-bottom: 8px; }
+
+    .highlight-box {
+      background: rgba(99, 102, 241, 0.08);
+      border-left: 3px solid #6366f1;
+      padding: 16px 20px;
+      border-radius: 0 8px 8px 0;
+      margin: 20px 0;
+    }
+
+    @media (max-width: 600px) {
+      main { padding: 24px; }
+      .project-title { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="../index.html" class="back-btn">← Back to Projects</a>
+  </header>
+
+  <main>
+    <div class="project-header">
+      <h1 class="project-title">Taipei Brewery VR Spatial Tour</h1>
+      <p class="project-subtitle">Preserving Municipal Heritage through Spatial Prototyping & WebXR Migration</p>
+      
+      <div class="tags">
+        <span class="tag">VR / WebXR</span>
+        <span class="tag">Pano2VR</span>
+        <span class="tag">Meta Quest</span>
+        <span class="tag">Spatial Prototyping</span>
+      </div>
+    </div>
+
+    <div class="meta-grid">
+      <div class="meta-item">
+        <h4>Role</h4>
+        <p>Research Assistant & Lead VR Developer</p>
+      </div>
+      <div class="meta-item">
+        <h4>Timeline</h4>
+        <p>March 2025 – April 2026</p>
+      </div>
+      <div class="meta-item">
+        <h4>Lab</h4>
+        <p>NTNU VR Lab</p>
+      </div>
+      <div class="meta-item">
+        <h4>Tools & Tech</h4>
+        <p>Pano2VR, WebXR, Meta Quest, HTC Vive</p>
+      </div>
+    </div>
+
+    <!-- 專案封面圖（未來可以替換 style 裡的背景圖） -->
+    <div class="hero-image">
+      [ Cover Image / 360 Panorama Screenshot Placeholder ]
+    </div>
+
+    <section>
+      <h2>Overview & Problem Statement</h2>
+      <p>Taipei Brewery, a century-old municipal monument, was facing contested rezoning and the risk of losing public access to its historical facilities. To preserve the site and re-educate the public, our VR lab initiated a spatial documentation project.</p>
+      <p>As the primary technical builder, my goal was to convert complex physical architecture into an intuitive, multi-layered interactive VR tour while establishing technical production workflows for the lab.</p>
+    </section>
+
+    <section>
+      <h2>Key Contributions & Technical Process</h2>
+      
+      <h3>1. Spatial Capture & Multi-Layered Prototyping</h3>
+      <ul>
+        <li>Captured high-resolution 360-degree spatial footage across the brewery's multi-story layout.</li>
+        <li>Developed a web prototype to map photo nodes and establish clear spatial navigation logic.</li>
+        <li>Configured visual assets and interactive hot-spots in Pano2VR to ensure intuitive spatial orientation for non-technical visitors.</li>
+      </ul>
+
+      <h3>2. WebXR Hardware Evaluation & Platform Migration</h3>
+      <div class="highlight-box">
+        <p><strong>Challenge:</strong> Encountered severe rendering and WebXR browser runtime limitations on legacy lab hardware (HTC Vive).</p>
+        <p><strong>Troubleshooting:</strong> Systematically tested browser flags, WebXR runtimes, and performance workarounds to push hardware boundaries.</p>
+        <p><strong>Resolution:</strong> Diagnosed the root cause as legacy hardware/software limitations. Successfully advocated for and executed system migration to Meta Quest, establishing a smoother and more reliable VR deployment environment.</p>
+      </div>
+
+      <h3>3. Production Workflow Standardization</h3>
+      <ul>
+        <li>Established spatial media assembly pipelines and web prototyping guidelines from scratch without pre-existing lab templates.</li>
+        <li>Documented developer guides to help team members align node mapping and asset exports.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Key Takeaways & Impact</h2>
+      <ul>
+        <li><strong>End-to-End Execution:</strong> Mastered the full cycle of spatial asset capture, Pano2VR assembly, and interactive web deployment.</li>
+        <li><strong>Troubleshooting Mindset:</strong> Gained confidence in diagnosing WebXR performance bottlenecks and making pragmatic platform-migration decisions.</li>
+        <li><strong>Educational Value:</strong> Combined interactive media with spatial preservation to turn contested cultural history into an accessible digital learning experience.</li>
+      </ul>
+    </section>
+  </main>
+
+</body>
+</html>
