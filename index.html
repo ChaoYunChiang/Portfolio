@@ -1,451 +1,248 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Chao-Yun Chiang — Audience research and interactive media</title>
-<meta name="description" content="Portfolio of Chao-Yun Chiang (Ivory). Audience research and interactive media production, from VR heritage preservation to interface design.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
-<style>
-:root{
-  --ink:#1B2127;
-  --paper:#EDEEEA;
-  --brass:#A8793F;
-  --patina:#3F6B60;
-  --muted:#6E7570;
-  --rule:#D3D4CE;
-  --display:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
-  --text:"Source Serif 4",Georgia,"Times New Roman",serif;
-  box-sizing:border-box;
-  padding-top:env(safe-area-inset-top,0px);
-  padding-bottom:env(safe-area-inset-bottom,0px);
-}
-*,*::before,*::after{box-sizing:inherit}
-html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 2rem)}
-body{
-  margin:0;
-  background:var(--paper);
-  color:var(--ink);
-  font-family:var(--text);
-  font-size:1.0625rem;
-  line-height:1.65;
-  -webkit-font-smoothing:antialiased;
-}
-img,video{max-width:100%;height:auto;display:block}
-a{color:inherit}
-a:focus-visible,button:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chao-Yun Chiang | Portfolio</title>
+  <style>
+    /* 全局樣式重置 */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #0f1117;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
 
-/* ---------- layout ---------- */
-.shell{
-  max-width:60rem;
-  margin:0 auto;
-  padding:0 1.5rem 6rem;
-  display:grid;
-  grid-template-columns:1fr;
-  gap:0;
-}
-@media (min-width:60rem){
-  .shell{grid-template-columns:11rem 1fr;column-gap:3.5rem;padding-right:2rem}
-}
-.col{min-width:0;max-width:40rem}
+    /* 右上角導覽列 (Fixed Header) */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 24px 48px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      z-index: 100;
+    }
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      margin-left: 32px;
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #6366f1; /* 經典科技/設計藍紫色 */
+    }
 
-/* ---------- node rail ---------- */
-.rail{display:none}
-@media (min-width:60rem){
-  .rail{
-    display:block;
-    position:sticky;
-    top:4rem;
-    align-self:start;
-    height:max-content;
-    padding-top:.4rem;
-  }
-}
-.rail ol{list-style:none;margin:0;padding:0;position:relative}
-.rail ol::before{
-  content:"";
-  position:absolute;
-  left:4px;top:.55rem;bottom:.55rem;
-  width:1px;background:var(--rule);
-  transform:scaleY(0);transform-origin:top;
-  animation:draw .9s .2s ease-out forwards;
-}
-@keyframes draw{to{transform:scaleY(1)}}
-.rail li{position:relative;padding:0 0 1.15rem 1.4rem;font-family:var(--display);font-size:.8125rem;letter-spacing:.01em}
-.rail li::before{
-  content:"";position:absolute;left:0;top:.5rem;
-  width:9px;height:9px;border-radius:50%;
-  border:1px solid var(--muted);background:var(--paper);
-  opacity:0;animation:pop .35s ease-out forwards;
-}
-.rail li:nth-child(1)::before{animation-delay:.35s}
-.rail li:nth-child(2)::before{animation-delay:.5s}
-.rail li:nth-child(3)::before{animation-delay:.65s}
-.rail li:nth-child(4)::before{animation-delay:.8s}
-.rail li:nth-child(5)::before{animation-delay:.95s}
-@keyframes pop{to{opacity:1}}
-.rail a{text-decoration:none;color:var(--muted);transition:color .15s}
-.rail a:hover{color:var(--ink)}
-.rail li.here::before{background:var(--brass);border-color:var(--brass)}
-.rail li.here a{color:var(--ink)}
-@media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  .rail ol::before{animation:none;transform:scaleY(1)}
-  .rail li::before{animation:none;opacity:1}
-}
+    /* 100vh 全版 Hero 遮罩 (Cover Overlay) */
+    .hero-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: linear-gradient(135deg, #1e1e2f 0%, #0f1117 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      z-index: 50;
+      transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.8s ease;
+    }
 
-/* ---------- masthead ---------- */
-.masthead{padding:5rem 0 3rem}
-.masthead h1{
-  font-family:var(--display);
-  font-weight:700;
-  font-size:clamp(2.1rem,5.5vw,3.1rem);
-  line-height:1.08;
-  letter-spacing:-.02em;
-  margin:0 0 1.25rem;
-  max-width:18ch;
-}
-.masthead .lede{font-size:1.1875rem;margin:0 0 1.75rem;max-width:52ch}
-.whoami{font-family:var(--display);font-size:.875rem;color:var(--muted);margin:0 0 .5rem}
-.contact{font-family:var(--display);font-size:.875rem;display:flex;flex-wrap:wrap;gap:.35rem 1.25rem;padding:0;margin:0;list-style:none}
-.contact a{text-decoration:none;border-bottom:1px solid var(--brass);padding-bottom:1px}
-.contact a:hover{color:var(--brass)}
+    /* 遮罩滑開時的 Class */
+    .hero-overlay.lifted {
+      transform: translateY(-100%);
+      opacity: 0.9;
+    }
 
-/* ---------- sections ---------- */
-section{padding:3.25rem 0;border-top:1px solid var(--rule)}
-h2{
-  font-family:var(--display);font-weight:700;
-  font-size:1.75rem;line-height:1.15;letter-spacing:-.015em;
-  margin:0 0 .35rem;
-}
-.sectnote{color:var(--muted);margin:0 0 2.5rem;font-size:.9375rem}
+    .hero-content h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    .hero-content p {
+      font-size: 1.5rem;
+      color: #a0aec0;
+      max-width: 600px;
+    }
 
-/* ---------- project ---------- */
-.project{margin:0 0 4.5rem}
-.project:last-child{margin-bottom:0}
-.project h3{
-  font-family:var(--display);font-weight:700;
-  font-size:1.3125rem;line-height:1.2;margin:0 0 .75rem;
-}
-.facts{
-  display:grid;grid-template-columns:7.5rem 1fr;
-  gap:.3rem 1rem;margin:0 0 1.75rem;
-  font-family:var(--display);font-size:.8125rem;
-}
-.facts dt{color:var(--muted)}
-.facts dd{margin:0}
-.project h4{
-  font-family:var(--display);font-weight:500;font-size:.8125rem;
-  color:var(--patina);margin:1.75rem 0 .4rem;
-}
-.project p{margin:0 0 1rem}
-.project ul{margin:0 0 1rem;padding-left:1.1rem}
-.project li{margin-bottom:.35rem}
+    /* 滑動提示箭頭 */
+    .scroll-hint {
+      position: absolute;
+      bottom: 40px;
+      font-size: 0.9rem;
+      color: #718096;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+    .scroll-hint span {
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-8px); }
+      60% { transform: translateY(-4px); }
+    }
 
-figure{margin:1.75rem 0;}
-figure img,figure video{border:1px solid var(--rule)}
-figcaption{font-family:var(--display);font-size:.8125rem;color:var(--muted);margin-top:.5rem}
-.slot{
-  border:1px dashed var(--rule);
-  background:rgba(0,0,0,.015);
-  padding:2.25rem 1.25rem;
-  text-align:center;
-  font-family:var(--display);font-size:.8125rem;color:var(--muted);
-}
+    /* 下方 Main Content & Projects 區塊 */
+    main {
+      margin-top: 100vh; /* 留出全版遮罩空間 */
+      min-height: 100vh;
+      padding: 100px 10%;
+      background: url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=2000&q=80') center/cover fixed no-repeat;
+      position: relative;
+    }
 
-/* visible placeholder — delete before publishing */
-.todo{
-  background:#FBF3DE;
-  border-left:3px solid var(--brass);
-  padding:.85rem 1rem;
-  font-family:var(--display);font-size:.875rem;
-  color:#6A4E1E;
-  margin:0 0 1rem;
-}
+    /* 增加圖片暗色遮罩，維持文字可讀性 */
+    main::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(15, 17, 23, 0.85);
+      z-index: 1;
+    }
 
-/* ---------- skills ---------- */
-.skills{display:grid;gap:2rem}
-@media (min-width:36rem){.skills{grid-template-columns:1fr 1fr}}
-.skills h3{font-family:var(--display);font-size:.9375rem;font-weight:700;margin:0 0 .6rem}
-.skills ul{list-style:none;margin:0;padding:0;font-size:.9375rem}
-.skills li{padding:.2rem 0;border-bottom:1px solid var(--rule)}
-.skills li:last-child{border-bottom:0}
+    .container {
+      position: relative;
+      z-index: 2;
+    }
 
-footer{border-top:1px solid var(--rule);padding:2.5rem 0 0;font-family:var(--display);font-size:.8125rem;color:var(--muted)}
-footer a{color:var(--ink)}
-</style>
+    .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 48px;
+    }
+
+    /* Projects 網格排版 */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 32px;
+    }
+
+    .project-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-8px);
+      border-color: #6366f1;
+    }
+
+    .card-thumbnail {
+      width: 100%;
+      height: 200px;
+      background-color: #2d3748;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .card-info {
+      padding: 24px;
+    }
+    .card-info h3 {
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+    }
+    .card-info p {
+      font-size: 0.95rem;
+      color: #cbd5e0;
+      line-height: 1.5;
+    }
+  </style>
 </head>
 <body>
 
-<div class="shell">
+  <!-- 右上角選單 -->
+  <header>
+    <nav>
+      <a href="#about">About me</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-  <nav class="rail" aria-label="Sections">
-    <ol>
-      <li><a href="#brewery">Brewery VR</a></li>
-      <li><a href="#elderly">Elderly interface</a></li>
-      <li><a href="#cups">Reusable cups</a></li>
-      <li><a href="#skills">What I use</a></li>
-    </ol>
-  </nav>
+  <!-- 全版遮罩 Hero 區塊 -->
+  <section class="hero-overlay" id="heroOverlay">
+    <div class="hero-content">
+      <h1>Hi! I'm Chao-Yun.</h1>
+      <p>Here’s what I’ve been building.</p>
+    </div>
+    <div class="scroll-hint" onclick="liftOverlay()">
+      Scroll or Click to explore
+      <span>↓</span>
+    </div>
+  </section>
 
-  <div class="col">
+  <!-- 頁面主要內容：Projects 區塊 -->
+  <main id="projects">
+    <div class="container">
+      <h2 class="section-title">Selected Works</h2>
+      
+      <div class="projects-grid">
+        <!-- 專案 1 -->
+        <article class="project-card">
+          <div class="card-thumbnail" style="background-image: url('https://via.placeholder.com/600x400?text=Taipei+Brewery+VR');"></div>
+          <div class="card-info">
+            <h3>Taipei Brewery VR Tour</h3>
+            <p>Spatial media assembly & WebXR cross-platform optimization for heritage conservation.</p>
+          </div>
+        </article>
 
-    <header class="masthead">
-      <p class="whoami">Chao-Yun Chiang (Ivory) · Taipei</p>
-      <h1>I work out what an audience is actually doing, then build for it.</h1>
-      <p class="lede">
-        Final-year student in Adult and Continuing Education at National Taiwan Normal
-        University. My training is in audience research; my project work is in making
-        things people step into, from a VR record of a working brewery to interfaces for
-        people the original design left out.
-      </p>
-      <ul class="contact">
-        <li><a href="mailto:liamchiang1030@gmail.com">liamchiang1030@gmail.com</a></li>
-        <li><a href="#">Résumé (PDF)</a></li>
-        <li><a href="#">GitHub</a></li>
-      </ul>
-    </header>
+        <!-- 專案 2 -->
+        <article class="project-card">
+          <div class="card-thumbnail" style="background-image: url('https://via.placeholder.com/600x400?text=FunShare+Gamification');"></div>
+          <div class="card-info">
+            <h3>FunShare Gamification</h3>
+            <p>LINE-based interactive game design utilizing Jesse Schell's interest curve analysis.</p>
+          </div>
+        </article>
 
-    <section id="brewery">
-      <h2>Selected work</h2>
-      <p class="sectnote">Three projects, written up for what was decided rather than what was delivered.</p>
-
-      <article class="project">
-        <h3>A VR record of the Taipei Brewery</h3>
-        <dl class="facts">
-          <dt>Role</dt><dd>Research assistant, Virtual Reality Lab, NTNU</dd>
-          <dt>Team</dt><dd>Graduate-student-led lab project under Prof. Chang Chen-wei</dd>
-          <dt>Period</dt><dd>March 2025 – April 2026</dd>
-          <dt>Tools</dt><dd>360-degree capture, Pano2VR, Meta Quest</dd>
-        </dl>
-
-        <h4>Situation</h4>
-        <p>
-          The Taipei Brewery is Taiwan's first brewery and the only century-old factory
-          still in production in central Taipei. Its brewing hall is a designated
-          municipal monument and holds one of only ten sets of German copper mash kettles
-          ever built. The site is currently caught in a dispute over the redevelopment of
-          its land. The lab set out to record it in virtual reality so that the place
-          could be visited after any physical change to it, and eventually opened to the
-          public.
-        </p>
-
-        <h4>Task</h4>
-        <p>
-          Capture a working multi-storey industrial facility and build it into an
-          environment a visitor could move through without a guide, having never set foot
-          in the building.
-        </p>
-
-        <h4>What I did</h4>
-        <ul>
-          <li>Captured the 360-degree footage on site and built the environment in Pano2VR.</li>
-          <li>Built a web prototype first, to work out the spatial logic of a multi-storey layout and to map the photo nodes the team would align around.</li>
-          <li>Resolved a WebXR compatibility limitation on the HTC Vive by moving the system to Meta Quest.</li>
-          <li>Studied how commercial VR titles keep players oriented, and worked out my own placement rules for the transition points between nodes.</li>
-        </ul>
-
-        <figure>
-          <div class="slot">Screen recording — walking through one scene transition (20–30s)</div>
-          <figcaption>A still frame cannot show the part I worked on. The transition can.</figcaption>
-        </figure>
-
-        <figure>
-          <div class="slot">Node map — the spatial logic of the building, redrawn</div>
-          <figcaption>Redrawn from the web prototype used to align the team during capture.</figcaption>
-        </figure>
-
-        <h4>What I took from it</h4>
-        <p class="todo">
-          TO WRITE. Honest version: the medium carries a first visit on its own, and what
-          happens after that has to be designed. Do not claim the placement rules were
-          validated or that they measurably improved anything — neither is established.
-        </p>
-      </article>
-    </section>
-
-    <section id="elderly">
-      <article class="project">
-        <h3>A smartphone interface for older users</h3>
-        <dl class="facts">
-          <dt>Role</dt><dd>Team member, field observation and analysis</dd>
-          <dt>Context</dt><dd>Design Thinking, NTNU</dd>
-          <dt>Output</dt><dd>Paper prototype and interface mockups</dd>
-        </dl>
-
-        <h4>Situation</h4>
-        <p>
-          Older adults are handed interfaces designed by people who already know where
-          everything is. The course sent us out to sit with them while they used their own
-          phones, rather than designing from assumption.
-        </p>
-
-        <h4>Task</h4>
-        <p>
-          Design a smartphone interface for older users, starting from what we could
-          observe them actually doing.
-        </p>
-
-        <h4>What I did</h4>
-        <p>
-          Asked to tap the search bar, many of our participants could not complete the
-          task. The failures looked identical from the outside, so I separated them into
-          two causes. Some never located the search bar at all, since its placement is
-          obvious only to someone who already knows it is there. Others touched the right
-          spot and the phone registered nothing, because of the angle of the finger or the
-          fingernail. One is a problem of attention, the other of input, and they do not
-          share a solution.
-        </p>
-        <ul>
-          <li>For the first, we enlarged the icons and rebuilt the layout around a habit we kept seeing, steadying the phone in one hand and tapping with the other.</li>
-          <li>For the second, we proposed an input system that reads repeated taps in the same place as a single intended action.</li>
-        </ul>
-
-        <figure>
-          <div class="slot">Before and after — the search bar, original versus our layout</div>
-          <figcaption>Redrawn for this portfolio from the project's mockups.</figcaption>
-        </figure>
-
-        <h4>What I took from it</h4>
-        <p>
-          A design can be technically correct and still fail the person using it. Which of
-          the two it is only becomes visible when you watch someone try.
-        </p>
-      </article>
-    </section>
-
-    <section id="cups">
-      <article class="project">
-        <h3>The step that never happens</h3>
-        <dl class="facts">
-          <dt>Role</dt><dd>Questionnaire design and analysis</dd>
-          <dt>Context</dt><dd>Social and Cultural Market Research, NTNU</dd>
-          <dt>Team</dt><dd>Six students; I owned the instrument and the analysis</dd>
-          <dt>Sample</dt><dd>97 respondents, April–May</dd>
-        </dl>
-
-        <h4>Situation</h4>
-        <p>
-          A convenience store chain in Taiwan lends out returnable cups, free of deposit,
-          at thousands of branches. Almost nobody uses them. Our brief was to work out why,
-          and the easy answer, that people do not care about the environment, was the one
-          worth testing first.
-        </p>
-
-        <h4>Task</h4>
-        <p>
-          Design an instrument that could tell the difference between what people believe,
-          what they are equipped to do, and what they actually do.
-        </p>
-
-        <h4>What I did</h4>
-        <p>
-          I split those into separate questions rather than asking about intention once, so
-          that any two of them could be cross-checked against each other. Owning a cup,
-          having an occasion to use one, and having the habit were measured independently,
-          as were stated belief and actual use.
-        </p>
-        <p>
-          The results ruled out the easy answer. Eighty percent of respondents carried
-          their own bottle or cup at least sometimes, so the equipment was there. Eighty
-          percent bought a drink in a non-bottled container at least once a week, so the
-          occasion was there too. Half still had no habit of using their own cup to buy
-          one. The cross-analysis made it sharper. Among respondents who agreed that
-          returnable cups help the environment, around eighty-five percent had never used
-          one.
-        </p>
-        <p>
-          Everything required for the behaviour was already in place except the behaviour.
-          Asked directly, the reasons people gave were not about belief at all. Seventy
-          percent simply had no such habit, forty-six percent had doubts about hygiene, and
-          a third did not know the service existed or where to return a cup.
-        </p>
-        <p>
-          On that basis our team proposed a gamified system built around streak challenges
-          and badges, aimed at the friction rather than at awareness, which was never the
-          thing in short supply.
-        </p>
-
-        <figure>
-          <div class="slot">Tool, occasion, habit — the three measures side by side</div>
-          <figcaption>Redrawn from the project's analysis.</figcaption>
-        </figure>
-
-        <h4>What I took from it</h4>
-        <p class="todo">
-          TO WRITE. One or two sentences. Something close to: a question is only useful if
-          its answer can be checked against something else. Keep it short.
-        </p>
-      </article>
-    </section>
-
-    <section id="skills">
-      <h2>What I use</h2>
-      <p class="sectnote">Tools I have actually worked in, not a wish list.</p>
-      <div class="skills">
-        <div>
-          <h3>Research</h3>
-          <ul>
-            <li>Survey design and cross-analysis</li>
-            <li>Field observation</li>
-            <li>Stakeholder interviews</li>
-            <li>Usability testing</li>
-            <li>Workflow and journey mapping</li>
-          </ul>
-        </div>
-        <div>
-          <h3>Production</h3>
-          <ul>
-            <li>360-degree capture</li>
-            <li>Pano2VR</li>
-            <li>Video direction and editing</li>
-            <li>HTML mockups and prototype specs</li>
-            <li>Template-based web platforms</li>
-          </ul>
-        </div>
+        <!-- 專案 3 -->
+        <article class="project-card">
+          <div class="card-thumbnail" style="background-image: url('https://via.placeholder.com/600x400?text=ManaOrder+SaaS');"></div>
+          <div class="card-info">
+            <h3>ManaOrder B2B SaaS UX</h3>
+            <p>Onboarding process mapping and user friction reduction through qualitative research.</p>
+          </div>
+        </article>
       </div>
-    </section>
+    </div>
+  </main>
 
-    <!--
-      PENDING CLEARANCE — do not publish until Datamana confirms.
-      · byACRE Taiwan website (live, client work)
-      · ManaOrder (platform not yet released to clients)
-      · FunShare (unreleased game design proposal)
-      Ask Eugenia. If only some are cleared, add them as further <article class="project">
-      blocks inside the "Selected work" section and add matching entries to the rail.
-    -->
+  <script>
+    const heroOverlay = document.getElementById('heroOverlay');
 
-    <footer>
-      <p>Chao-Yun Chiang · <a href="mailto:liamchiang1030@gmail.com">liamchiang1030@gmail.com</a></p>
-    </footer>
+    function liftOverlay() {
+      heroOverlay.classList.add('lifted');
+    }
 
-  </div>
-</div>
-
-<script>
-(function () {
-  var rail = document.querySelectorAll('.rail li');
-  var ids = [];
-  rail.forEach(function (li) {
-    var a = li.querySelector('a');
-    if (a) ids.push(a.getAttribute('href').slice(1));
-  });
-  var targets = ids.map(function (id) { return document.getElementById(id); }).filter(Boolean);
-  if (!('IntersectionObserver' in window) || !targets.length) return;
-
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (!e.isIntersecting) return;
-      var i = targets.indexOf(e.target);
-      rail.forEach(function (li, n) { li.classList.toggle('here', n === i); });
+    // 監聽滾動事件：當使用者向下滑動時自動拉開遮罩
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 30) {
+        liftOverlay();
+      } else {
+        // 若使用者滾回頂端，恢復遮罩
+        heroOverlay.classList.remove('lifted');
+      }
     });
-  }, { rootMargin: '-25% 0px -65% 0px' });
-
-  targets.forEach(function (t) { io.observe(t); });
-})();
-</script>
-
+  </script>
 </body>
 </html>
