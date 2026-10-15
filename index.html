@@ -103,8 +103,18 @@
       margin-top: 100vh; /* 留出全版遮罩空間 */
       min-height: 100vh;
       padding: 100px 10%;
-      background: url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=2000&q=80') center/cover fixed no-repeat;
+      background: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=2000&q=80') center/cover fixed no-repeat;
       position: relative;
+}
+
+/* 2. 控制背景圖片的暗度：rgba 最後一個數值 (0.85) 越接近 1 越暗，能讓專案文字更清晰 */
+main::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(15, 17, 23, 0.85); 
+  z-index: 1;
+}
     }
 
     /* 增加圖片暗色遮罩，維持文字可讀性 */
