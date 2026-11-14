@@ -1,0 +1,21 @@
+/* Video work: dark screening-room page */
+:root{--v-bg:#121316;--v-ink:#ece8e1;--v-muted:#a39f97;--v-line:#2c2e33;--v-accent:#e3b15c}
+body{background:var(--v-bg);color:var(--v-ink)}
+.vw-top .wrap{padding-block:26px 8px}
+.vw-top .crumb{font-family:var(--f-head);font-weight:500;font-size:13px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--v-muted);display:inline-block}
+.vw-top .crumb:hover{color:var(--v-ink)}
+.vw-head{padding-block:40px 24px}
+.vw-head h1{margin:0;font-family:var(--f-head);font-weight:800;font-size:clamp(38px,6vw,64px);letter-spacing:-.02em;line-height:1.05}
+.vw-head p{margin-top:14px;max-width:52ch;color:var(--v-muted);font-size:18px}
+.film{padding-block:44px;border-top:1px solid var(--v-line)}
+.film h2{margin:0;font-family:var(--f-head);font-weight:800;font-size:clamp(24px,3.4vw,34px);line-height:1.2}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 18px;padding:0;list-style:none}
+.tags li{font-size:13px;color:var(--v-accent);border:1px solid #5a4a2b;border-radius:999px;padding:3px 12px}
+.player{position:relative;aspect-ratio:16/9;background:#000;border:1px solid var(--v-line)}
+.player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.film .about{margin-top:20px;max-width:62ch;font-size:17px}
+.film .role{margin-top:12px;max-width:62ch;color:var(--v-muted)}
+.film .role b{color:var(--v-ink)}
+.film .yt{display:inline-block;margin-top:14px;font-size:14px;color:var(--v-muted)}
+.film .yt:hover{color:var(--v-ink)}
+.site-foot{color:var(--v-muted)}
