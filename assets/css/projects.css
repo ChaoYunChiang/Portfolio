@@ -18,6 +18,8 @@
 .p-tile{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:0 22px;background:#7c987c;color:#fff}
 .p-tile b{font-family:var(--f-head);font-weight:800;font-size:44px;line-height:1}
 .p-tile i{font-style:normal;font-size:14px;margin-top:6px;color:#f0f6f0}
+.p-tile-acre{background:#47304d}
+.p-tile-acre b{font-size:34px}
 .p-tile-vr{background:#2a2f5c}
 .p-tile-vr b{font-size:26px;line-height:1.15}
 .p-body{display:flex;flex-direction:column;gap:6px}
