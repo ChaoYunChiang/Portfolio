@@ -14,48 +14,70 @@
 
 <header class="wrap p-head">
   <h1>Projects</h1>
-  <p>All my projects.</p>
+  <p>Work I did on my own, with a team, or for a company, and work I did for courses.</p>
 </header>
 
 <main class="wrap">
-  <ul class="plist">
-    <li>
-      <a href="projects/spring-breeze-game.html">
-        <span class="p-title">Longing for the Spring Breeze 望春風</span>
-        <span class="p-type">Game design, solo</span>
-        <span class="p-time">3 weeks</span>
-      </a>
-    </li>
-    <li>
-      <a href="projects/taipei-brewery.html">
-        <span class="p-title">Exploring Cultural Heritage through VR</span>
-        <span class="p-type">VR production, team of 2</span>
-        <span class="p-time">Oct. 2024 - Apr. 2026</span>
-      </a>
-    </li>
-    <li>
-      <a href="projects/meimei-pet-game.html">
-        <span class="p-title">Meimei, a Pet Game for an E-commerce Platform</span>
-        <span class="p-type">Game design, solo</span>
-        <span class="p-time">May - Oct. 2026</span>
-      </a>
-    </li>
-    <li>
-      <a href="projects/reusable-cup.html">
-        <span class="p-title">Reusable Cup Market Research</span>
-        <span class="p-type">Market research, team of 6</span>
-        <span class="p-time">Spring 2025</span>
-      </a>
-    </li>
-    <li>
-      <a href="projects/video-work.html">
-        <span class="p-title">Video work</span>
-        <span class="p-type">Video production, 3 short films</span>
-        <span class="p-time">2023 - 2025</span>
-      </a>
-    </li>
-  </ul>
+  <div class="cat-tabs" role="tablist" aria-label="Categories">
+    <button type="button" role="tab" id="tab-projects" aria-controls="cat-projects" aria-selected="true" data-cat="projects">Projects <span>3</span></button>
+    <button type="button" role="tab" id="tab-coursework" aria-controls="cat-coursework" aria-selected="false" data-cat="coursework">Coursework <span>2</span></button>
+  </div>
+
+  <section class="cat" id="cat-projects" role="tabpanel" aria-labelledby="tab-projects">
+    <ul class="plist">
+      <li><a href="projects/spring-breeze-game.html">
+        <span class="p-img"><img src="assets/img/thumbs/spring-breeze.jpg" alt=""></span>
+        <span class="p-body"><span class="p-title">Longing for the Spring Breeze 望春風</span>
+        <span class="p-intro">A first-person record-shop game set in Taiwan under martial law.</span>
+        <span class="p-meta">Game design, solo &middot; 3 weeks</span></span>
+      </a></li>
+      <li><a href="projects/taipei-brewery.html">
+        <span class="p-img"><img src="assets/img/thumbs/taipei-brewery.jpg" alt=""></span>
+        <span class="p-body"><span class="p-title">Exploring Cultural Heritage through VR</span>
+        <span class="p-intro">A virtual tour that preserves Taiwan's first brewery, with more than 150 panoramas.</span>
+        <span class="p-meta">VR production, team of 2 &middot; Oct. 2024 - Apr. 2026</span></span>
+      </a></li>
+      <li><a href="projects/meimei-pet-game.html">
+        <span class="p-img"><img src="assets/img/thumbs/meimei.jpg" alt=""></span>
+        <span class="p-body"><span class="p-title">Meimei, a Pet Game for an E-commerce Platform</span>
+        <span class="p-intro">A mobile pet game, from proposal to playable prototype.</span>
+        <span class="p-meta">Game design, solo &middot; May - Oct. 2026</span></span>
+      </a></li>
+    </ul>
+  </section>
+
+  <section class="cat" id="cat-coursework" role="tabpanel" aria-labelledby="tab-coursework">
+    <ul class="plist">
+      <li><a href="projects/reusable-cup.html">
+        <span class="p-img p-tile" aria-hidden="true"><b>1.1%</b><i>used the service</i></span>
+        <span class="p-body"><span class="p-title">Reusable Cup Market Research</span>
+        <span class="p-intro">A survey of 97 people and a marketing plan for a reusable cup service.</span>
+        <span class="p-meta">Market research, team of 6 &middot; Spring 2025</span></span>
+      </a></li>
+      <li><a href="projects/video-work.html">
+        <span class="p-img"><img src="assets/img/thumbs/video-work.jpg" alt=""></span>
+        <span class="p-body"><span class="p-title">Video work</span>
+        <span class="p-intro">Three short films about everyday life and culture in Taiwan.</span>
+        <span class="p-meta">Video production &middot; 2023 - 2025</span></span>
+      </a></li>
+    </ul>
+  </section>
 </main>
+<script>
+(function(){
+  document.documentElement.classList.add('js');
+  var tabs=document.querySelectorAll('.cat-tabs button'),panels={projects:document.getElementById('cat-projects'),coursework:document.getElementById('cat-coursework')};
+  function show(cat,push){
+    if(!panels[cat])cat='projects';
+    tabs.forEach(function(t){t.setAttribute('aria-selected',t.dataset.cat===cat?'true':'false')});
+    Object.keys(panels).forEach(function(k){panels[k].hidden=(k!==cat)});
+    if(push){try{history.replaceState(null,'','#'+cat)}catch(e){}}
+  }
+  tabs.forEach(function(t){t.addEventListener('click',function(){show(t.dataset.cat,true)})});
+  window.addEventListener('hashchange',function(){show(location.hash.slice(1),false)});
+  show(location.hash.slice(1),false);
+})();
+</script>
 <footer class="wrap site-foot">Portfolio of Chao-Yun Chiang</footer>
 </body>
 </html>
