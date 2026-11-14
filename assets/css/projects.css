@@ -4,9 +4,10 @@
 .p-head p{margin-top:12px;color:var(--h-muted);font-size:18px}
 .plist{list-style:none;margin:0;padding:0 0 64px;border-top:1px solid var(--h-line)}
 .plist li{border-bottom:1px solid var(--h-line)}
-.plist a{display:grid;grid-template-columns:minmax(0,1fr) 160px 80px;gap:20px;align-items:baseline;padding:22px 4px;text-decoration:none;color:var(--h-ink)}
+.plist a{display:grid;grid-template-columns:minmax(0,1fr) 230px 170px;gap:20px;align-items:baseline;padding:22px 4px;text-decoration:none;color:var(--h-ink)}
 .plist a:hover{background:#ecefec}
 .p-title{font-family:var(--f-head);font-weight:700;font-size:20px;line-height:1.3}
 .p-type,.p-time{font-size:14px;color:var(--h-muted)}
+.p-time{text-align:right}
 .home-nav nav a[aria-current="page"]{color:var(--h-ink)}
-@media (max-width:640px){.plist a{grid-template-columns:minmax(0,1fr) auto}.p-type{display:none}}
+@media (max-width:760px){.plist a{grid-template-columns:minmax(0,1fr);gap:4px}.p-time{text-align:left}}
