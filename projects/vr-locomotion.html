@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Beyond Cybersickness</title>
+<meta name="description" content="A paper review and a VR locomotion study proposal on the psychological cost of teleportation.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700;800&family=Noto+Sans+TC:wght@400;500;700;800&display=swap">
+<link rel="stylesheet" href="../assets/css/base.css">
+<link rel="stylesheet" href="../assets/css/vr.css">
+</head>
+<body>
+<header class="vr-band">
+  <div class="wrap">
+    <a class="crumb" href="../projects.html#coursework">&larr; Projects</a>
+    <div class="vr-hero">
+      <div>
+        <h1>Beyond Cybersickness</h1>
+        <p class="sub">A paper review and a VR locomotion study proposal.</p>
+      </div>
+      <table class="tradeoff">
+        <thead><tr><th></th><th>Teleportation</th><th>Joystick</th></tr></thead>
+        <tbody>
+          <tr><th>Sickness</th><td><span class="lvl lo">Low</span></td><td><span class="lvl hi">High</span></td></tr>
+          <tr><th>Sense of control</th><td><span class="lvl lo">Low</span></td><td><span class="lvl hi">High</span></td></tr>
+          <tr><th>Space awareness</th><td><span class="lvl lo">Breaks</span></td><td><span class="lvl hi">Continuous</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <dl class="vr-meta">
+    <div><dt>Role</dt><dd>Researcher, solo</dd></div>
+    <div><dt>Time</dt><dd>Fall 2025</dd></div>
+    <div><dt>Type</dt><dd>Paper review and study proposal</dd></div>
+    <div><dt>Course</dt><dd>Virtual Reality Media Research</dd></div>
+  </dl>
+
+  <section id="paper">
+    <h2>The paper</h2>
+    <div class="prose"><p class="lead">I presented a study on how aging and the brain's way of combining sensory signals affect cybersickness and balance in VR.</p></div>
+    <div class="stats">
+      <div class="stat"><b>75</b><span>participants in three age groups</span></div>
+      <div class="stat"><b>5</b><span>exposures of about 4 minutes each</span></div>
+      <div class="stat"><b>35 to 46</b><span>of 75 felt sick after the first and the fifth exposure</span></div>
+    </div>
+    <ul class="lst">
+      <li>Cybersickness did not clearly grow with age.</li>
+      <li>Balance measures did change with age.</li>
+      <li>Balance may adapt faster than cybersickness does.</li>
+    </ul>
+  </section>
+
+  <section id="question">
+    <h2>The question</h2>
+    <div class="prose"><p class="lead">Teleportation is the standard fix for cybersickness. But jumping between points can break a user's sense of space and control. I asked whether that cost makes people less willing to use a system again, even when they no longer feel sick.</p></div>
+    <div class="model" role="img" aria-label="Model: movement mode affects sense of control and frustration, which affect intention to reuse">
+      <div class="node"><b>Movement mode</b><span>Teleportation or joystick</span></div>
+      <div class="arrow" aria-hidden="true">&rarr;<small>H1 H2</small></div>
+      <div class="stack">
+        <div class="node"><b>Sense of control</b><span>Predicts reuse, positive</span></div>
+        <div class="node"><b>Frustration</b><span>Predicts reuse, negative</span></div>
+      </div>
+      <div class="arrow" aria-hidden="true">&rarr;<small>H3</small></div>
+      <div class="node out"><b>Intention to reuse</b><span>The system again</span></div>
+    </div>
+    <p class="model-note">H4: the effect of movement mode on reuse works through control and frustration.</p>
+  </section>
+
+  <section id="study">
+    <h2>The proposed study</h2>
+    <div class="orders">
+      <div class="order"><div class="grp">Group A<small>20 people</small></div><div class="step t">Teleport</div><span class="ar" aria-hidden="true">&rarr;</span><div class="step r">Rest</div><span class="ar" aria-hidden="true">&rarr;</span><div class="step j">Joystick</div></div>
+      <div class="order"><div class="grp">Group B<small>20 people</small></div><div class="step j">Joystick</div><span class="ar" aria-hidden="true">&rarr;</span><div class="step r">Rest</div><span class="ar" aria-hidden="true">&rarr;</span><div class="step t">Teleport</div></div>
+    </div>
+    <div class="tbl-wrap"><table class="tbl"><tbody>
+      <tr><td>Participants</td><td>40 university and graduate students</td></tr>
+      <tr><td>Task</td><td>A timed maze. Find 10 beacons in 15 minutes.</td></tr>
+      <tr><td>Pressure</td><td>A countdown and a tense soundtrack.</td></tr>
+      <tr><td>Measures</td><td>Sense of control, frustration, intention to reuse, presence, task time, wrong turns.</td></tr>
+      <tr><td>Analysis</td><td>Paired t-tests and mediation regression.</td></tr>
+    </tbody></table></div>
+    <p class="status">This is a proposal. The study has not been run.</p>
+  </section>
+
+  <p class="refs-h">References</p>
+  <ul class="refs">
+    <li>Langbehn, E., Lubos, P., &amp; Steinicke, F. (2019). Quantifying the cybersickness and spatial memory trade-off in redirection-based VR locomotion. <i>IEEE Transactions on Visualization and Computer Graphics</i>, 25(5), 1643-1653.</li>
+    <li>Bozgeyikli, E., Raij, A., Katkoori, S., &amp; Dubey, S. (2019). Locomotion in virtual reality for room scale tracked areas. <i>International Journal of Human-Computer Studies</i>, 122, 38-49.</li>
+  </ul>
+</main>
+<footer class="wrap site-foot" style="color:var(--v-muted)">Portfolio of Chao-Yun Chiang</footer>
+</body>
+</html>
