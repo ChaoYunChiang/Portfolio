@@ -26,7 +26,8 @@ main h2{font-family:var(--f-head);font-weight:800;font-size:clamp(26px,3.6vw,34p
 .prose p+p{margin-top:14px}
 .lead{font-size:clamp(19px,2.4vw,22px);font-weight:700;line-height:1.45}
 figure.shot{margin:0}
-figure.shot img{display:block;width:100%;border:1px solid var(--b-line)}
+figure.shot img,figure.shot video{display:block;width:100%;border:1px solid var(--b-line)}
+figure.shot video{aspect-ratio:16/9;background:#000}
 figcaption{font-size:13px;color:var(--muted);margin-top:8px}
 figcaption a{text-decoration:underline}
 .pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:24px;align-items:start}
