@@ -1,0 +1,50 @@
+/* Taipei Brewery page: teal band, pale body, pixel headings */
+:root{--b-bg:#f8fafa;--b-teal:#397c79;--b-orange:#ffa45c;--b-rust:#8e3e26;--b-line:#cfd8d6;--b-card:#fff}
+body{background:var(--b-bg)}
+.bw-band{background:var(--b-teal);color:#fff}
+.bw-band .wrap{padding-block:26px 64px}
+.bw-band .crumb{color:#cfe6e3}
+.bw-hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:40px;align-items:center}
+.bw-hero h1{margin:0;font-family:var(--f-head);font-weight:800;font-size:clamp(32px,5vw,52px);line-height:1.08;text-transform:uppercase}
+.bw-hero .sub{margin-top:14px;font-family:var(--f-head);font-weight:500;color:var(--b-orange);font-size:19px}
+.bw-hero .lede{margin-top:20px;max-width:48ch;color:#e3f0ee}
+.bw-hero .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.bw-hero .tag{border:1px solid rgba(255,255,255,.5);border-radius:999px;padding:3px 12px;font-size:13px}
+.bw-hero figure{margin:0}
+.bw-hero img{display:block;width:100%;border:1px solid rgba(255,255,255,.35)}
+
+.bw-meta{background:var(--b-card);border:1px solid var(--b-line);margin-top:-28px;position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.bw-meta div{padding:14px 20px;border-right:1px solid var(--b-line);border-bottom:1px solid var(--b-line);min-width:0}
+.bw-meta div:nth-child(3n){border-right:0}
+.bw-meta div:nth-last-child(-n+3){border-bottom:0}
+.bw-meta dt{font-size:13px;color:var(--b-teal);margin-bottom:2px}
+.bw-meta dd{margin:0;font-weight:700;line-height:1.4}
+
+main section{padding-top:56px}
+main h2{font-family:var(--f-head);font-weight:800;font-size:clamp(26px,3.6vw,34px);color:var(--b-teal);margin:0 0 14px;text-transform:uppercase}
+.prose{max-width:74ch}
+.prose p+p{margin-top:14px}
+.lead{font-size:clamp(19px,2.4vw,22px);font-weight:700;line-height:1.45}
+figure.shot{margin:0}
+figure.shot img{display:block;width:100%;border:1px solid var(--b-line)}
+figcaption{font-size:13px;color:var(--muted);margin-top:8px}
+figcaption a{text-decoration:underline}
+.pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:24px;align-items:start}
+.pair img{aspect-ratio:3/2;object-fit:cover}
+.label{font-family:var(--f-head);font-weight:500;color:var(--muted);font-size:14px;letter-spacing:.06em;text-transform:uppercase;margin-top:24px}
+ul.duties{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:8px;max-width:70ch}
+ul.duties li{position:relative;padding-left:22px}
+ul.duties li::before{content:"";position:absolute;left:0;top:.7em;width:8px;height:8px;background:var(--b-rust)}
+.pcards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:12px}
+.pcard{background:var(--b-card);border:1px solid #bdb7b2;padding:20px 24px}
+.pcard h3{margin:0 0 8px;font-family:var(--f-head);font-size:22px;font-weight:700;color:var(--b-rust)}
+.pano{margin-top:32px}
+.pano-tabs button[aria-pressed="true"]{background:var(--b-teal);border-color:var(--b-teal)}
+.duo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:32px;align-items:start}
+
+@media (max-width:760px){
+  .bw-hero,.pair,.pcards,.duo{grid-template-columns:minmax(0,1fr)}
+  .bw-meta{grid-template-columns:minmax(0,1fr)}
+  .bw-meta div{border-right:0!important;border-bottom:1px solid var(--b-line)!important}
+  .bw-meta div:last-child{border-bottom:0!important}
+}

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Longing for the Spring Breeze, Design Page</title>
+<meta name="description" content="How an interactive experience about Taiwan under martial law became a record-shop game. Design page.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Noto+Sans:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700&family=Pixelify+Sans:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="../assets/css/base.css">
+<link rel="stylesheet" href="../assets/css/spring-breeze.css">
+</head>
+<body>
+<header class="sb-band">
+  <div class="wrap">
+    <a class="crumb" href="../index.html#work">&larr; My work</a>
+    <div class="sb-hero">
+      <div>
+        <h1>DESIGN PAGE<span class="cjk">望春風</span></h1>
+        <p>A first-person record-shop game set in Taiwan under martial law, made for players who may not know the history. This page shows the iteration from an interactive experience into a game.</p>
+        <div class="btns">
+          <a class="btn" href="https://musicoftaiwan.liamchiang1030.workers.dev/shop/" target="_blank" rel="noopener">Play &rarr;</a>
+          <a class="btn ghost" href="spring-breeze-game.html">Game Page</a>
+        </div>
+      </div>
+      <div class="pair2">
+        <figure><img src="../assets/img/design/v1-start.png" alt="Version 1 start screen with four listening devices"><figcaption>Ver. 1</figcaption></figure>
+        <figure><img src="../assets/img/game/menu.jpg" alt="Version 2 title screen of the record shop"><figcaption>Ver. 2</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <dl class="meta" style="max-width:none">
+    <div><dt>Role</dt><dd>Solo Producer</dd></div>
+    <div><dt>Time</dt><dd>3 weeks</dd></div>
+    <div><dt>Type</dt><dd>Historical Shopkeeper Sim</dd></div>
+    <div><dt>Tools</dt><dd>Piskel, Audacity, MusicScore, Claude (coding)</dd></div>
+  </dl>
+
+  <section id="challenges">
+    <h2>1. Challenges</h2>
+    <h3 class="sub">Version 1</h3>
+    <p class="prose">Players match different versions of the song "Longing for the Spring Breeze" with different devices, such as a gramophone, a radio and a cassette, that represent different eras of Taiwanese history. Players learn about each era after they arrange the devices on the Taiwanese history timeline.</p>
+    <p style="margin-top:14px"><a class="btn" href="https://musicoftaiwan.liamchiang1030.workers.dev/" target="_blank" rel="noopener">Play version one</a></p>
+    <div class="grid2" style="margin-top:20px">
+      <figure class="shot"><img class="px" src="../assets/img/design/v1-listen.png" alt="Version 1, listen to a song and pick the device"><figcaption>1. Listen and pick the device that played the music.</figcaption></figure>
+      <figure class="shot"><img class="px" src="../assets/img/design/v1-arrange.png" alt="Version 1, arrange devices on a timeline"><figcaption>2. Arrange the devices on a timeline.</figcaption></figure>
+    </div>
+    <figure class="shot center" style="margin-top:20px"><img src="../assets/img/design/v1-learn.png" alt="Version 1, history text and archive photos shown at the end"><figcaption>3. Players learn about each era at the end of the experience.</figcaption></figure>
+
+    <div class="cards3">
+      <div class="card"><h3>Upsides</h3><p>The pixel style fits the retro tone. The history came through: testers called it serious, moving and solid.</p></div>
+      <div class="card"><h3>Downsides, concept</h3><ul class="plain" style="margin:0;padding-left:1.1em"><li>It felt like an interactive display in a museum.</li><li>The experience felt short.</li><li>Testers did not call it fun or interesting.</li></ul></div>
+      <div class="card"><h3>Downsides, UX</h3><ul class="plain" style="margin:0;padding-left:1.1em"><li>Unclear guidance (timeline).</li><li>While a song played, players clicked the screen or elsewhere.</li><li>Choosing a device was not intuitive.</li></ul></div>
+      <p class="card keep">Keep the pixel style and the weight of the history. Change the form of play and the guidance.</p>
+    </div>
+  </section>
+
+  <section id="decisions">
+    <h2>2. Design decisions</h2>
+    <h3 class="sub">Version 2</h3>
+
+    <div class="decision">
+      <header><h3 class="sub">Decision 1: Game loop, the record shop</h3><span class="note">it felt like an interactive display in a museum</span></header>
+      <p class="prose">Added a game loop of "selling records" so players can listen to different Taiwanese music and learn information about the records in the process.</p>
+      <div class="flow"><span>customer</span><i>&rarr;</i><span>find the record</span><i>&rarr;</i><span>sell the record</span></div>
+      <figure class="shot center"><img src="../assets/img/game/gameplay.png" alt="Gameplay screen of the first customer in the record shop"><figcaption>The first customer of the record shop</figcaption></figure>
+    </div>
+
+    <div class="decision">
+      <header><h3 class="sub">Decision 2: Elements that change through the day</h3><span class="note">a short experience, wasn't interesting</span></header>
+      <p class="prose">Players feel how everyday life was affected as martial law tightened.</p>
+      <figure class="shot center"><img src="../assets/img/game/newspaper.png" alt="End-of-day newspaper page"><figcaption>Each day closes with a ledger and a newspaper</figcaption></figure>
+      <div class="grid2" style="margin-top:20px">
+        <figure class="shot"><img class="px" src="../assets/img/game/street-sun.png" alt="Sunny street outside the shop"><figcaption>Weather changes throughout the story</figcaption></figure>
+        <figure class="shot"><img class="px" src="../assets/img/game/street-rain.png" alt="Rainy street outside the shop"></figure>
+      </div>
+      <ul class="plain" style="margin-top:16px">
+        <li>Each day stands for a stage of martial law.</li>
+        <li>The rules come from real regulations and arrive one at a time: banned records on day 2, radio programmes on day 3, a cap on Taiwanese-language songs on day 4.</li>
+        <li>Money, rent and marks give each rule a cost.</li>
+        <li>Customers' conversations change from day to day.</li>
+      </ul>
+    </div>
+
+    <div class="decision">
+      <header><h3 class="sub">Decision 3: Ending and history text</h3><span class="note">some players found the endings heavy</span></header>
+      <p class="prose">A fictional happy ending set against what really happened, so players see that real history was not resolved so lightly.</p>
+      <div class="grid2" style="margin-top:16px">
+        <figure class="shot"><img class="px" src="../assets/img/design/ending-unreal.png" alt="Ending 1, the player throws records at the agent"><figcaption>The only unrealistic ending</figcaption></figure>
+        <figure class="shot"><img src="../assets/img/game/before-dawn.png" alt="History page titled Before Dawn"><figcaption>What happened in reality</figcaption></figure>
+      </div>
+      <ul class="plain" style="margin-top:16px">
+        <li>Ending 1 is the only unrealistic ending: the player drives off the secret-police agent by throwing records.</li>
+        <li>The other four endings stay heavy.</li>
+        <li>History pages follow, describing what happened in Taiwan under martial law (1949 to 1987), with sources.</li>
+      </ul>
+    </div>
+
+    <div class="decision">
+      <header><h3 class="sub">UI improvements</h3></header>
+      <ul class="plain">
+        <li>Radio: left and right buttons with a frequency scale, replacing the round knob.</li>
+        <li>Gramophone: a record plays when dropped, with no needle step.</li>
+        <li>Interface: larger type and buttons, and a notice board in labelled sections.</li>
+      </ul>
+      <div class="grid2" style="margin-top:16px">
+        <figure class="shot"><img class="px" src="../assets/img/design/radio-before.png" alt="Radio control before, a round knob"><figcaption>Before</figcaption></figure>
+        <figure class="shot"><img class="px" src="../assets/img/design/radio-after.png" alt="Radio control after, buttons and a frequency scale"><figcaption>After</figcaption></figure>
+      </div>
+      <figure class="shot center" style="margin-top:20px"><img class="px" src="../assets/img/design/notice-before.png" alt="Notice board before, small dense text"><figcaption>Before: small, dense text</figcaption></figure>
+      <figure class="shot center" style="margin-top:20px"><img class="px" src="../assets/img/design/notice-after.png" alt="Notice board after, larger type and labelled sections"><figcaption>After: larger type, labelled notice board</figcaption></figure>
+    </div>
+  </section>
+
+  <section id="evaluation">
+    <h2>3. Evaluation</h2>
+    <h3>Player feedback</h3>
+    <div class="eval">
+      <div class="card"><h3>Version 1</h3>
+        <div class="pills"><span class="pill">serious</span><span class="pill">solid</span></div>
+        <ul class="plain" style="margin:0;padding-left:1.1em"><li>Felt like an interactive display in a museum, not a game.</li></ul></div>
+      <div class="card"><h3>Version 2</h3>
+        <div class="pills"><span class="pill">serious</span><span class="pill">solid</span><span class="pill hl">Fun</span><span class="pill hl">Interesting</span></div>
+        <ul class="plain" style="margin:0;padding-left:1.1em"><li>Players called it a game.</li><li>Players liked the art.</li><li>Ending 1 made players laugh.</li></ul></div>
+    </div>
+  </section>
+</main>
+<footer class="wrap site-foot">Portfolio of Chao-Yun Chiang</footer>
+</body>
+</html>

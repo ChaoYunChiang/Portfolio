@@ -1,0 +1,56 @@
+/* Home: neutral page, each project gets a band in its own colour */
+:root{--h-bg:#f5f6f4;--h-ink:#161a19;--h-muted:#56605d;--h-line:#d9dedb}
+body{background:var(--h-bg);color:var(--h-ink)}
+.home-nav{position:sticky;top:0;z-index:10;background:rgba(245,246,244,.95);border-bottom:1px solid var(--h-line)}
+.home-nav .wrap{display:flex;justify-content:space-between;align-items:center;gap:24px;padding-block:14px}
+.home-nav .name{font-family:var(--f-head);font-weight:800;text-decoration:none;font-size:16px;letter-spacing:.01em}
+.home-nav nav{display:flex;gap:26px}
+.home-nav nav a{font-family:var(--f-head);font-weight:500;font-size:15px;text-decoration:none;color:var(--h-muted)}
+.home-nav nav a:hover{color:var(--h-ink)}
+
+.intro{padding-block:88px 72px}
+.intro .grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:48px;align-items:end}
+.intro h1{margin:0;font-family:var(--f-head);font-weight:800;font-size:clamp(40px,7vw,84px);line-height:1.02;letter-spacing:-.02em}
+.intro h1 span{display:block;color:var(--h-muted);font-weight:500}
+.intro p{font-size:18px;max-width:46ch;color:var(--h-ink)}
+.intro .eyebrow{font-family:var(--f-head);font-weight:500;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--h-muted);margin-bottom:10px;display:block}
+
+.work-label{padding-bottom:20px}
+.work-label h2{margin:0;font-family:var(--f-head);font-weight:800;font-size:15px;letter-spacing:.1em;text-transform:uppercase;color:var(--h-muted)}
+
+.band{padding-block:64px}
+.band .grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:48px;align-items:center}
+.band.flip .grid>.text{order:2}
+.band h3{margin:0;font-family:var(--f-head);font-weight:800;font-size:clamp(28px,4vw,44px);line-height:1.1;letter-spacing:-.01em}
+.band .kicker{font-family:var(--f-head);font-weight:500;font-size:13px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;display:block}
+.band p.desc{margin-top:16px;max-width:44ch;font-size:17px}
+.band .links{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.band .links a{font-family:var(--f-head);font-weight:700;font-size:15px;text-decoration:none;padding:11px 20px;border:2px solid currentColor}
+.band figure{margin:0}
+.band img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover}
+
+.band.game{background:#2b1810;color:#fdf3e1}
+.band.game .kicker{color:#e3b9a0}
+.band.game p.desc{color:#e6d6b8}
+.band.game .links a.primary{background:#a3242c;border-color:#a3242c;color:#fff}
+.band.game .links a.primary:hover{background:#8a1d24;border-color:#8a1d24}
+.band.game .links a:not(.primary):hover{background:rgba(255,255,255,.12)}
+.band.game img{border:1px solid #5a3a2c}
+
+.band.brewery{background:#397c79;color:#fff}
+.band.brewery .kicker{color:#ffd2a8}
+.band.brewery p.desc{color:#e3f0ee}
+.band.brewery .links a.primary{background:#fff;border-color:#fff;color:#27605d}
+.band.brewery .links a.primary:hover{background:#e7f1f0;border-color:#e7f1f0}
+.band.brewery img{border:1px solid rgba(255,255,255,.35)}
+
+@media (max-width:760px){
+  .intro{padding-block:56px 48px}
+  .intro .grid,.band .grid{grid-template-columns:minmax(0,1fr);gap:28px}
+  .band.flip .grid>.text{order:0}
+  .band{padding-block:48px}
+}
+
+.more{padding-block:32px 8px}
+.more a{font-family:var(--f-head);font-weight:700;font-size:16px;color:var(--h-ink);text-decoration:none;border-bottom:2px solid var(--h-ink);padding-bottom:2px}
+.more a:hover{opacity:.7}
