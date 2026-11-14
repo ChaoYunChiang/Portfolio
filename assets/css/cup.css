@@ -1,0 +1,51 @@
+/* Reusable cup market research: cobalt band, pale mint page, tables and bars */
+:root{--c-bg:#f4f9f3;--c-ink:#14213d;--c-muted:#52607a;--c-line:#d3e1d6;--c-blue:#1d4fa6;--c-mint:#bfe8d2;--c-card:#fff}
+body{background:var(--c-bg);color:var(--c-ink)}
+.cp-band{background:var(--c-blue);color:#fff}
+.cp-band .wrap{padding-block:26px 64px}
+.cp-band .crumb{font-family:var(--f-head);font-weight:500;font-size:13px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:#bcd0f2;display:inline-block;margin-bottom:34px}
+.cp-band .crumb:hover{color:#fff}
+.cp-band h1{margin:0;font-family:var(--f-head);font-weight:800;font-size:clamp(34px,5.4vw,58px);line-height:1.06;letter-spacing:-.015em;max-width:16ch}
+.cp-band .sub{margin-top:16px;max-width:52ch;color:var(--c-mint);font-size:18px}
+.cp-meta{background:var(--c-card);border:1px solid var(--c-line);margin-top:-28px;position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.cp-meta div{padding:14px 20px;border-right:1px solid var(--c-line);min-width:0}
+.cp-meta div:last-child{border-right:0}
+.cp-meta dt{font-size:13px;color:var(--c-blue);margin-bottom:2px}
+.cp-meta dd{margin:0;font-weight:700;line-height:1.4}
+main section{padding-top:52px}
+main h2{margin:0 0 14px;font-family:var(--f-head);font-weight:800;font-size:clamp(24px,3.4vw,32px);color:var(--c-blue)}
+.prose{max-width:68ch}
+.prose p+p{margin-top:14px}
+.lead{font-size:clamp(19px,2.3vw,22px);font-weight:700;line-height:1.45}
+.bars{margin-top:24px;display:grid;gap:14px;max-width:760px}
+.bar-row{display:grid;grid-template-columns:minmax(0,1fr);gap:6px}
+.bar-label{font-size:15px}
+.bar-track{height:26px;background:#e3eee5;border-radius:3px;position:relative;overflow:hidden}
+.bar-fill{height:100%;background:var(--c-blue);border-radius:3px}
+.bar-fill.low{background:#e07a3f}
+.bar-val{position:absolute;right:10px;top:0;line-height:26px;font-weight:800;font-size:14px}
+.tbl-wrap{margin-top:20px;background:var(--c-card);border:1px solid var(--c-line)}
+.tbl{width:100%;border-collapse:collapse;font-size:15px}
+.tbl th{text-align:left;font-family:var(--f-head);font-weight:500;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--c-muted);padding:10px 18px;background:#e9f3ec;border-bottom:1px solid var(--c-line)}
+.tbl td{padding:14px 18px;border-bottom:1px solid var(--c-line);vertical-align:top;line-height:1.5}
+.tbl tr:last-child td{border-bottom:0}
+.tbl td:first-child{width:38%}
+.tbl td:first-child b{font-family:var(--f-head);font-weight:800}
+.tbl tr.focus td{background:#eef6ff}
+.tbl tr.focus td:first-child{box-shadow:inset 4px 0 0 var(--c-blue)}
+.chip{display:inline-block;margin-left:8px;font-size:12px;font-weight:700;color:#fff;background:var(--c-blue);border-radius:999px;padding:1px 9px;vertical-align:2px}
+.tbl-note{margin-top:10px;font-size:13px;color:var(--c-muted)}
+.note{margin-top:34px;font-size:13px;color:var(--c-muted);max-width:68ch}
+@media (max-width:760px){
+  .cp-meta{grid-template-columns:minmax(0,1fr)}
+  .cp-meta div{border-right:0;border-bottom:1px solid var(--c-line)}
+  .cp-meta div:last-child{border-bottom:0}
+  .tbl thead{display:none}
+  .tbl,.tbl tbody,.tbl tr,.tbl td{display:block;width:100%!important}
+  .tbl tr{border-bottom:1px solid var(--c-line);padding:8px 0}
+  .tbl tr:last-child{border-bottom:0}
+  .tbl td{border:0;padding:4px 18px}
+  .tbl td::before{content:attr(data-label);display:block;font-family:var(--f-head);font-weight:500;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--c-muted)}
+  .tbl td:first-child::before{display:none}
+  .tbl tr.focus td:first-child{box-shadow:none}
+}
