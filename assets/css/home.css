@@ -54,3 +54,27 @@ body{background:var(--h-bg);color:var(--h-ink)}
 .more{padding-block:32px 8px}
 .more a{font-family:var(--f-head);font-weight:700;font-size:16px;color:var(--h-ink);text-decoration:none;border-bottom:2px solid var(--h-ink);padding-bottom:2px}
 .more a:hover{opacity:.7}
+
+/* Home v2: statement first, then three threads, then About */
+.intro{padding-block:96px 56px}
+.intro .eyebrow{font-family:var(--f-head);font-weight:500;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--h-muted);display:block;margin-bottom:18px}
+.intro h1{margin:0;max-width:18ch;font-family:var(--f-head);font-weight:800;font-size:clamp(38px,6.4vw,78px);line-height:1.04;letter-spacing:-.02em}
+.intro .intro-sub{margin-top:24px;max-width:46ch;font-size:19px;color:var(--h-muted)}
+.makes{padding-block:24px 56px}
+.makes h2,.about h2{margin:0 0 18px;font-family:var(--f-head);font-weight:800;font-size:15px;letter-spacing:.1em;text-transform:uppercase;color:var(--h-muted)}
+.make-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--h-line)}
+.make-list li{border-bottom:1px solid var(--h-line)}
+.make-list a{display:grid;grid-template-columns:220px minmax(0,1.1fr) minmax(0,1.4fr);gap:24px;align-items:baseline;padding:24px 4px;text-decoration:none;color:var(--h-ink)}
+.make-list a:hover{background:#ecefec}
+.m-kind{font-family:var(--f-head);font-weight:500;font-size:14px;letter-spacing:.04em;color:var(--h-muted)}
+.m-title{font-family:var(--f-head);font-weight:800;font-size:22px;line-height:1.25}
+.m-line{font-size:16px}
+.about{padding-block:8px 56px}
+.about .about-text{max-width:62ch}
+.about .about-text p{font-size:18px}
+.about .about-text p+p{margin-top:14px}
+.more{display:flex;flex-wrap:wrap;gap:12px 32px}
+@media (max-width:760px){
+  .intro{padding-block:56px 36px}
+  .make-list a{grid-template-columns:minmax(0,1fr);gap:6px}
+}
