@@ -32,3 +32,13 @@ a{color:inherit}
 .pano-tabs button{font:500 14px var(--f-body);color:var(--ink);background:#fff;border:1px solid var(--brown-line);padding:7px 14px;border-radius:4px;cursor:pointer}
 .pano-tabs button[aria-pressed="true"]{background:var(--teal);color:#fff;border-color:var(--teal)}
 .pano-cap{font-size:13px;color:var(--muted);margin-top:8px}
+
+/* Course note: small text in a hero band, right side */
+.band-row{display:flex;gap:40px;align-items:flex-end;justify-content:space-between}
+.course-note{margin:0;font-size:13px;line-height:1.55;max-width:30ch;opacity:.88;text-align:right}
+.course-note b{display:block;font-family:var(--f-head);font-weight:500;font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;opacity:.9}
+.course-note span{display:block}
+@media (max-width:760px){
+  .band-row{flex-direction:column;align-items:flex-start;gap:20px}
+  .course-note{text-align:left}
+}

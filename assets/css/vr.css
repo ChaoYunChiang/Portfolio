@@ -75,3 +75,6 @@ main h2{margin:0 0 14px;font-family:var(--f-head);font-weight:800;font-size:clam
   .tradeoff tbody th{font-size:13px;width:30%}
   .lvl{font-size:13px;padding:2px 8px}
 }
+
+.vr-side .course-note{margin:0 0 14px auto;color:#cfd4f7}
+@media (max-width:760px){.vr-side .course-note{margin:0 0 12px}}

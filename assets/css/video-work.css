@@ -19,3 +19,6 @@ body{background:var(--v-bg);color:var(--v-ink)}
 .film .yt{display:inline-block;margin-top:14px;font-size:14px;color:var(--v-muted)}
 .film .yt:hover{color:var(--v-ink)}
 .site-foot{color:var(--v-muted)}
+
+.vw-head .course-note{font-size:13px;line-height:1.55;color:var(--v-muted)}
+.vw-head .course-note span{font-size:13px}
