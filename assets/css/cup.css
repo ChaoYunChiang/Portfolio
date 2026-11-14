@@ -1,12 +1,12 @@
-/* Reusable cup market research: styled like the Taipei Brewery page, teal band, plain tables and flat bars */
-:root{--c-bg:#f8fafa;--c-ink:#1c2623;--c-muted:#52605b;--c-line:#cfd8d6;--c-blue:#397c79;--c-orange:#ffa45c;--c-rust:#8e3e26;--c-card:#fff}
+/* Reusable cup market research: colours taken from the class slide deck, sage band, pale mint page, blue accents */
+:root{--c-bg:#f0f6f0;--c-ink:#121212;--c-muted:#4a5a4c;--c-line:#bcd1bc;--c-blue:#1b61bd;--c-sage:#7c987c;--c-mint:#c6edd5;--c-orange:#e0562b;--c-card:#fff}
 body{background:var(--c-bg);color:var(--c-ink)}
-.cp-band{background:var(--c-blue);color:#fff}
+.cp-band{background:var(--c-sage);color:#fff}
 .cp-band .wrap{padding-block:26px 64px}
-.cp-band .crumb{font-family:var(--f-head);font-weight:500;font-size:13px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:#cfe6e3;display:inline-block;margin-bottom:34px}
+.cp-band .crumb{font-family:var(--f-head);font-weight:500;font-size:13px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:#1b2a1d;display:inline-block;margin-bottom:34px}
 .cp-band .crumb:hover{color:#fff}
 .cp-band h1{margin:0;font-family:var(--f-head);font-weight:800;font-size:clamp(32px,5vw,52px);line-height:1.08;text-transform:uppercase;max-width:16ch}
-.cp-band .sub{margin-top:14px;max-width:52ch;color:var(--c-orange);font-family:var(--f-head);font-weight:500;font-size:19px}
+.cp-band .sub{margin-top:14px;max-width:52ch;color:#121212;font-family:var(--f-head);font-weight:500;font-size:19px}
 .cp-meta{background:var(--c-card);border:1px solid var(--c-line);margin-top:-28px;position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
 .cp-meta div{padding:14px 20px;border-right:1px solid var(--c-line);min-width:0}
 .cp-meta div:last-child{border-right:0}
@@ -20,20 +20,20 @@ main h2{margin:0 0 14px;font-family:var(--f-head);font-weight:800;font-size:clam
 .bars{margin-top:24px;display:grid;gap:14px;max-width:760px}
 .bar-row{display:grid;grid-template-columns:minmax(0,1fr);gap:6px}
 .bar-label{font-size:15px}
-.bar-track{height:22px;background:#e6ecea;position:relative;overflow:hidden}
+.bar-track{height:22px;background:var(--c-mint);position:relative;overflow:hidden}
 .bar-fill{height:100%;background:var(--c-blue)}
-.bar-fill.low{background:var(--c-rust)}
+.bar-fill.low{background:var(--c-orange)}
 .bar-val{position:absolute;left:10px;top:0;line-height:22px;font-weight:700;font-size:14px;color:#fff}
 .tbl-wrap{margin-top:20px;background:var(--c-card);border:1px solid var(--c-line)}
 .tbl{width:100%;border-collapse:collapse;font-size:15px}
-.tbl th{text-align:left;font-family:var(--f-head);font-weight:500;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--c-muted);padding:10px 18px;background:#eef3f2;border-bottom:1px solid var(--c-line)}
+.tbl th{text-align:left;font-family:var(--f-head);font-weight:500;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--c-muted);padding:10px 18px;background:var(--c-mint);border-bottom:1px solid var(--c-line)}
 .tbl td{padding:14px 18px;border-bottom:1px solid var(--c-line);vertical-align:top;line-height:1.5}
 .tbl tr:last-child td{border-bottom:0}
 .tbl td:first-child{width:38%}
 .tbl td:first-child b{font-family:var(--f-head);font-weight:800}
-.tbl tr.focus td{background:#f1f6f5}
-.tbl tr.focus td:first-child{box-shadow:inset 4px 0 0 var(--c-rust)}
-.chip{display:inline-block;margin-left:8px;font-size:12px;font-weight:700;color:#fff;background:var(--c-rust);padding:1px 8px;vertical-align:2px}
+.tbl tr.focus td{background:#e3f4e8}
+.tbl tr.focus td:first-child{box-shadow:inset 4px 0 0 var(--c-blue)}
+.chip{display:inline-block;margin-left:8px;font-size:12px;font-weight:700;color:#fff;background:var(--c-blue);padding:1px 8px;vertical-align:2px}
 .tbl-note{margin-top:10px;font-size:13px;color:var(--c-muted)}
 .note{margin-top:34px;font-size:13px;color:var(--c-muted);max-width:68ch}
 @media (max-width:760px){
