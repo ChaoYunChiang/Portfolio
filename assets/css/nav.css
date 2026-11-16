@@ -1,0 +1,8 @@
+/* Site bar shared by the project pages. Same look as the home, Projects and Contact pages. */
+.home-nav{position:sticky;top:0;z-index:50;background:rgba(245,246,244,.97);border-bottom:1px solid #d9dedb;color:#161a19}
+.home-nav .wrap{display:flex;justify-content:space-between;align-items:center;gap:24px;padding-block:14px}
+.home-nav .name{font-family:var(--f-head);font-weight:800;text-decoration:none;font-size:16px;letter-spacing:.01em;color:#161a19}
+.home-nav nav{display:flex;gap:26px}
+.home-nav nav a{font-family:var(--f-head);font-weight:500;font-size:15px;text-decoration:none;color:#56605d}
+.home-nav nav a:hover,.home-nav nav a[aria-current="page"]{color:#161a19}
+@media (max-width:480px){.home-nav nav{gap:18px}.home-nav nav a{font-size:14px}}
