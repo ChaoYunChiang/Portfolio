@@ -18,4 +18,14 @@
       if(map[j][0].test(href)){links[i].setAttribute('href',href.replace(map[j][0],'$1'+map[j][1])+hash);break}
     }
   }
+  /* In the HCI version the back link returns to the tab that holds this project. */
+  var tab={'order-vendor-link':'product','byacre':'product','meimei-pet-game':'product','vr-locomotion':'research','reusable-cup':'research','spring-breeze-design':'interactive','spring-breeze-game':'interactive','taipei-brewery':'interactive','video-work':'interactive'};
+  var page=location.pathname.split('/').pop().replace(/\.html$/,'');
+  if(tab[page]){
+    var crumbs=document.querySelectorAll('a.crumb');
+    for(var k=0;k<crumbs.length;k++){
+      var h=crumbs[k].getAttribute('href');
+      if(h&&h.indexOf('projects-hci.html')>-1)crumbs[k].setAttribute('href',h.split('#')[0]+'#'+tab[page]);
+    }
+  }
 })();

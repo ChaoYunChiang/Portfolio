@@ -17,11 +17,17 @@
 
 <header class="wrap p-head">
   <h1>Projects</h1>
-  <p>Work I did on my own, with a team, or for a company, and work I did for courses.</p>
 </header>
 
 <main class="wrap">
-  <ul class="plist">
+  <div class="cat-tabs" role="tablist" aria-label="Categories">
+    <button type="button" role="tab" id="tab-product" aria-controls="cat-product" aria-selected="true" data-cat="product">Product <span>3</span></button>
+    <button type="button" role="tab" id="tab-research" aria-controls="cat-research" aria-selected="false" data-cat="research">Research <span>2</span></button>
+    <button type="button" role="tab" id="tab-interactive" aria-controls="cat-interactive" aria-selected="false" data-cat="interactive">Interactive and media <span>3</span></button>
+  </div>
+
+  <section class="cat" id="cat-product" role="tabpanel" aria-labelledby="tab-product">
+    <ul class="plist">
       <li><a href="projects/order-vendor-link.html">
         <span class="p-img p-tile p-tile-order" aria-hidden="true"><b>9 &rarr; 6</b><i>steps to connect a vendor</i></span>
         <span class="p-body"><span class="p-title">Vendor Registration Link for an Order Management System</span>
@@ -34,6 +40,17 @@
         <span class="p-intro">Built and maintained the Taiwan e-commerce site of a Danish rollator brand, on a platform with no custom code.</span>
         <span class="p-meta">Website building and maintenance</span></span>
       </a></li>
+      <li><a href="projects/meimei-pet-game.html">
+        <span class="p-img"><img src="assets/img/thumbs/meimei.jpg" alt=""></span>
+        <span class="p-body"><span class="p-title">Meimei, a Pet Game for an E-commerce Platform</span>
+        <span class="p-intro">A mobile pet game, from proposal to playable prototype.</span>
+        <span class="p-meta">Game design, solo &middot; May - Oct. 2026</span></span>
+      </a></li>
+    </ul>
+  </section>
+
+  <section class="cat" id="cat-research" role="tabpanel" aria-labelledby="tab-research">
+    <ul class="plist">
       <li><a href="projects/vr-locomotion.html">
         <span class="p-img p-tile p-tile-vr" aria-hidden="true"><b>Teleport<br>or joystick?</b><i>VR locomotion study</i></span>
         <span class="p-body"><span class="p-title">Beyond Cybersickness</span>
@@ -46,17 +63,16 @@
         <span class="p-intro">A survey of 97 people and a marketing plan for a reusable cup service.</span>
         <span class="p-meta">Market research, team of 6 &middot; Spring 2025</span></span>
       </a></li>
+    </ul>
+  </section>
+
+  <section class="cat" id="cat-interactive" role="tabpanel" aria-labelledby="tab-interactive">
+    <ul class="plist">
       <li><a href="projects/spring-breeze-design.html">
         <span class="p-img"><img src="assets/img/thumbs/spring-breeze.jpg" alt=""></span>
         <span class="p-body"><span class="p-title">Longing for the Spring Breeze 望春風</span>
         <span class="p-intro">A first-person record-shop game set in Taiwan under martial law.</span>
         <span class="p-meta">Game design, solo &middot; 3 weeks</span></span>
-      </a></li>
-      <li><a href="projects/meimei-pet-game.html">
-        <span class="p-img"><img src="assets/img/thumbs/meimei.jpg" alt=""></span>
-        <span class="p-body"><span class="p-title">Meimei, a Pet Game for an E-commerce Platform</span>
-        <span class="p-intro">A mobile pet game, from proposal to playable prototype.</span>
-        <span class="p-meta">Game design, solo &middot; May - Oct. 2026</span></span>
       </a></li>
       <li><a href="projects/taipei-brewery.html">
         <span class="p-img"><img src="assets/img/thumbs/taipei-brewery.jpg" alt=""></span>
@@ -70,8 +86,24 @@
         <span class="p-intro">Three short films about everyday life and culture in Taiwan.</span>
         <span class="p-meta">Video production &middot; 2023 - 2025</span></span>
       </a></li>
-  </ul>
+    </ul>
+  </section>
 </main>
+<script>
+(function(){
+  var tabs=document.querySelectorAll('.cat-tabs button'),panels={};
+  tabs.forEach(function(t){panels[t.dataset.cat]=document.getElementById('cat-'+t.dataset.cat)});
+  function show(cat,push){
+    if(!panels[cat])cat=tabs[0].dataset.cat;
+    tabs.forEach(function(t){t.setAttribute('aria-selected',t.dataset.cat===cat?'true':'false')});
+    Object.keys(panels).forEach(function(k){panels[k].hidden=(k!==cat)});
+    if(push){try{history.replaceState(null,'','#'+cat)}catch(e){}}
+  }
+  tabs.forEach(function(t){t.addEventListener('click',function(){show(t.dataset.cat,true)})});
+  window.addEventListener('hashchange',function(){show(location.hash.slice(1),false)});
+  show(location.hash.slice(1),false);
+})();
+</script>
 <footer class="wrap site-foot">Portfolio of Chao-Yun Chiang</footer>
 </body>
 </html>
