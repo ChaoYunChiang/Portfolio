@@ -59,12 +59,70 @@
 
   <section id="design">
     <h2>Design</h2>
-    <ol class="steps">
-      <li>The transfer email carries a one-time link tied to that client and vendor, much like a promo code.</li>
-      <li>The sign-up page looks like the usual one, with email and referral source prefilled and locked.</li>
-      <li>When the vendor creates a team, the system fills the team account into the client's vendor record and notifies the client.</li>
-      <li>A vendor who already has an account logs in and lands on the order. One who has an account but is not linked sees a confirmation screen after login.</li>
-    </ol>
+    <div class="dsg" id="dsg">
+      <ol class="dsg-list" role="tablist" aria-label="Design points">
+        <li><button type="button" role="tab" id="dt1" aria-controls="dp1" aria-selected="true"><span class="n">1</span><span class="tx">The transfer email carries a one-time link tied to that client and vendor, much like a promo code.</span></button></li>
+        <li><button type="button" role="tab" id="dt2" aria-controls="dp2" aria-selected="false"><span class="n">2</span><span class="tx">The sign-up page looks like the usual one, with email and referral source prefilled and locked.</span></button></li>
+        <li><button type="button" role="tab" id="dt3" aria-controls="dp3" aria-selected="false"><span class="n">3</span><span class="tx">When the vendor creates a team, the system fills the team account into the client's vendor record and notifies the client.</span></button></li>
+        <li><button type="button" role="tab" id="dt4" aria-controls="dp4" aria-selected="false"><span class="n">4</span><span class="tx">A vendor who already has an account logs in and lands on the order. One who has an account but is not linked sees a confirmation screen after login.</span></button></li>
+      </ol>
+      <div class="dsg-side">
+        <div class="dsg-stage">
+          <div class="dsg-panel" id="dp1" role="tabpanel" aria-labelledby="dt1">
+            <div class="mk mk-mail">
+              <div class="mk-bar"><b>Platform</b><span>To: vendor@example.com</span></div>
+              <div class="mk-body">
+                <p class="mk-subj">New order from Example Client</p>
+                <p>Example Client sent you a new order.</p>
+                <p class="mk-rows"><span>Order #1001</span><span>PD-1001 &times; 3</span></p>
+                <span class="mk-link">Sign up to see this order</span>
+                <p class="mk-small">One-time link. It is tied to Example Client and this vendor.</p>
+              </div>
+            </div>
+          </div>
+          <div class="dsg-panel" id="dp2" role="tabpanel" aria-labelledby="dt2" hidden>
+            <div class="mk mk-form">
+              <p class="mk-logo">Platform</p>
+              <p class="mk-title">Create your account</p>
+              <div class="mk-f lock"><b>Email</b><div>vendor@example.com</div></div>
+              <div class="mk-f lock"><b>How did you hear about us?</b><div>Referral from Example Client</div></div>
+              <div class="mk-f"><b>Password</b><div>&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;</div></div>
+              <span class="mk-btn">Create account</span>
+              <p class="mk-small">The first two fields are locked.</p>
+            </div>
+          </div>
+          <div class="dsg-panel" id="dp3" role="tabpanel" aria-labelledby="dt3" hidden>
+            <div class="mk mk-rec">
+              <p class="mk-title">Vendor records, client's view</p>
+              <p class="mk-cap">Before</p>
+              <div class="mk-row head"><span>Vendor</span><span>Email</span><span>Team account</span></div>
+              <div class="mk-row"><span>Example Vendor</span><span>vendor@example.com</span><span class="empty">empty</span></div>
+              <p class="mk-cap">After the vendor creates a team</p>
+              <div class="mk-row head"><span>Vendor</span><span>Email</span><span>Team account</span></div>
+              <div class="mk-row"><span>Example Vendor</span><span>vendor@example.com</span><span class="filled">tw-yourcompany</span></div>
+              <p class="mk-note">Example Vendor created its team account.</p>
+            </div>
+          </div>
+          <div class="dsg-panel" id="dp4" role="tabpanel" aria-labelledby="dt4" hidden>
+            <div class="mk mk-card">
+              <p class="mk-logo">Platform</p>
+              <p class="mk-title">Give your team account to the client?</p>
+              <p>Share your team account with <b>Example Client</b> so it can transfer orders to you.</p>
+              <span class="mk-acct">tw-yourcompany</span>
+              <span class="mk-btn">Confirm</span>
+              <span class="mk-btn alt">Cancel</span>
+              <p class="mk-small">One team: filled in. Several teams: a dropdown. Cancel does not link, and the link stays valid.</p>
+            </div>
+          </div>
+        </div>
+        <div class="dsg-ctl">
+          <button type="button" class="prev" aria-label="Previous point">&larr;</button>
+          <span class="dsg-count" aria-live="polite">1 / 4</span>
+          <button type="button" class="next" aria-label="Next point">&rarr;</button>
+          <span class="dsg-eg">Example data only</span>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section id="flow">
@@ -118,27 +176,6 @@
       </tbody></table></div>
   </section>
 
-  <section id="screen">
-    <h2>Screen: account exists, not yet linked</h2>
-    <ul class="bul">
-      <li>A vendor who already has an account clicks the link and logs in.</li>
-      <li>If the account is not linked yet, this screen asks whether to give it to the client.</li>
-      <li>One team: the account is filled in. Several teams: a dropdown.</li>
-      <li>Cancel does not link, and the link stays valid.</li>
-    </ul>
-    <div class="stage" role="img" aria-label="Mockup of a confirmation screen asking whether to give the team account to the client">
-      <div class="screen">
-        <div class="logo">Platform</div>
-        <h3>Give your team account to the client?</h3>
-        <p>Share your team account with <b>Example Client</b> so it can transfer orders to you.</p>
-        <span class="acct">tw-yourcompany</span>
-        <span class="bt p">Confirm</span>
-        <span class="bt s">Cancel</span>
-      </div>
-    </div>
-    <p class="figcap">Example data only.</p>
-  </section>
-
   <section id="guide">
     <h2>Companion: a guide for vendors</h2>
     <ul class="bul">
@@ -168,6 +205,29 @@
   <p class="note">Screens and account names are example data. Numbers come from process diagrams and were not measured.</p>
 </main>
 
+<script>
+(function(){
+  var root=document.getElementById('dsg');if(!root)return;
+  var tabs=[].slice.call(root.querySelectorAll('[role="tab"]')),panels=tabs.map(function(t){return document.getElementById(t.getAttribute('aria-controls'))});
+  var count=root.querySelector('.dsg-count'),cur=0;
+  function show(i,focus){
+    cur=(i+tabs.length)%tabs.length;
+    tabs.forEach(function(t,k){t.setAttribute('aria-selected',k===cur?'true':'false');t.tabIndex=k===cur?0:-1;panels[k].hidden=(k!==cur)});
+    count.textContent=(cur+1)+' / '+tabs.length;
+    if(focus)tabs[cur].focus();
+  }
+  tabs.forEach(function(t,k){
+    t.addEventListener('click',function(){show(k)});
+    t.addEventListener('keydown',function(e){
+      if(e.key==='ArrowDown'||e.key==='ArrowRight'){e.preventDefault();show(cur+1,true)}
+      if(e.key==='ArrowUp'||e.key==='ArrowLeft'){e.preventDefault();show(cur-1,true)}
+    });
+  });
+  root.querySelector('.prev').addEventListener('click',function(){show(cur-1)});
+  root.querySelector('.next').addEventListener('click',function(){show(cur+1)});
+  root.classList.add('on');show(0);
+})();
+</script>
 <footer class="site-foot wrap">Portfolio of Chao-Yun Chiang</footer>
 </body>
 </html>
