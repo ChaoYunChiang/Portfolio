@@ -44,14 +44,14 @@
     <h2>Problem</h2>
     <div class="split">
       <div>
-      <div class="prose"><p class="lead">Vendors rarely sign up to our platform, because signing up costs them more than it returns.</p></div>
+      <div class="prose"><p class="lead">Vendors rarely sign up to our platform, because signing up is inconvenient.</p></div>
       <ul class="bul">
         <li>A vendor without an account can only reply by email.</li>
         <li>There is no fixed way to report tracking after shipping, so our client's operations staff chase it by email or LINE.</li>
         <li>Signing up meant four manual hand-offs between the client, our team and the vendor (see Before below).</li>
         <li>Operations told us vendors often say it is too much trouble and ask to keep using email.</li>
       </ul>
-      <p class="evidence">Evidence: interviews with operations staff at our client, who work inside the same group, so the vendor side is relayed, and my own walkthrough of their process. There was no formal user testing.</p>
+      <p class="evidence">Evidence: interviews with operations staff at our client, and my own walkthrough of their process. What vendors think comes second-hand from the staff. There was no formal user testing.</p>
       </div>
       <figure class="wf"><img src="../assets/img/order/workflow.svg" alt="Two columns of five steps. What we wanted: the client transfers the order, the vendor gets it in the platform, ships, fills in tracking in the platform, and the client sees it there. What happened: the vendor has no account and gets an email only, ships, reports tracking by email or LINE, and the client's staff follow up on their own."></figure>
     </div>
@@ -91,7 +91,7 @@
           <figure><img src="../assets/img/order/email.png" alt="Illustration of the transfer email with a highlighted one-time link"><figcaption>Design illustration, based on the real transfer email. Example data.</figcaption></figure>
           <div><h4>The transfer email carries a one-time link</h4>
             <ul class="bul"><li><b>What:</b> a link tied to that client and that vendor, much like a promo code.</li>
-            <li><b>Why:</b> the vendor no longer asks the platform team for a sign-up URL, and the system knows who the link belongs to.</li></ul></div>
+            <li><b>Why:</b> the client no longer asks our team for a sign-up URL and forwards it, and the system knows who the link belongs to.</li></ul></div>
         </div>
         <div class="dd" id="lp2" role="tabpanel" aria-labelledby="lt2" hidden>
           <figure class="narrow"><img src="../assets/img/order/flow-signup.png" alt="Part of the flow chart: sign-up page with email, source and referral code prefilled and locked, then email verification and creating a team"><figcaption>The sign-up branch of the flow chart.</figcaption></figure>
@@ -103,13 +103,13 @@
           <figure class="narrow"><img src="../assets/img/order/flow-backfill.png" alt="Part of the flow chart: the team account is filled in and the client is notified"><figcaption>The fill-in step of the flow chart.</figcaption></figure>
           <div><h4>The system fills in the team account and tells the client</h4>
             <ul class="bul"><li><b>What:</b> when the vendor creates a team, the team account goes into the client's vendor record and the client is notified.</li>
-            <li><b>Why:</b> nobody has to send the account back by email or LINE, and nobody has to type it in. This removes the last two manual hand-offs.</li></ul></div>
+            <li><b>Why:</b> nobody sends the account back by email or LINE, and nobody types it in. That removes two manual hand-offs.</li></ul></div>
         </div>
         <div class="dd" id="lp4" role="tabpanel" aria-labelledby="lt4" hidden>
           <figure><img src="../assets/img/order/confirm.png" alt="Confirmation screen asking whether to give the team account to the client, with Confirm and Cancel buttons"><figcaption>The confirmation screen, from my design file. Example data.</figcaption></figure>
           <div><h4>A vendor who already has an account logs in and lands on the order</h4>
             <ul class="bul"><li><b>What:</b> if the account is not linked yet, a confirmation screen asks first. Confirm gives the account to the client. Cancel does nothing, and the link stays valid.</li>
-            <li><b>Why:</b> linking needs the vendor's consent, and login comes first so nobody can link by holding the link alone.</li></ul></div>
+            <li><b>Why:</b> linking needs the vendor's consent, and login comes first, so holding the link alone is not enough.</li></ul></div>
         </div>
       </div>
     </div>
@@ -156,16 +156,16 @@
   </section>
 
   <section id="guide">
-    <h2>Companion: a guide for vendors</h2>
+    <h2>Onboarding guide for vendors</h2>
     <ul class="bul">
-      <li>I also wrote an eight-step guide that takes a vendor from sign-up to filling in tracking.</li>
+      <li>I also wrote an eight-step onboarding guide, from sign-up to filling in tracking.</li>
       <li>These are the main changes I made to it.</li>
     </ul>
     <div class="tbl-wrap"><table class="tbl nolabel">
       <thead><tr><th>Problem</th><th>Change</th></tr></thead>
       <tbody>
         <tr><td data-label="Problem"><b>Seven callouts on one screenshot</b></td><td data-label="Change">Kept one red box on the team account, the only place a reader could go wrong. Callouts mark mistakes and order, not every field.</td></tr>
-        <tr><td data-label="Problem"><b>The account example could lose its prefix</b></td><td data-label="Change">Step 2 warns about the tw- prefix and step 4 stresses the full account.</td></tr>
+        <tr><td data-label="Problem"><b>Vendors could leave out the tw- prefix</b></td><td data-label="Change">Step 2 warns about the tw- prefix and step 4 stresses the full account.</td></tr>
         <tr><td data-label="Problem"><b>What to send the client was in the last step</b></td><td data-label="Change">Moved it into a warning box at the top, with how to find the account.</td></tr>
         <tr><td data-label="Problem"><b>Text said tracking syncs on its own</b></td><td data-label="Change">The real screen needs Save. Corrected it and added a warning.</td></tr>
       </tbody></table></div>
@@ -177,9 +177,9 @@
   </section>
 
   <section id="status">
-    <h2>Where it stands</h2>
+    <h2>Outcome</h2>
     <ul class="bul">
-      <li>The feature was postponed because the login flow turned out to be complex. My manager took it over before launch.</li>
+      <li>The feature was postponed because the login flow was complex. My manager took it over before launch.</li>
       <li>Left open for the product manager: a vendor with an account but no team, a login email that does not match, and one email with several teams.</li>
       <li>Next time I would talk to the engineers about login limits before fixing the scope.</li>
     </ul>
