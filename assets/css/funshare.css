@@ -15,7 +15,7 @@ body{background:var(--m-bg);color:var(--m-cocoa)}
 .phones{display:grid;grid-template-columns:minmax(0,300px);justify-content:center;align-items:end}
 .phone{margin:0}
 .phone img,.phone video{display:block;width:100%;height:auto;aspect-ratio:390/844;object-fit:cover;border-radius:22px;border:6px solid var(--m-cocoa);background:#fff}
-.mm-meta{background:var(--m-card);border:1px solid var(--m-line);margin-top:-30px;position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.mm-meta{background:var(--m-card);border:1px solid var(--m-line);margin-top:-30px;position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
 .mm-meta div{padding:14px 20px;border-right:1px solid var(--m-line);min-width:0}
 .mm-meta div:last-child{border-right:0}
 .mm-meta dt{font-size:13px;color:var(--m-copper);margin-bottom:2px}
