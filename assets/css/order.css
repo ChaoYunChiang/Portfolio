@@ -143,3 +143,16 @@ main h2{margin:0 0 14px;font-family:var(--f-head);font-weight:800;font-size:clam
   .dsg{grid-template-columns:minmax(0,1fr);gap:20px}
   .dsg-stage{min-height:0;padding:20px 12px}
 }
+
+/* Real screens inside the Design switcher and the flow chart */
+.dsg-panel{flex-direction:column;align-items:center}
+.dp{margin:0;width:100%;max-width:520px}
+.dp img{display:block;width:100%;height:auto;border:1px solid var(--o-line);background:#fff}
+.dp.narrow{max-width:280px}
+.dp figcaption,.lg figcaption,.g2f figcaption{margin-top:8px;font-size:13px;line-height:1.45;color:var(--o-muted)}
+.lg{margin:24px 0 0}
+.lg img{display:block;width:100%;height:auto;border:1px solid var(--o-line);background:#fff}
+.g2f{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
+.g2f figure{margin:0}
+.g2f img{display:block;width:100%;height:auto;border:1px solid var(--o-line);background:#fff}
+@media (max-width:760px){.g2f{grid-template-columns:minmax(0,1fr)}}

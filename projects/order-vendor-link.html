@@ -69,50 +69,16 @@
       <div class="dsg-side">
         <div class="dsg-stage">
           <div class="dsg-panel" id="dp1" role="tabpanel" aria-labelledby="dt1">
-            <div class="mk mk-mail">
-              <div class="mk-bar"><b>Platform</b><span>To: vendor@example.com</span></div>
-              <div class="mk-body">
-                <p class="mk-subj">New order from Example Client</p>
-                <p>Example Client sent you a new order.</p>
-                <p class="mk-rows"><span>Order #1001</span><span>PD-1001 &times; 3</span></p>
-                <span class="mk-link">Sign up to see this order</span>
-                <p class="mk-small">One-time link. It is tied to Example Client and this vendor.</p>
-              </div>
-            </div>
+            <figure class="dp"><img src="../assets/img/order/email.png" alt="The transfer email the vendor receives, with the order details and a PDF attachment"><figcaption>The transfer email today: order details and a PDF. The one-time link is added to this email. Example data, screen in Traditional Chinese.</figcaption></figure>
           </div>
           <div class="dsg-panel" id="dp2" role="tabpanel" aria-labelledby="dt2" hidden>
-            <div class="mk mk-form">
-              <p class="mk-logo">Platform</p>
-              <p class="mk-title">Create your account</p>
-              <div class="mk-f lock"><b>Email</b><div>vendor@example.com</div></div>
-              <div class="mk-f lock"><b>How did you hear about us?</b><div>Referral from Example Client</div></div>
-              <div class="mk-f"><b>Password</b><div>&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;</div></div>
-              <span class="mk-btn">Create account</span>
-              <p class="mk-small">The first two fields are locked.</p>
-            </div>
+            <figure class="dp narrow"><img src="../assets/img/order/flow-signup.png" alt="Part of the flow chart: the sign-up page with email, referral source and referral code prefilled and locked, then email verification and creating a team"><figcaption>Sign-up branch of the flow chart. The sign-up page prefills email, referral source and referral code and locks them. Then email verification, then the vendor creates a team.</figcaption></figure>
           </div>
           <div class="dsg-panel" id="dp3" role="tabpanel" aria-labelledby="dt3" hidden>
-            <div class="mk mk-rec">
-              <p class="mk-title">Vendor records, client's view</p>
-              <p class="mk-cap">Before</p>
-              <div class="mk-row head"><span>Vendor</span><span>Email</span><span>Team account</span></div>
-              <div class="mk-row"><span>Example Vendor</span><span>vendor@example.com</span><span class="empty">empty</span></div>
-              <p class="mk-cap">After the vendor creates a team</p>
-              <div class="mk-row head"><span>Vendor</span><span>Email</span><span>Team account</span></div>
-              <div class="mk-row"><span>Example Vendor</span><span>vendor@example.com</span><span class="filled">tw-yourcompany</span></div>
-              <p class="mk-note">Example Vendor created its team account.</p>
-            </div>
+            <figure class="dp narrow"><img src="../assets/img/order/flow-backfill.png" alt="Part of the flow chart: the team account is filled in and the client is notified, then the vendor enters the system"><figcaption>After the team is created, the system fills the team account (tw- prefix) into the client's vendor record and notifies the client.</figcaption></figure>
           </div>
           <div class="dsg-panel" id="dp4" role="tabpanel" aria-labelledby="dt4" hidden>
-            <div class="mk mk-card">
-              <p class="mk-logo">Platform</p>
-              <p class="mk-title">Give your team account to the client?</p>
-              <p>Share your team account with <b>Example Client</b> so it can transfer orders to you.</p>
-              <span class="mk-acct">tw-yourcompany</span>
-              <span class="mk-btn">Confirm</span>
-              <span class="mk-btn alt">Cancel</span>
-              <p class="mk-small">One team: filled in. Several teams: a dropdown. Cancel does not link, and the link stays valid.</p>
-            </div>
+            <figure class="dp"><img src="../assets/img/order/confirm.png" alt="Confirmation screen asking whether to give the team account to the client, with Confirm and Cancel buttons"><figcaption>Confirmation screen for a vendor whose account is not linked yet: give the team account to the client? One team is filled in, several teams give a dropdown. Cancel does not link, and the link stays valid. Example data, screen in Traditional Chinese.</figcaption></figure>
           </div>
         </div>
         <div class="dsg-ctl">
@@ -123,6 +89,19 @@
         </div>
       </div>
     </div>
+  </section>
+
+  <section id="logic">
+    <h2>What happens when a vendor clicks the link</h2>
+    <ul class="bul">
+      <li>One link, one email. The system decides where to send the vendor only after the click.</li>
+      <li><b>No account:</b> the sign-up page opens with email, referral source and code locked. Then email verification, then the vendor creates a team. The team account is filled into the client's record and the client is notified.</li>
+      <li><b>Has an account, not logged in:</b> the login page opens with the email locked and the sign-up option hidden.</li>
+      <li><b>Logged in with a different email:</b> treated as logged out. The platform allows one session, so the other account is signed out.</li>
+      <li><b>Logged in with the same email:</b> if the client's record has no team account, the confirmation screen opens. If it has one, the order list opens with the order number in the search box.</li>
+      <li>The match is by email only, not by team. Orders transferred before the vendor registered are not sent again.</li>
+    </ul>
+    <figure class="lg"><img src="../assets/img/order/flowchart.png" alt="Flow chart of what happens after a vendor clicks the link, with decisions on account, login, email match and team account"><figcaption>The flow chart. Labels are in Traditional Chinese, and the list above explains each branch.</figcaption></figure>
   </section>
 
   <section id="flow">
@@ -190,6 +169,10 @@
         <tr><td data-label="Problem"><b>What to send the client was in the last step</b></td><td data-label="Change">Moved it into a warning box at the top, with how to find the account.</td></tr>
         <tr><td data-label="Problem"><b>Text said tracking syncs on its own</b></td><td data-label="Change">The real screen needs Save. Corrected it and added a warning.</td></tr>
       </tbody></table></div>
+    <div class="g2f">
+      <figure><img src="../assets/img/order/guide-before.png" alt="Before: a screenshot with seven numbered callouts"><figcaption>Before, rebuilt from the original: seven callouts, one per field.</figcaption></figure>
+      <figure><img src="../assets/img/order/guide-after.png" alt="After: the same screenshot with one red box on the team account"><figcaption>After: one red box on the team account.</figcaption></figure>
+    </div>
     <p class="tbl-note">The guide leaves out email verification, which the newer requirements added. It needs a check against the live flow.</p>
   </section>
 
