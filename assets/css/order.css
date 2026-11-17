@@ -21,6 +21,8 @@ main h2{margin:0 0 14px;font-family:var(--f-head);font-weight:800;font-size:clam
 .steps li{counter-increment:s;position:relative;padding:10px 0 10px 40px;border-top:1px solid var(--o-line)}
 .steps li:last-child{border-bottom:1px solid var(--o-line)}
 .steps li::before{content:counter(s);position:absolute;left:0;top:11px;width:26px;height:26px;border-radius:50%;background:var(--o-accent);color:#fff;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center}
+.bul{margin:14px 0 0;padding-left:1.25em;max-width:68ch}
+.bul li{margin:7px 0;line-height:1.55}
 .evidence{margin-top:16px;font-size:13px;color:var(--o-muted);max-width:68ch}
 .lanes{margin-top:20px;background:var(--o-card);border:1px solid var(--o-line);overflow-x:auto;-webkit-overflow-scrolling:touch}
 .lanes img{display:block;min-width:900px;width:100%;height:auto}

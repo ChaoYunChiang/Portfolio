@@ -5,7 +5,7 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Vendor Registration Link</title>
-<meta name="description" content="A feature that lets a vendor sign up and connect to a brand from the order email. Requirements, flow and screens for an order management system.">
+<meta name="description" content="A feature that lets a vendor sign up and connect to our client from the order email. Requirements, flow and screens for an order management system.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700;800&family=Noto+Sans+TC:wght@400;500;700;800&display=swap">
 <link rel="stylesheet" href="../assets/css/base.css">
 <link rel="stylesheet" href="../assets/css/nav.css">
@@ -18,7 +18,7 @@
   <div class="wrap">
     <a class="crumb" href="../projects.html#projects">&larr; Projects</a>
     <h1>Vendor Registration Link for an Order Management System</h1>
-    <p class="sub">A feature that lets a vendor sign up and connect to a brand from the order email. I drafted the requirements, flow and screens, then handed it to my manager.</p>
+    <p class="sub">A feature that lets a vendor sign up to our platform from the order email and connect to our client. I drafted the requirements, flow and screens, then handed it to my manager.</p>
   </div>
 </header>
 
@@ -30,48 +30,59 @@
     <div><dt>Status</dt><dd>Drafted spec docs and proposed the design</dd></div>
   </dl>
 
+  <section id="context">
+    <h2>The platform</h2>
+    <ul class="bul">
+      <li>Our order management platform helps our clients manage orders from all their sales channels in one place.</li>
+      <li>It reads PDF and Excel orders automatically, so staff do not key them in by hand.</li>
+      <li>Some orders are shipped by a vendor, a supplier who sends the goods straight to the client's customer.</li>
+      <li>The client transfers such an order to the vendor in one click, and the vendor gets an email.</li>
+    </ul>
+  </section>
+
   <section id="problem">
     <h2>Problem</h2>
-    <div class="prose">
-      <p class="lead">Vendors who ship for a brand rarely sign up, because signing up costs them more than it returns.</p>
-      <p>Brands on the platform sometimes ship an order through a vendor. One click transfers the order and emails the vendor. A vendor without an account can only reply by email, and there is no fixed way to report tracking after shipping, so operations staff follow up by email or LINE.</p>
-      <p>Signing up meant going through the platform team. The brand asked for a sign-up URL, forwarded it, waited for the vendor to register, received the team account back by email or LINE, and typed it in. Operations said vendors often answered that it was too much trouble and asked to keep using email.</p>
-    </div>
-    <p class="evidence">Evidence: interviews with brand-side operations staff and my own walkthrough of their process. The staff work inside the same group, so the vendor side is relayed. There was no formal user testing.</p>
+    <div class="prose"><p class="lead">Vendors rarely sign up to our platform, because signing up costs them more than it returns.</p></div>
+    <ul class="bul">
+      <li>A vendor without an account can only reply by email.</li>
+      <li>There is no fixed way to report tracking after shipping, so our client's operations staff chase it by email or LINE.</li>
+      <li>Signing up meant four manual hand-offs between the client, our team and the vendor (see Before below).</li>
+      <li>Operations told us vendors often say it is too much trouble and ask to keep using email.</li>
+    </ul>
+    <p class="evidence">Evidence: interviews with operations staff at our client, who work inside the same group, so the vendor side is relayed, and my own walkthrough of their process. There was no formal user testing.</p>
   </section>
 
   <section id="design">
     <h2>Design</h2>
     <ol class="steps">
-      <li>The transfer email carries a one-time link tied to that brand and vendor, much like a promo code.</li>
+      <li>The transfer email carries a one-time link tied to that client and vendor, much like a promo code.</li>
       <li>The sign-up page looks like the usual one, with email and referral source prefilled and locked.</li>
-      <li>When the vendor creates a team, the system fills the team account into the brand's vendor record and notifies the brand.</li>
+      <li>When the vendor creates a team, the system fills the team account into the client's vendor record and notifies the client.</li>
       <li>A vendor who already has an account logs in and lands on the order. One who has an account but is not linked sees a confirmation screen after login.</li>
     </ol>
   </section>
 
   <section id="flow">
     <h2>Before and after</h2>
-    <div class="lanes"><img src="../assets/img/order/before.svg" alt="Swimlane diagram of the current sign-up flow: nine steps across the brand, the platform team, the vendor and the system, with four manual hand-offs."></div>
+    <div class="lanes"><img src="../assets/img/order/before.svg" alt="Swimlane diagram of the current sign-up flow: nine steps across the client, the platform team, the vendor and the system, with four manual hand-offs."></div>
     <div class="lanes"><img src="../assets/img/order/after.svg" alt="Swimlane diagram of the new flow: six steps, with no manual hand-offs and no platform team step."></div>
-
     <div class="flow-m">
       <h3>Before <span>9 steps, 4 manual hand-offs</span></h3>
       <ol class="fl">
-        <li><em>Brand</em>Create the vendor record (email required)</li>
-        <li class="man"><em>Platform team</em>Brand asks the team for a sign-up URL</li>
-        <li class="man"><em>Brand</em>Forward the URL to the vendor</li>
+        <li><em>Client</em>Create the vendor record (email required)</li>
+        <li class="man"><em>Platform team</em>Client asks the team for a sign-up URL</li>
+        <li class="man"><em>Client</em>Forward the URL to the vendor</li>
         <li><em>Vendor</em>Register and create a team</li>
         <li class="man"><em>Vendor</em>Get the team account (tw- prefix) and send it back by email or LINE</li>
-        <li class="man"><em>Brand</em>Type the vendor's team account in</li>
-        <li><em>Brand</em>Transfer the order</li>
+        <li class="man"><em>Client</em>Type the vendor's team account in</li>
+        <li><em>Client</em>Transfer the order</li>
         <li><em>System</em>Send the transfer email and a system notice</li>
         <li><em>Vendor</em>Log in, find the order, ship, add tracking</li>
       </ol>
       <h3>After <span>6 steps, no manual hand-offs</span></h3>
       <ol class="fl">
-        <li><em>Brand</em>Create the vendor record (email required)</li>
-        <li><em>Brand</em>Transfer the order</li>
+        <li><em>Client</em>Create the vendor record (email required)</li>
+        <li><em>Client</em>Transfer the order</li>
         <li><em>System</em>Send the transfer email with a one-time link</li>
         <li><em>Vendor</em>Open the link, register and create a team</li>
         <li><em>System</em>Fill the team account into the vendor record</li>
@@ -94,22 +105,27 @@
     <div class="tbl-wrap"><table class="tbl nolabel">
       <thead><tr><th>Decision</th><th>Why</th></tr></thead>
       <tbody>
-        <tr><td data-label="Decision"><b>Fill in, do not create</b></td><td data-label="Why">The brand has already created the vendor record and entered the email. Only the team account is missing, so the link fills that gap.</td></tr>
-        <tr><td data-label="Decision"><b>Bind by code, not by email</b></td><td data-label="Why">A vendor may use a different email. The link carries a code for the brand and vendor, and the sign-up page locks the email and requires verification, so forwarding the link cannot bind the wrong party.</td></tr>
-        <tr><td data-label="Decision"><b>Log in before binding</b></td><td data-label="Why">My first screen showed the team account and a Confirm button before login, so anyone with the link could bind. I changed it so login comes first.</td></tr>
+        <tr><td data-label="Decision"><b>Fill in, do not create</b></td><td data-label="Why">The client has already created the vendor record and entered its email. Only the team account is missing, so the link fills that gap.</td></tr>
+        <tr><td data-label="Decision"><b>Bind by code, not by email</b></td><td data-label="Why">A vendor may use a different email. The link carries a code for this client and vendor. The sign-up page locks the email and requires verification, so forwarding the link cannot bind the wrong person.</td></tr>
+        <tr><td data-label="Decision"><b>Log in before binding</b></td><td data-label="Why">My first screen showed the team account and a Confirm button before login, so anyone with the link could bind it. I changed it so login comes first.</td></tr>
         <tr><td data-label="Decision"><b>Handle old links</b></td><td data-label="Why">Links in older transfer emails stay clickable, so they need an expired page with a next step.</td></tr>
-        <tr><td data-label="Decision"><b>No back-fill for orders already sent</b></td><td data-label="Why">Those orders went out by email. Transferring them again would duplicate them, so the requirements say so to keep it from reading as a bug.</td></tr>
+        <tr><td data-label="Decision"><b>No back-fill for orders already sent</b></td><td data-label="Why">Those orders were already sent by email. Transferring them again would create duplicates, so the requirements say so, to keep it from looking like a bug.</td></tr>
       </tbody></table></div>
   </section>
 
   <section id="screen">
     <h2>Screen: account exists, not yet linked</h2>
-    <div class="prose"><p>A vendor who already has an account clicks the link and, after logging in, sees this screen. With one team the account is filled in. With several, a dropdown appears. Cancel does not link and the link stays valid.</p></div>
-    <div class="stage" role="img" aria-label="Mockup of a confirmation screen asking whether to give the team account to the brand">
+    <ul class="bul">
+      <li>A vendor who already has an account clicks the link and logs in.</li>
+      <li>If the account is not linked yet, this screen asks whether to give it to the client.</li>
+      <li>One team: the account is filled in. Several teams: a dropdown.</li>
+      <li>Cancel does not link, and the link stays valid.</li>
+    </ul>
+    <div class="stage" role="img" aria-label="Mockup of a confirmation screen asking whether to give the team account to the client">
       <div class="screen">
         <div class="logo">Platform</div>
-        <h3>Give your team account to the brand?</h3>
-        <p>Share your team account with <b>Example Brand</b> so it can transfer orders to you.</p>
+        <h3>Give your team account to the client?</h3>
+        <p>Share your team account with <b>Example Client</b> so it can transfer orders to you.</p>
         <span class="acct">tw-yourcompany</span>
         <span class="bt p">Confirm</span>
         <span class="bt s">Cancel</span>
@@ -120,13 +136,16 @@
 
   <section id="guide">
     <h2>Companion: a guide for vendors</h2>
-    <div class="prose"><p>I also wrote an eight-step guide that takes a vendor from sign-up to filling in tracking. These are the main changes I made to it.</p></div>
+    <ul class="bul">
+      <li>I also wrote an eight-step guide that takes a vendor from sign-up to filling in tracking.</li>
+      <li>These are the main changes I made to it.</li>
+    </ul>
     <div class="tbl-wrap"><table class="tbl nolabel">
       <thead><tr><th>Problem</th><th>Change</th></tr></thead>
       <tbody>
         <tr><td data-label="Problem"><b>Seven callouts on one screenshot</b></td><td data-label="Change">Kept one red box on the team account, the only place a reader could go wrong. Callouts mark mistakes and order, not every field.</td></tr>
         <tr><td data-label="Problem"><b>The account example could lose its prefix</b></td><td data-label="Change">Step 2 warns about the tw- prefix and step 4 stresses the full account.</td></tr>
-        <tr><td data-label="Problem"><b>What to send the brand was in the last step</b></td><td data-label="Change">Moved it into a warning box at the top, with how to find the account.</td></tr>
+        <tr><td data-label="Problem"><b>What to send the client was in the last step</b></td><td data-label="Change">Moved it into a warning box at the top, with how to find the account.</td></tr>
         <tr><td data-label="Problem"><b>Text said tracking syncs on its own</b></td><td data-label="Change">The real screen needs Save. Corrected it and added a warning.</td></tr>
       </tbody></table></div>
     <p class="tbl-note">The guide leaves out email verification, which the newer requirements added. It needs a check against the live flow.</p>
@@ -134,10 +153,11 @@
 
   <section id="status">
     <h2>Where it stands</h2>
-    <div class="prose">
-      <p>The feature was postponed because the login flow turned out to be complex. My manager took it over before launch. Edge cases I left open for the product manager: a vendor with an account but no team, a login email that does not match, and one email with several teams.</p>
-      <p>Next time I would talk to the engineers about login limits before fixing the scope.</p>
-    </div>
+    <ul class="bul">
+      <li>The feature was postponed because the login flow turned out to be complex. My manager took it over before launch.</li>
+      <li>Left open for the product manager: a vendor with an account but no team, a login email that does not match, and one email with several teams.</li>
+      <li>Next time I would talk to the engineers about login limits before fixing the scope.</li>
+    </ul>
   </section>
 
   <p class="note">Screens and account names are example data. Numbers come from process diagrams and were not measured.</p>
