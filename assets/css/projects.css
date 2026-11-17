@@ -21,6 +21,9 @@
 .p-tile-acre{background:#47304d}
 .p-tile-acre b{font-size:34px}
 .p-tile-vr{background:#2a2f5c}
+.p-tile-order{background:#ebcb7b;color:#1f1a0e}
+.p-tile-order b{font-size:38px}
+.p-tile-order i{color:#4a3d12}
 .p-tile-vr b{font-size:26px;line-height:1.15}
 .p-body{display:flex;flex-direction:column;gap:6px}
 .p-title{font-family:var(--f-head);font-weight:800;font-size:22px;line-height:1.25}
