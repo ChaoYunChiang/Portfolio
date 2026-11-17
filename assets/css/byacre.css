@@ -7,7 +7,7 @@ body{background:var(--a-bg);color:var(--a-ink)}
 .ac-band .crumb:hover{color:#fff}
 .ac-band h1{margin:0;font-family:var(--f-head);font-weight:800;font-size:clamp(34px,5.4vw,58px);line-height:1.06;letter-spacing:-.015em;max-width:16ch}
 .ac-band .sub{margin-top:16px;max-width:52ch;color:#e6d8ea;font-size:18px}
-.ac-meta{background:var(--a-card);border:1px solid var(--a-line);margin-top:-28px;position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.ac-meta{background:var(--a-card);border:1px solid var(--a-line);margin-top:-28px;position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
 .ac-meta div{padding:14px 20px;border-right:1px solid var(--a-line);min-width:0}
 .ac-meta div:last-child{border-right:0}
 .ac-meta dt{font-size:13px;color:var(--a-accent);margin-bottom:2px}
