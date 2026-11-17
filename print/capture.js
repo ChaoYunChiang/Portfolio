@@ -43,6 +43,10 @@ const PRINT_CSS=`
   .film .yt{display:none!important}
   .film{break-inside:auto!important;page-break-inside:auto!important}
   .film ul.tags,.film h2{break-after:avoid!important;page-break-after:avoid!important}
+  .dtabs{display:none!important}
+  .dd{break-inside:avoid}
+  .live-svg svg .stp{opacity:1!important}
+  details.full[open] summary{display:none}
   #dsg.pf-open{grid-template-columns:minmax(0,1fr)!important}
   #dsg.pf-open .dsg-stage{display:grid;grid-template-columns:1fr 1fr;gap:16px;min-height:0;padding:16px}
   #dsg.pf-open .dsg-panel{align-items:flex-start}
@@ -81,6 +85,8 @@ async function prepare(p){
       el.querySelectorAll('.pano-stage,.pano-tabs').forEach(n=>n.remove());
       el.insertBefore(box,el.firstChild);
     });
+    document.querySelectorAll('.dd').forEach(x=>{x.hidden=false});
+    document.querySelectorAll('details').forEach(d=>{d.open=true});
     const dsg=document.getElementById('dsg');
     if(dsg){dsg.classList.add('pf-open');dsg.querySelectorAll('.dsg-panel').forEach(x=>{x.hidden=false});dsg.querySelectorAll('[role=tab]').forEach(x=>x.setAttribute('aria-selected','false'))}
   },{frames:FRAMES,yt:YT,root:ROOT,USE_FRAMES});

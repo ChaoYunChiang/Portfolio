@@ -57,57 +57,10 @@
     </div>
   </section>
 
-  <section id="design">
-    <h2>Design</h2>
-    <div class="dsg" id="dsg">
-      <ol class="dsg-list" role="tablist" aria-label="Design points">
-        <li><button type="button" role="tab" id="dt1" aria-controls="dp1" aria-selected="true"><span class="n">1</span><span class="tx">The transfer email carries a one-time link tied to that client and vendor, much like a promo code.</span></button></li>
-        <li><button type="button" role="tab" id="dt2" aria-controls="dp2" aria-selected="false"><span class="n">2</span><span class="tx">The sign-up page looks like the usual one, with email and referral source prefilled and locked.</span></button></li>
-        <li><button type="button" role="tab" id="dt3" aria-controls="dp3" aria-selected="false"><span class="n">3</span><span class="tx">When the vendor creates a team, the system fills the team account into the client's vendor record and notifies the client.</span></button></li>
-        <li><button type="button" role="tab" id="dt4" aria-controls="dp4" aria-selected="false"><span class="n">4</span><span class="tx">A vendor who already has an account logs in and lands on the order. One who has an account but is not linked sees a confirmation screen after login.</span></button></li>
-      </ol>
-      <div class="dsg-side">
-        <div class="dsg-stage">
-          <div class="dsg-panel" id="dp1" role="tabpanel" aria-labelledby="dt1">
-            <figure class="dp"><img src="../assets/img/order/email.png" alt="The transfer email the vendor receives, with the order details and a PDF attachment"><figcaption>The transfer email today: order details and a PDF. The one-time link is added to this email. Example data, screen in Traditional Chinese.</figcaption></figure>
-          </div>
-          <div class="dsg-panel" id="dp2" role="tabpanel" aria-labelledby="dt2" hidden>
-            <figure class="dp narrow"><img src="../assets/img/order/flow-signup.png" alt="Part of the flow chart: the sign-up page with email, referral source and referral code prefilled and locked, then email verification and creating a team"><figcaption>Sign-up branch of the flow chart. The sign-up page prefills email, referral source and referral code and locks them. Then email verification, then the vendor creates a team.</figcaption></figure>
-          </div>
-          <div class="dsg-panel" id="dp3" role="tabpanel" aria-labelledby="dt3" hidden>
-            <figure class="dp narrow"><img src="../assets/img/order/flow-backfill.png" alt="Part of the flow chart: the team account is filled in and the client is notified, then the vendor enters the system"><figcaption>After the team is created, the system fills the team account (tw- prefix) into the client's vendor record and notifies the client.</figcaption></figure>
-          </div>
-          <div class="dsg-panel" id="dp4" role="tabpanel" aria-labelledby="dt4" hidden>
-            <figure class="dp"><img src="../assets/img/order/confirm.png" alt="Confirmation screen asking whether to give the team account to the client, with Confirm and Cancel buttons"><figcaption>Confirmation screen for a vendor whose account is not linked yet: give the team account to the client? One team is filled in, several teams give a dropdown. Cancel does not link, and the link stays valid. Example data, screen in Traditional Chinese.</figcaption></figure>
-          </div>
-        </div>
-        <div class="dsg-ctl">
-          <button type="button" class="prev" aria-label="Previous point">&larr;</button>
-          <span class="dsg-count" aria-live="polite">1 / 4</span>
-          <button type="button" class="next" aria-label="Next point">&rarr;</button>
-          <span class="dsg-eg">Example data only</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="logic">
-    <h2>What happens when a vendor clicks the link</h2>
-    <ul class="bul">
-      <li>One link, one email. The system decides where to send the vendor only after the click.</li>
-      <li><b>No account:</b> the sign-up page opens with email, referral source and code locked. Then email verification, then the vendor creates a team. The team account is filled into the client's record and the client is notified.</li>
-      <li><b>Has an account, not logged in:</b> the login page opens with the email locked and the sign-up option hidden.</li>
-      <li><b>Logged in with a different email:</b> treated as logged out. The platform allows one session, so the other account is signed out.</li>
-      <li><b>Logged in with the same email:</b> if the client's record has no team account, the confirmation screen opens. If it has one, the order list opens with the order number in the search box.</li>
-      <li>The match is by email only, not by team. Orders transferred before the vendor registered are not sent again.</li>
-    </ul>
-    <figure class="lg"><img src="../assets/img/order/flowchart.png" alt="Flow chart of what happens after a vendor clicks the link, with decisions on account, login, email match and team account"><figcaption>The flow chart. Labels are in Traditional Chinese, and the list above explains each branch.</figcaption></figure>
-  </section>
-
   <section id="flow">
     <h2>Before and after</h2>
+    <h3 class="sub3">Before</h3>
     <div class="lanes"><img src="../assets/img/order/before.svg" alt="Swimlane diagram of the current sign-up flow: nine steps across the client, the platform team, the vendor and the system, with four manual hand-offs."></div>
-    <div class="lanes"><img src="../assets/img/order/after.svg" alt="Swimlane diagram of the new flow: six steps, with no manual hand-offs and no platform team step."></div>
     <div class="flow-m">
       <h3>Before <span>9 steps, 4 manual hand-offs</span></h3>
       <ol class="fl">
@@ -121,16 +74,44 @@
         <li><em>System</em>Send the transfer email and a system notice</li>
         <li><em>Vendor</em>Log in, find the order, ship, add tracking</li>
       </ol>
-      <h3>After <span>6 steps, no manual hand-offs</span></h3>
-      <ol class="fl">
-        <li><em>Client</em>Create the vendor record (email required)</li>
-        <li><em>Client</em>Transfer the order</li>
-        <li><em>System</em>Send the transfer email with a one-time link</li>
-        <li><em>Vendor</em>Open the link, register and create a team</li>
-        <li><em>System</em>Fill the team account into the vendor record</li>
-        <li><em>Vendor</em>Log in, find the order, ship, add tracking</li>
-      </ol>
       <p class="fl-key"><i></i>Manual hand-off</p>
+    </div>
+    <h3 class="sub3">After, and what I designed</h3>
+    <p class="hint">The ochre tags D1 to D4 mark where each design point sits in the flow. Select one to see it.</p>
+    <div class="live" id="live">
+      <div class="live-svg"><svg id="afterSvg" viewBox="0 0 1100 560" role="img" aria-label="Swimlane diagram of the new flow, with the four design points marked on the steps they belong to" font-family="Noto Sans,Helvetica,Arial,sans-serif"><defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1L9 5L1 9" fill="none" stroke="#55588B" stroke-width="1.6"/></marker></defs><rect x="0" y="10" width="1100" height="120" fill="#F9FAFB" stroke="#BFC2D6"/><rect x="0" y="10" width="150" height="120" fill="#EDE7FB" stroke="#BFC2D6"/><text x="75" y="70" font-size="14" font-weight="700" fill="#2F27CF" text-anchor="middle" dominant-baseline="middle">Client (operations)</text><rect x="0" y="130" width="1100" height="120" fill="#FFFFFF" stroke="#BFC2D6"/><rect x="0" y="130" width="150" height="120" fill="#EDE7FB" stroke="#BFC2D6"/><text x="75" y="190" font-size="14" font-weight="700" fill="#2F27CF" text-anchor="middle" dominant-baseline="middle">Platform team</text><rect x="0" y="250" width="1100" height="120" fill="#F9FAFB" stroke="#BFC2D6"/><rect x="0" y="250" width="150" height="120" fill="#EDE7FB" stroke="#BFC2D6"/><text x="75" y="310" font-size="14" font-weight="700" fill="#2F27CF" text-anchor="middle" dominant-baseline="middle">Vendor</text><rect x="0" y="370" width="1100" height="120" fill="#FFFFFF" stroke="#BFC2D6"/><rect x="0" y="370" width="150" height="120" fill="#EDE7FB" stroke="#BFC2D6"/><text x="75" y="430" font-size="14" font-weight="700" fill="#2F27CF" text-anchor="middle" dominant-baseline="middle">System / Email</text><line x1="304" y1="70" x2="330" y2="70" stroke="#55588B" stroke-width="1.6" marker-end="url(#ah)"/><path d="M454 70 H467 V430 H480" fill="none" stroke="#55588B" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#ah)"/><path d="M604 430 H617 V310 H630" fill="none" stroke="#55588B" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#ah)"/><path d="M754 310 H767 V430 H780" fill="none" stroke="#55588B" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#ah)"/><path d="M904 430 H917 V310 H930" fill="none" stroke="#55588B" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#ah)"/><g><rect class="bx" x="180" y="38" width="124" height="64" rx="8" fill="#fff" stroke="#2F27CF" stroke-width="1.3"/><text x="242" y="62" font-size="11.5" fill="#26255B" text-anchor="middle" dominant-baseline="middle">Create vendor</text><text x="242" y="78" font-size="11.5" fill="#26255B" text-anchor="middle" dominant-baseline="middle">(email required)</text><circle cx="182" cy="38" r="11" fill="#2F27CF"/><text x="182" y="38" font-size="12" font-weight="700" fill="#fff" text-anchor="middle" dominant-baseline="middle">1</text></g><g><rect class="bx" x="330" y="38" width="124" height="64" rx="8" fill="#fff" stroke="#2F27CF" stroke-width="1.3"/><text x="392" y="70" font-size="11.5" fill="#26255B" text-anchor="middle" dominant-baseline="middle">Transfer order</text><circle cx="332" cy="38" r="11" fill="#2F27CF"/><text x="332" y="38" font-size="12" font-weight="700" fill="#fff" text-anchor="middle" dominant-baseline="middle">2</text></g><g class="stp" data-d="1" tabindex="0" role="button" aria-label="Design point 1"><rect class="bx" x="480" y="398" width="124" height="64" rx="8" fill="#fff" stroke="#2F27CF" stroke-width="1.3"/><text x="542" y="422" font-size="11.5" fill="#26255B" text-anchor="middle" dominant-baseline="middle">Send transfer email</text><text x="542" y="438" font-size="11.5" fill="#26255B" text-anchor="middle" dominant-baseline="middle">(one-time link)</text><circle cx="482" cy="398" r="11" fill="#2F27CF"/><text x="482" y="398" font-size="12" font-weight="700" fill="#fff" text-anchor="middle" dominant-baseline="middle">3</text><rect x="574" y="386" width="38" height="22" rx="4" fill="#ebcb7b" stroke="#1f1a0e" stroke-width="1.5"/><text x="593" y="397" font-size="12" font-weight="800" fill="#1f1a0e" text-anchor="middle" dominant-baseline="middle">D1</text></g><g class="stp" data-d="2" tabindex="0" role="button" aria-label="Design point 2"><rect class="bx" x="630" y="278" width="124" height="64" rx="8" fill="#fff" stroke="#2F27CF" stroke-width="1.3"/><text x="692" y="302" font-size="11.5" fill="#26255B" text-anchor="middle" dominant-baseline="middle">Open link, register</text><text x="692" y="318" font-size="11.5" fill="#26255B" text-anchor="middle" dominant-baseline="middle">and create a team</text><circle cx="632" cy="278" r="11" fill="#2F27CF"/><text x="632" y="278" font-size="12" font-weight="700" fill="#fff" text-anchor="middle" dominant-baseline="middle">4</text><rect x="724" y="266" width="38" height="22" rx="4" fill="#ebcb7b" stroke="#1f1a0e" stroke-width="1.5"/><text x="743" y="277" font-size="12" font-weight="800" fill="#1f1a0e" text-anchor="middle" dominant-baseline="middle">D2</text></g><g class="stp" data-d="3" tabindex="0" role="button" aria-label="Design point 3"><rect class="bx" x="780" y="398" width="124" height="64" rx="8" fill="#fff" stroke="#2F27CF" stroke-width="1.3"/><text x="842" y="422" font-size="11.5" fill="#26255B" text-anchor="middle" dominant-baseline="middle">Account auto-filled</text><text x="842" y="438" font-size="11.5" fill="#26255B" text-anchor="middle" dominant-baseline="middle">on vendor record</text><circle cx="782" cy="398" r="11" fill="#2F27CF"/><text x="782" y="398" font-size="12" font-weight="700" fill="#fff" text-anchor="middle" dominant-baseline="middle">5</text><rect x="874" y="386" width="38" height="22" rx="4" fill="#ebcb7b" stroke="#1f1a0e" stroke-width="1.5"/><text x="893" y="397" font-size="12" font-weight="800" fill="#1f1a0e" text-anchor="middle" dominant-baseline="middle">D3</text></g><g class="stp" data-d="4" tabindex="0" role="button" aria-label="Design point 4"><rect class="bx" x="930" y="278" width="124" height="64" rx="8" fill="#fff" stroke="#2F27CF" stroke-width="1.3"/><text x="992" y="302" font-size="11.5" fill="#26255B" text-anchor="middle" dominant-baseline="middle">Log in, find order</text><text x="992" y="318" font-size="11.5" fill="#26255B" text-anchor="middle" dominant-baseline="middle">ship, add tracking</text><circle cx="932" cy="278" r="11" fill="#2F27CF"/><text x="932" y="278" font-size="12" font-weight="700" fill="#fff" text-anchor="middle" dominant-baseline="middle">6</text><rect x="1024" y="266" width="38" height="22" rx="4" fill="#ebcb7b" stroke="#1f1a0e" stroke-width="1.5"/><text x="1043" y="277" font-size="12" font-weight="800" fill="#1f1a0e" text-anchor="middle" dominant-baseline="middle">D4</text></g><text x="12" y="548" font-size="12" fill="#55588B">Dashed line = hand-off between roles, all through the system. D1 to D4 mark the design points.</text></svg></div>
+      <div class="dtabs" role="tablist" aria-label="Design points">
+        <button type="button" role="tab" id="lt1" aria-controls="lp1" aria-selected="true">D1 The email</button>
+        <button type="button" role="tab" id="lt2" aria-controls="lp2" aria-selected="false">D2 The sign-up page</button>
+        <button type="button" role="tab" id="lt3" aria-controls="lp3" aria-selected="false">D3 The fill-in</button>
+        <button type="button" role="tab" id="lt4" aria-controls="lp4" aria-selected="false">D4 Existing accounts</button>
+      </div>
+      <div class="dpanels">
+        <div class="dd" id="lp1" role="tabpanel" aria-labelledby="lt1">
+          <figure><img src="../assets/img/order/email.png" alt="Illustration of the transfer email with a highlighted one-time link"><figcaption>Design illustration, based on the real transfer email. Example data.</figcaption></figure>
+          <div><h4>The transfer email carries a one-time link</h4>
+            <ul class="bul"><li><b>What:</b> a link tied to that client and that vendor, much like a promo code.</li>
+            <li><b>Why:</b> the vendor no longer asks the platform team for a sign-up URL, and the system knows who the link belongs to.</li></ul></div>
+        </div>
+        <div class="dd" id="lp2" role="tabpanel" aria-labelledby="lt2" hidden>
+          <figure class="narrow"><img src="../assets/img/order/flow-signup.png" alt="Part of the flow chart: sign-up page with email, source and referral code prefilled and locked, then email verification and creating a team"><figcaption>The sign-up branch of the flow chart.</figcaption></figure>
+          <div><h4>The sign-up page looks the usual way, with the key fields locked</h4>
+            <ul class="bul"><li><b>What:</b> email, referral source and referral code are prefilled and cannot be edited. Then email verification, then the vendor creates a team.</li>
+            <li><b>Why:</b> forwarding the link to someone else cannot bind the wrong person, and the vendor has less to type.</li></ul></div>
+        </div>
+        <div class="dd" id="lp3" role="tabpanel" aria-labelledby="lt3" hidden>
+          <figure class="narrow"><img src="../assets/img/order/flow-backfill.png" alt="Part of the flow chart: the team account is filled in and the client is notified"><figcaption>The fill-in step of the flow chart.</figcaption></figure>
+          <div><h4>The system fills in the team account and tells the client</h4>
+            <ul class="bul"><li><b>What:</b> when the vendor creates a team, the team account goes into the client's vendor record and the client is notified.</li>
+            <li><b>Why:</b> nobody has to send the account back by email or LINE, and nobody has to type it in. This removes the last two manual hand-offs.</li></ul></div>
+        </div>
+        <div class="dd" id="lp4" role="tabpanel" aria-labelledby="lt4" hidden>
+          <figure><img src="../assets/img/order/confirm.png" alt="Confirmation screen asking whether to give the team account to the client, with Confirm and Cancel buttons"><figcaption>The confirmation screen, from my design file. Example data.</figcaption></figure>
+          <div><h4>A vendor who already has an account logs in and lands on the order</h4>
+            <ul class="bul"><li><b>What:</b> if the account is not linked yet, a confirmation screen asks first. Confirm gives the account to the client. Cancel does nothing, and the link stays valid.</li>
+            <li><b>Why:</b> linking needs the vendor's consent, and login comes first so nobody can link by holding the link alone.</li></ul></div>
+        </div>
+      </div>
     </div>
     <div class="tbl-wrap"><table class="count">
       <thead><tr><th>Counted from the diagrams</th><th>Before</th><th>After</th></tr></thead>
@@ -140,6 +121,25 @@
         <tr><td><b>Hand-offs between roles</b></td><td>6</td><td>4, all through the system</td></tr>
       </tbody></table></div>
     <p class="tbl-note">These numbers come from the diagrams. They are not measured results, because the feature did not launch.</p>
+  </section>
+
+  <section id="logic">
+    <h2>What happens when a vendor clicks the link</h2>
+    <p class="lead2">One link. The vendor's state decides where it leads.</p>
+    <div class="cases">
+      <div class="case"><h3>A new vendor, no account</h3>
+        <ol class="chain"><li>Clicks the link</li><li>Sign-up page<small>email, source and code locked</small></li><li>Email verification, create a team</li><li class="res">Team account filled into the client's record<small>client notified</small></li></ol></div>
+      <div class="case"><h3>A vendor with an account that is not linked yet</h3>
+        <ol class="chain"><li>Clicks the link</li><li>Logs in</li><li>Confirmation screen<small>Confirm or Cancel</small></li><li class="res">On Confirm, the account is filled in<small>client notified. Cancel does nothing.</small></li></ol></div>
+      <div class="case"><h3>A vendor whose account is already linked</h3>
+        <ol class="chain"><li>Clicks the link</li><li>Logs in</li><li class="res">The order opens<small>its number is in the search box</small></li></ol></div>
+    </div>
+    <ul class="bul">
+      <li>Logged in with a different email counts as logged out. The platform allows one session, so the other account is signed out.</li>
+      <li>The match is by email only, not by team. Orders transferred before the vendor registered are not sent again.</li>
+    </ul>
+    <details class="full"><summary>See every branch in the full flow chart</summary>
+      <figure class="lg"><img src="../assets/img/order/flowchart.png" alt="Flow chart of what happens after a vendor clicks the link, with decisions on account, login, email match and team account"></figure></details>
   </section>
 
   <section id="decisions">
@@ -190,24 +190,31 @@
 
 <script>
 (function(){
-  var root=document.getElementById('dsg');if(!root)return;
+  var root=document.getElementById('live');if(!root)return;
   var tabs=[].slice.call(root.querySelectorAll('[role="tab"]')),panels=tabs.map(function(t){return document.getElementById(t.getAttribute('aria-controls'))});
-  var count=root.querySelector('.dsg-count'),cur=0;
-  function show(i,focus){
-    cur=(i+tabs.length)%tabs.length;
-    tabs.forEach(function(t,k){t.setAttribute('aria-selected',k===cur?'true':'false');t.tabIndex=k===cur?0:-1;panels[k].hidden=(k!==cur)});
-    count.textContent=(cur+1)+' / '+tabs.length;
-    if(focus)tabs[cur].focus();
+  var svg=root.querySelector('svg'),steps=[].slice.call(svg.querySelectorAll('.stp'));
+  function show(i){
+    tabs.forEach(function(t,k){t.setAttribute('aria-selected',k===i?'true':'false');t.tabIndex=k===i?0:-1;panels[k].hidden=(k!==i)});
+    steps.forEach(function(g){g.classList.toggle('sel',+g.getAttribute('data-d')===i+1)});
+    svg.classList.add('has-sel');
+    var g=steps[i],box=root.querySelector('.live-svg');
+    if(g&&box&&box.scrollWidth>box.clientWidth){
+      var gr=g.getBoundingClientRect(),br=box.getBoundingClientRect();
+      box.scrollTo({left:box.scrollLeft+(gr.left-br.left)-(br.width-gr.width)/2,behavior:'smooth'});
+    }
   }
   tabs.forEach(function(t,k){
     t.addEventListener('click',function(){show(k)});
     t.addEventListener('keydown',function(e){
-      if(e.key==='ArrowDown'||e.key==='ArrowRight'){e.preventDefault();show(cur+1,true)}
-      if(e.key==='ArrowUp'||e.key==='ArrowLeft'){e.preventDefault();show(cur-1,true)}
+      var n=null;if(e.key==='ArrowRight')n=(k+1)%tabs.length;if(e.key==='ArrowLeft')n=(k+tabs.length-1)%tabs.length;
+      if(n!==null){e.preventDefault();show(n);tabs[n].focus()}
     });
   });
-  root.querySelector('.prev').addEventListener('click',function(){show(cur-1)});
-  root.querySelector('.next').addEventListener('click',function(){show(cur+1)});
+  steps.forEach(function(g){
+    var go=function(){show(+g.getAttribute('data-d')-1)};
+    g.addEventListener('click',go);
+    g.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();go()}});
+  });
   root.classList.add('on');show(0);
 })();
 </script>
