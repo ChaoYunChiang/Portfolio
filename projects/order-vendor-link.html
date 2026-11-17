@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vendor Registration Link</title>
+<meta name="description" content="A feature that lets a vendor sign up and connect to a brand from the order email. Requirements, flow and screens for an order management system.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700;800&family=Noto+Sans+TC:wght@400;500;700;800&display=swap">
+<link rel="stylesheet" href="../assets/css/base.css">
+<link rel="stylesheet" href="../assets/css/nav.css">
+<link rel="stylesheet" href="../assets/css/order.css">
+</head>
+<body>
+<div class="home-nav"><div class="wrap"><a class="name" href="../index.html">Chao-Yun Chiang</a><nav aria-label="Main"><a href="../index.html#about">About</a><a href="../projects.html">Projects</a><a href="../contact.html">Contact</a></nav></div></div>
+<header class="od-band">
+  <div class="wrap">
+    <a class="crumb" href="../projects.html#projects">&larr; Projects</a>
+    <h1>Vendor Registration Link for an Order Management System</h1>
+    <p class="sub">A feature that lets a vendor sign up and connect to a brand from the order email. I drafted the requirements, flow and screens, then handed it to my manager.</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <dl class="od-meta">
+    <div><dt>Role</dt><dd>Product Assistant. Requirements, flow and screen design</dd></div>
+    <div><dt>Company</dt><dd>Datamana, ManaOrder</dd></div>
+    <div><dt>Type</dt><dd>Company project</dd></div>
+    <div><dt>Status</dt><dd>Handed over before launch</dd></div>
+  </dl>
+
+  <section id="problem">
+    <h2>Problem</h2>
+    <div class="prose">
+      <p class="lead">Vendors who ship for a brand rarely sign up, because signing up costs them more than it returns.</p>
+      <p>Brands on the platform sometimes ship an order through a vendor. One click transfers the order and emails the vendor. A vendor without an account can only reply by email, and there is no fixed way to report tracking after shipping, so operations staff follow up by email or LINE.</p>
+      <p>Signing up meant going through the platform team. The brand asked for a sign-up URL, forwarded it, waited for the vendor to register, received the team account back by email or LINE, and typed it in. Operations said vendors often answered that it was too much trouble and asked to keep using email.</p>
+    </div>
+    <p class="evidence">Evidence: interviews with brand-side operations staff and my own walkthrough of their process. The staff work inside the same group, so the vendor side is relayed. There was no formal user testing.</p>
+  </section>
+
+  <section id="design">
+    <h2>Design</h2>
+    <ol class="steps">
+      <li>The transfer email carries a one-time link tied to that brand and vendor, much like a promo code.</li>
+      <li>The sign-up page looks like the usual one, with email and referral source prefilled and locked.</li>
+      <li>When the vendor creates a team, the system fills the team account into the brand's vendor record and notifies the brand.</li>
+      <li>A vendor who already has an account logs in and lands on the order. One who has an account but is not linked sees a confirmation screen after login.</li>
+    </ol>
+  </section>
+
+  <section id="flow">
+    <h2>Before and after</h2>
+    <div class="lanes"><img src="../assets/img/order/before.svg" alt="Swimlane diagram of the current sign-up flow: nine steps across the brand, the ManaOrder team, the vendor and the system, with four manual hand-offs."></div>
+    <div class="lanes"><img src="../assets/img/order/after.svg" alt="Swimlane diagram of the new flow: six steps, with no manual hand-offs and no ManaOrder team step."></div>
+
+    <div class="flow-m">
+      <h3>Before <span>9 steps, 4 manual hand-offs</span></h3>
+      <ol class="fl">
+        <li><em>Brand</em>Create the vendor record (email required)</li>
+        <li class="man"><em>ManaOrder team</em>Brand asks the team for a sign-up URL</li>
+        <li class="man"><em>Brand</em>Forward the URL to the vendor</li>
+        <li><em>Vendor</em>Register and create a team</li>
+        <li class="man"><em>Vendor</em>Get the team account (tw- prefix) and send it back by email or LINE</li>
+        <li class="man"><em>Brand</em>Type the vendor's team account in</li>
+        <li><em>Brand</em>Transfer the order</li>
+        <li><em>System</em>Send the transfer email and a system notice</li>
+        <li><em>Vendor</em>Log in, find the order, ship, add tracking</li>
+      </ol>
+      <h3>After <span>6 steps, no manual hand-offs</span></h3>
+      <ol class="fl">
+        <li><em>Brand</em>Create the vendor record (email required)</li>
+        <li><em>Brand</em>Transfer the order</li>
+        <li><em>System</em>Send the transfer email with a one-time link</li>
+        <li><em>Vendor</em>Open the link, register and create a team</li>
+        <li><em>System</em>Fill the team account into the vendor record</li>
+        <li><em>Vendor</em>Log in, find the order, ship, add tracking</li>
+      </ol>
+      <p class="fl-key"><i></i>Manual hand-off</p>
+    </div>
+    <div class="tbl-wrap"><table class="count">
+      <thead><tr><th>Counted from the diagrams</th><th>Before</th><th>After</th></tr></thead>
+      <tbody>
+        <tr class="focus"><td><b>Manual hand-offs</b></td><td>4</td><td>0</td></tr>
+        <tr><td><b>Steps</b></td><td>9</td><td>6</td></tr>
+        <tr><td><b>Hand-offs between roles</b></td><td>6</td><td>4, all through the system</td></tr>
+      </tbody></table></div>
+    <p class="tbl-note">These numbers come from the diagrams. They are not measured results, because the feature did not launch.</p>
+  </section>
+
+  <section id="decisions">
+    <h2>Design decisions</h2>
+    <div class="tbl-wrap"><table class="tbl nolabel">
+      <thead><tr><th>Decision</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Decision"><b>Fill in, do not create</b></td><td data-label="Why">The brand has already created the vendor record and entered the email. Only the team account is missing, so the link fills that gap.</td></tr>
+        <tr><td data-label="Decision"><b>Bind by code, not by email</b></td><td data-label="Why">A vendor may use a different email. The link carries a code for the brand and vendor, and the sign-up page locks the email and requires verification, so forwarding the link cannot bind the wrong party.</td></tr>
+        <tr><td data-label="Decision"><b>Log in before binding</b></td><td data-label="Why">My first screen showed the team account and a Confirm button before login, so anyone with the link could bind. I changed it so login comes first.</td></tr>
+        <tr><td data-label="Decision"><b>Handle old links</b></td><td data-label="Why">Links in older transfer emails stay clickable, so they need an expired page with a next step.</td></tr>
+        <tr><td data-label="Decision"><b>No back-fill for orders already sent</b></td><td data-label="Why">Those orders went out by email. Transferring them again would duplicate them, so the requirements say so to keep it from reading as a bug.</td></tr>
+      </tbody></table></div>
+  </section>
+
+  <section id="screen">
+    <h2>Screen: account exists, not yet linked</h2>
+    <div class="prose"><p>A vendor who already has an account clicks the link and, after logging in, sees this screen. With one team the account is filled in. With several, a dropdown appears. Cancel does not link and the link stays valid.</p></div>
+    <div class="stage" role="img" aria-label="Mockup of a confirmation screen asking whether to give the team account to the brand">
+      <div class="screen">
+        <div class="logo">ManaOrder</div>
+        <h3>Give your team account to the brand?</h3>
+        <p>Share your team account with <b>Example Brand</b> so it can transfer orders to you.</p>
+        <span class="acct">tw-yourcompany</span>
+        <span class="bt p">Confirm</span>
+        <span class="bt s">Cancel</span>
+      </div>
+    </div>
+    <p class="figcap">Example data only.</p>
+  </section>
+
+  <section id="guide">
+    <h2>Companion: a guide for vendors</h2>
+    <div class="prose"><p>I also wrote an eight-step guide that takes a vendor from sign-up to filling in tracking. These are the main changes I made to it.</p></div>
+    <div class="tbl-wrap"><table class="tbl nolabel">
+      <thead><tr><th>Problem</th><th>Change</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Problem"><b>Seven callouts on one screenshot</b></td><td data-label="Change">Kept one red box on the team account, the only place a reader could go wrong. Callouts mark mistakes and order, not every field.</td></tr>
+        <tr><td data-label="Problem"><b>The account example could lose its prefix</b></td><td data-label="Change">Step 2 warns about the tw- prefix and step 4 stresses the full account.</td></tr>
+        <tr><td data-label="Problem"><b>What to send the brand was in the last step</b></td><td data-label="Change">Moved it into a warning box at the top, with how to find the account.</td></tr>
+        <tr><td data-label="Problem"><b>Text said tracking syncs on its own</b></td><td data-label="Change">The real screen needs Save. Corrected it and added a warning.</td></tr>
+      </tbody></table></div>
+    <p class="tbl-note">The guide leaves out email verification, which the newer requirements added. It needs a check against the live flow.</p>
+  </section>
+
+  <section id="status">
+    <h2>Where it stands</h2>
+    <div class="prose">
+      <p>The feature was postponed because the login flow turned out to be complex. My manager took it over before launch. Edge cases I left open for the product manager: a vendor with an account but no team, a login email that does not match, and one email with several teams.</p>
+      <p>Next time I would talk to the engineers about login limits before fixing the scope.</p>
+    </div>
+  </section>
+
+  <p class="note">Screens and account names are example data. Numbers come from process diagrams and were not measured.</p>
+</main>
+
+<footer class="site-foot wrap">Portfolio of Chao-Yun Chiang</footer>
+</body>
+</html>
