@@ -33,9 +33,7 @@ async function prepare(p){
       if(list){
         const box=document.createElement('div');box.className='pf-frames';
         list.forEach(f=>{const im=document.createElement('img');im.src='file://'+root+'/print/frames/'+f;im.alt='';box.appendChild(im)});
-        const cap=document.createElement('p');cap.className='pf-cap';cap.textContent='Frames from the gameplay video.';
-        const wrap=document.createElement('div');wrap.appendChild(box);wrap.appendChild(cap);
-        v.replaceWith(wrap);
+        v.replaceWith(box);
       }else{v.style.display='none'}
     });
   },{frames:FRAMES,root:ROOT});
