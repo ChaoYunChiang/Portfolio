@@ -4,6 +4,8 @@
 const {chromium}=require('playwright');
 const path=require('path');const fs=require('fs');
 const ROOT=path.resolve(__dirname,'..');
+// By default a video becomes its poster image, as the page shows it before playing. FRAMES=1 swaps it for six still frames instead.
+const USE_FRAMES=process.env.FRAMES==='1';
 const PROJECTS={
   'spring-breeze':['projects/spring-breeze-game.html','projects/spring-breeze-design.html'],
   'taipei-brewery':['projects/taipei-brewery.html'],
@@ -49,17 +51,20 @@ const PRINT_CSS=`
 async function prepare(p){
   await p.emulateMedia({media:'print'});
   await p.addStyleTag({content:PRINT_CSS});
-  await p.evaluate(({frames,yt,root})=>{
+  await p.evaluate(({frames,yt,root,USE_FRAMES})=>{
     const file=f=>'file://'+root+'/print/frames/'+f;
     document.querySelectorAll('img[loading="lazy"]').forEach(i=>{i.loading='eager'});
     document.querySelectorAll('video').forEach(v=>{
       const name=(v.getAttribute('src')||(v.querySelector('source')||{}).src||'').split('/').pop();
-      const spec=frames[name];
+      const spec=USE_FRAMES?frames[name]:null;
       if(spec){
         const box=document.createElement('div');box.className='pf-frames';
         box.style.gridTemplateColumns='repeat('+spec.cols+',1fr)';
         spec.files.forEach(f=>{const im=document.createElement('img');im.src=file(f);im.alt='';box.appendChild(im)});
         v.replaceWith(box);
+      }else if(v.poster){
+        const im=document.createElement('img');im.src=v.poster;im.alt='';im.style.cssText='display:block;width:100%;height:auto';
+        v.replaceWith(im);
       }else{v.style.display='none'}
     });
     document.querySelectorAll('iframe').forEach(f=>{
@@ -78,7 +83,7 @@ async function prepare(p){
     });
     const dsg=document.getElementById('dsg');
     if(dsg){dsg.classList.add('pf-open');dsg.querySelectorAll('.dsg-panel').forEach(x=>{x.hidden=false});dsg.querySelectorAll('[role=tab]').forEach(x=>x.setAttribute('aria-selected','false'))}
-  },{frames:FRAMES,yt:YT,root:ROOT});
+  },{frames:FRAMES,yt:YT,root:ROOT,USE_FRAMES});
   await p.evaluate(()=>Promise.all([...document.images].map(i=>i.complete?1:new Promise(r=>{i.onload=i.onerror=r}))));
   await p.evaluate(()=>document.fonts.ready);
 }
