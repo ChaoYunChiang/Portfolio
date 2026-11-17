@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<title>Portfolio cover</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700;800&display=swap">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:#f5f6f4;color:#161a19;font-family:'Noto Sans',sans-serif;line-height:1.55}
+.pg{padding:56px 100px 24px}
+.eyebrow{font-weight:500;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:#56605d}
+h1{margin:10px 0 0;font-weight:800;font-size:88px;line-height:1.02;letter-spacing:-.02em}
+.st{margin:14px 0 0;font-weight:700;font-size:28px;line-height:1.3;max-width:900px}
+.ab{margin-top:24px;max-width:860px;font-size:17px;color:#2b3331}
+.ab p{margin:0 0 12px}
+h2{margin:34px 0 6px;padding-top:14px;border-top:2px solid #161a19;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:#56605d;font-weight:800}
+ol{margin:0;padding:0;list-style:none;counter-reset:c}
+li{counter-increment:c;display:grid;grid-template-columns:44px 1fr;gap:6px;padding:9px 0;border-bottom:1px solid #d9dedb}
+li::before{content:counter(c);font-weight:800;color:#56605d;font-size:20px}
+li b{display:block;font-size:20px;line-height:1.25}
+li span{display:block;font-size:15.5px;color:#2b3331}
+li i{display:block;font-style:normal;font-size:14px;color:#56605d;margin-top:2px}
+.ft{margin-top:22px;display:flex;justify-content:space-between;gap:30px;font-size:17px;font-weight:700}
+.ft span{font-weight:400;color:#56605d;display:block;font-size:13px;letter-spacing:.1em;text-transform:uppercase}
+</style>
+</head>
+<body>
+<div class="pg">
+  <div class="eyebrow">Portfolio</div>
+  <h1>Chao-Yun Chiang</h1>
+  <p class="st">I produce interactive stories about Taiwan's culture and history.</p>
+  <div class="ab">
+    <p>I am a student of adult and continuing education, where I became interested in cultural education and media production. I make interactive experiences about culture and history, and I try to help people learn more through them.</p>
+    <p>I have liked telling stories, and hearing other people's, since I was a kid. My work spans video making, virtual reality and games.</p>
+  </div>
+  <h2>Contents</h2>
+  <ol id="toc"></ol>
+  <div class="ft"><div><span>Website</span><b id="site"></b></div><div><span>Email</span>liamchiang1030@gmail.com</div></div>
+</div>
+<script>
+var P={
+ 'order':['Vendor Registration Link for an Order Management System','Requirements, flow and screens for a feature that lets a vendor sign up to our platform from the order email.','Product Assistant · Datamana'],
+ 'byacre':['byACRE Taiwan E-commerce Website','Built and maintained the Taiwan e-commerce site of a Danish rollator brand, on a platform with no custom code.','Website building and maintenance'],
+ 'vr':['Beyond Cybersickness','A paper review and a study proposal on the psychological cost of VR teleportation.','Research proposal, solo · Fall 2025'],
+ 'cup':['Reusable Cup Market Research','A survey of 97 people and a marketing plan for a reusable cup service.','Market research, team of 6 · Spring 2025'],
+ 'sb':['Longing for the Spring Breeze','A first-person record-shop game set in Taiwan under martial law.','Game design, solo · 3 weeks'],
+ 'mm':['Meimei, a Pet Game for an E-commerce Platform','A mobile pet game, from proposal to playable prototype.','Game design, solo · May - Oct. 2026'],
+ 'bw':['Exploring Cultural Heritage through VR','A virtual tour that preserves Taiwan’s first brewery, with more than 150 panoramas.','VR production, team of 2 · Oct. 2024 - Apr. 2026'],
+ 'vid':['Video work','Three short films about everyday life and culture in Taiwan.','Video production · 2023 - 2025']
+};
+var ORDER={hci:['order','byacre','vr','cup','sb','mm','bw','vid'],creative:['sb','bw','mm','vid','order','byacre','cup','vr']};
+var v=(location.search.match(/v=(\w+)/)||[])[1]==='hci'?'hci':'creative';
+document.getElementById('toc').innerHTML=ORDER[v].map(function(k){var p=P[k];return '<li><div><b>'+p[0]+'</b><span>'+p[1]+'</span><i>'+p[2]+'</i></div></li>'}).join('');
+document.getElementById('site').textContent=v==='hci'?'chaoyunchiang.github.io/Portfolio/hci.html':'chaoyunchiang.github.io/Portfolio/';
+</script>
+</body>
+</html>

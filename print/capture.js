@@ -6,9 +6,23 @@ const path=require('path');const fs=require('fs');
 const ROOT=path.resolve(__dirname,'..');
 const PROJECTS={
   'spring-breeze':['projects/spring-breeze-game.html','projects/spring-breeze-design.html'],
+  'taipei-brewery':['projects/taipei-brewery.html'],
+  'meimei':['projects/meimei-pet-game.html'],
+  'byacre':['projects/byacre.html'],
+  'order-vendor-link':['projects/order-vendor-link.html'],
+  'reusable-cup':['projects/reusable-cup.html'],
+  'vr-locomotion':['projects/vr-locomotion.html'],
+  'video-work':['projects/video-work.html'],
+  'cover-hci':['print/cover.html?v=hci'],
+  'cover-creative':['print/cover.html?v=creative'],
 };
-const FRAMES={ // video file name -> still frames in print/frames
-  'spring-breeze-gameplay.mp4':['sb_3.jpg','sb_10.jpg','sb_26.jpg','sb_34.jpg','sb_42.jpg','sb_50.jpg'],
+const FRAMES={ // video file name -> still frames in print/frames, and how many columns to lay them out in
+  'spring-breeze-gameplay.mp4':{files:['sb_3.jpg','sb_10.jpg','sb_26.jpg','sb_34.jpg','sb_42.jpg','sb_50.jpg'],cols:3},
+  'taipei-brewery-tour.mp4':{files:['bw_4.jpg','bw_16.jpg','bw_28.jpg','bw_40.jpg','bw_52.jpg','bw_66.jpg'],cols:3},
+  'errand-demo.mp4':{files:['mm_1.jpg','mm_4.jpg','mm_7.jpg','mm_10.jpg'],cols:2},
+};
+const YT={ // YouTube id -> a still image in print/frames
+  'tC8eScxL7qA':'yt_tC8eScxL7qA.jpg','nyKfb9Sx4u8':'yt_nyKfb9Sx4u8.jpg','ubvrPFhVYig':'yt_ubvrPFhVYig.jpg',
 };
 const PRINT_CSS=`
 @media print{
@@ -16,27 +30,55 @@ const PRINT_CSS=`
   .home-nav,.crumb,.vw-top,.site-foot{display:none!important}
   figure,table,.tbl-wrap,.lanes,.shot,.film,.mk,.dsg-panel,.pf-frames,.pf-pano figure,.chr,.cols>div,.ver>div,.p-img{break-inside:avoid;page-break-inside:avoid}
   h1,h2,h3,h4{break-after:avoid;page-break-after:avoid}
-  .pf-frames{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .pf-frames{display:grid;gap:12px}
   .pf-frames img{display:block;width:100%;height:auto}
   .pf-cap{font-size:13px;margin:6px 0 0;opacity:.85}
   .pf-pano{display:grid;gap:14px}
   .pf-pano img{display:block;width:100%;height:auto}
+  .pf-pano figcaption{font-size:13px;margin-top:6px}
+  .film .player{max-width:600px;break-inside:avoid}
+  .film{padding-block:26px!important}
+  .film .yt{display:none!important}
+  .film{break-inside:auto!important;page-break-inside:auto!important}
+  .film ul.tags,.film h2{break-after:avoid!important;page-break-after:avoid!important}
+  #dsg.pf-open{grid-template-columns:minmax(0,1fr)!important}
+  #dsg.pf-open .dsg-stage{display:grid;grid-template-columns:1fr 1fr;gap:16px;min-height:0;padding:16px}
+  #dsg.pf-open .dsg-panel{align-items:flex-start}
+  #dsg.pf-open .dsg-ctl{display:none}
 }`;
 async function prepare(p){
   await p.emulateMedia({media:'print'});
   await p.addStyleTag({content:PRINT_CSS});
-  await p.evaluate(({frames,root})=>{
+  await p.evaluate(({frames,yt,root})=>{
+    const file=f=>'file://'+root+'/print/frames/'+f;
     document.querySelectorAll('img[loading="lazy"]').forEach(i=>{i.loading='eager'});
     document.querySelectorAll('video').forEach(v=>{
       const name=(v.getAttribute('src')||(v.querySelector('source')||{}).src||'').split('/').pop();
-      const list=frames[name];
-      if(list){
+      const spec=frames[name];
+      if(spec){
         const box=document.createElement('div');box.className='pf-frames';
-        list.forEach(f=>{const im=document.createElement('img');im.src='file://'+root+'/print/frames/'+f;im.alt='';box.appendChild(im)});
+        box.style.gridTemplateColumns='repeat('+spec.cols+',1fr)';
+        spec.files.forEach(f=>{const im=document.createElement('img');im.src=file(f);im.alt='';box.appendChild(im)});
         v.replaceWith(box);
       }else{v.style.display='none'}
     });
-  },{frames:FRAMES,root:ROOT});
+    document.querySelectorAll('iframe').forEach(f=>{
+      const m=(f.src||'').match(/embed\/([\w-]+)/);
+      if(m&&yt[m[1]]){const im=document.createElement('img');im.src=file(yt[m[1]]);im.alt='';im.style.cssText='display:block;width:100%;aspect-ratio:16/9;object-fit:cover';f.replaceWith(im)}
+      else{f.style.display='none'}
+    });
+    document.querySelectorAll('.pano[data-scenes]').forEach(el=>{
+      const box=document.createElement('div');box.className='pf-pano';
+      JSON.parse(el.dataset.scenes).forEach(s=>{
+        const fig=document.createElement('figure'),im=document.createElement('img'),cap=document.createElement('figcaption');
+        im.src=new URL(s.src,location.href).href;im.alt='';cap.textContent=s.label;fig.append(im,cap);box.append(fig);
+      });
+      el.querySelectorAll('.pano-stage,.pano-tabs').forEach(n=>n.remove());
+      el.insertBefore(box,el.firstChild);
+    });
+    const dsg=document.getElementById('dsg');
+    if(dsg){dsg.classList.add('pf-open');dsg.querySelectorAll('.dsg-panel').forEach(x=>{x.hidden=false});dsg.querySelectorAll('[role=tab]').forEach(x=>x.setAttribute('aria-selected','false'))}
+  },{frames:FRAMES,yt:YT,root:ROOT});
   await p.evaluate(()=>Promise.all([...document.images].map(i=>i.complete?1:new Promise(r=>{i.onload=i.onerror=r}))));
   await p.evaluate(()=>document.fonts.ready);
 }
@@ -49,7 +91,8 @@ async function prepare(p){
     const parts=[];
     for(const [i,rel] of PROJECTS[n].entries()){
       const p=await b.newPage({viewport:{width:1280,height:900}});
-      await p.goto('file://'+path.join(ROOT,rel),{waitUntil:'networkidle'});
+      const [relPath,query]=rel.split('?');
+      await p.goto('file://'+path.join(ROOT,relPath)+(query?'?'+query:''),{waitUntil:'networkidle'});
       await prepare(p);
       const out=path.join(__dirname,'out','parts',`${n}-${i+1}.pdf`);
       await p.pdf({path:out,format:'Letter',scale:0.64,printBackground:true,margin:{top:'0.35in',bottom:'0.35in',left:'0',right:'0'}});
