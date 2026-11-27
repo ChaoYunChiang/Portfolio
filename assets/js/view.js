@@ -18,8 +18,8 @@
       if(map[j][0].test(href)){links[i].setAttribute('href',href.replace(map[j][0],'$1'+map[j][1])+hash);break}
     }
   }
-  /* In the HCI version the back link returns to the tab that holds this project. */
-  var tab={'order-vendor-link':'product','byacre':'product','meimei-pet-game':'product','vr-locomotion':'research','reusable-cup':'research','spring-breeze-design':'interactive','spring-breeze-game':'interactive','taipei-brewery':'interactive','video-work':'interactive'};
+  /* In the HCI version the back link returns to the group that holds this project. */
+  var tab={'order-vendor-link':'g-product','byacre':'g-product','meimei-pet-game':'g-product','vr-locomotion':'g-product','reusable-cup':'g-product','spring-breeze-design':'g-games','spring-breeze-game':'g-games','taipei-brewery':'g-games'};
   var page=location.pathname.split('/').pop().replace(/\.html$/,'');
   if(tab[page]){
     var crumbs=document.querySelectorAll('a.crumb');
