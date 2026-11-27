@@ -192,3 +192,6 @@ details.full summary{cursor:pointer;font-weight:700;color:var(--o-accent);paddin
 @media (max-width:900px){.dd{grid-template-columns:minmax(0,1fr);gap:16px}.dd figure.narrow{max-width:240px}}
 @media (max-width:760px){.chain{flex-direction:column;gap:22px}.chain li::after{content:"\2193";right:auto;left:50%;top:auto;bottom:-22px;transform:translateX(-50%)}.dtabs button{padding:9px 10px}}
 @media (max-width:760px){.live-svg svg{min-width:760px}}
+.roles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:6px 0 28px}
+.roles .case p{margin:0;font-size:15px;line-height:1.45}
+@media (max-width:760px){.roles{grid-template-columns:1fr}}
