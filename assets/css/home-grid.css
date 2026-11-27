@@ -31,3 +31,16 @@
 html,body{overflow-x:clip}
 .hero,.feat,.about{z-index:1}
 .px .far,.deco .far{z-index:0}.px .mid,.deco .mid{z-index:1}.px .near,.deco .near{z-index:2}
+
+/* One continuous band behind Selected work */
+.flow{position:relative;z-index:0;background:#e9e4d8;padding-block:200px}
+.flow-layer{position:absolute;inset:0;overflow-x:clip;pointer-events:none}
+.flow-layer i{position:absolute;display:block;will-change:transform}
+.flow-layer .far{opacity:.9;z-index:0}.flow-layer .mid{opacity:.85;z-index:1}.flow-layer .near{opacity:.9;z-index:2}
+.flow .feat{position:relative;z-index:3;background:transparent;padding-block:0}
+.flow .sec-label{display:inline-block;background:#f5f6f4;padding:8px 14px;margin-bottom:20px;color:var(--h-ink)}
+.flow .more{padding-top:28px}
+.flow .more a{background:#f5f6f4;padding:8px 14px;border-bottom:0}
+.hero{padding-block:72px 64px}
+.about{padding-block:72px 56px}
+@media (max-width:760px){.flow{padding-block:150px}.hero{padding-block:48px 44px}.about{padding-top:56px}}
