@@ -1,0 +1,16 @@
+/* Home, grid layout: short intro, selected work first, About after */
+.hero{padding-block:56px 36px}
+.hero h1{margin:0;font-family:var(--f-head);font-weight:800;font-size:clamp(32px,4.6vw,50px);line-height:1.08;letter-spacing:-.015em}
+.hero .statement{margin:12px 0 0;max-width:40ch;font-family:var(--f-head);font-weight:500;font-size:clamp(19px,2.2vw,24px);line-height:1.35;color:var(--h-muted)}
+.sec-label{margin:0 0 18px;font-family:var(--f-head);font-weight:800;font-size:15px;letter-spacing:.1em;text-transform:uppercase;color:var(--h-muted)}
+.feat{padding-bottom:56px}
+.feat-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.feat-grid a{display:flex;flex-direction:column;height:100%;background:#fff;border:1px solid var(--h-line);text-decoration:none;color:var(--h-ink);transition:border-color .15s,transform .15s}
+.feat-grid a:hover{border-color:var(--h-ink);transform:translateY(-2px)}
+.feat-grid img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-bottom:1px solid var(--h-line)}
+.feat-grid .fb{padding:18px 20px 22px}
+.feat-grid .fk{display:block;font-family:var(--f-head);font-weight:500;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--h-muted)}
+.feat-grid h3{margin:8px 0 0;font-family:var(--f-head);font-weight:800;font-size:21px;line-height:1.25}
+.feat-grid p{margin:8px 0 0;font-size:16px;line-height:1.5}
+.feat .more{padding-block:24px 0}
+@media (max-width:760px){.hero{padding-block:40px 28px}.feat-grid{grid-template-columns:minmax(0,1fr)}}

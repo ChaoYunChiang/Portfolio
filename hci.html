@@ -6,19 +6,51 @@
 <meta name="pf-view" content="hci">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Chao-Yun Chiang, Portfolio</title>
-<meta name="description" content="Designing for people who are new to a product. Selected work: a vendor sign-up feature and Longing for the Spring Breeze.">
+<meta name="description" content="Designing for people who are new to a product. Selected work: a vendor sign-up feature, Longing for the Spring Breeze, a VR locomotion study proposal and a VR tour of the Taipei Brewery.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Noto+Sans:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700&family=Pixelify+Sans:wght@400;600;700&display=swap">
 <link rel="stylesheet" href="assets/css/base.css">
 <link rel="stylesheet" href="assets/css/home.css">
+<link rel="stylesheet" href="assets/css/home-grid.css">
 <script src="assets/js/view.js" defer></script>
 </head>
 <body>
 <div class="home-nav"><div class="wrap"><a class="name" href="#top">Chao-Yun Chiang</a><nav aria-label="Main"><a href="#about">About</a><a href="projects-hci.html">Projects</a><a href="contact.html">Contact</a></nav></div></div>
 
-<header class="intro wrap" id="top">
+<header class="hero wrap" id="top">
   <h1>Chao-Yun Chiang</h1>
   <p class="statement">Designing for people who are new to a product.</p>
 </header>
+
+<section class="feat wrap" aria-labelledby="t-work">
+  <h2 class="sec-label" id="t-work">Selected work</h2>
+  <ul class="feat-grid">
+    <li><a href="projects/order-vendor-link.html">
+      <img src="assets/img/thumbs/order-vendor-link.jpg" alt="">
+      <span class="fb"><span class="fk">Product design &middot; Datamana</span>
+      <h3>Vendor Registration Link</h3>
+      <p>Interviewed vendors, operations staff and a product manager, and designed a sign-up flow with no manual hand-offs.</p></span>
+    </a></li>
+    <li><a href="projects/spring-breeze-design.html">
+      <img src="assets/img/thumbs/spring-breeze.jpg" alt="">
+      <span class="fb"><span class="fk">Game design, solo &middot; 3 weeks</span>
+      <h3>Longing for the Spring Breeze 望春風</h3>
+      <p>Rebuilt a history experience into a game after testers said the first version felt like a museum display.</p></span>
+    </a></li>
+    <li><a href="projects/vr-locomotion.html">
+      <img src="assets/img/thumbs/vr-locomotion.jpg" alt="">
+      <span class="fb"><span class="fk">Research proposal, solo &middot; Fall 2025</span>
+      <h3>Beyond Cybersickness</h3>
+      <p>Proposed a 40-person study comparing teleportation and joystick movement in VR, and their effect on intention to reuse.</p></span>
+    </a></li>
+    <li><a href="projects/taipei-brewery.html">
+      <img src="assets/img/thumbs/taipei-brewery.jpg" alt="">
+      <span class="fb"><span class="fk">VR production, team of 2 &middot; NTNU VR Lab</span>
+      <h3>Exploring Cultural Heritage through VR</h3>
+      <p>Built the web prototype the team used to lay out a tour of more than 150 panoramas.</p></span>
+    </a></li>
+  </ul>
+  <div class="more"><a href="projects-hci.html">All projects &rarr;</a></div>
+</section>
 
 <section class="about wrap" id="about">
   <h2>About</h2>
@@ -28,31 +60,7 @@
   </div>
 </section>
 
-<section class="band order" aria-labelledby="t-order">
-  <div class="wrap grid">
-    <div class="text">
-      <span class="kicker">Company project, Datamana. Product and Marketing Assistant</span>
-      <h3 id="t-order">Vendor Registration Link for an Order Management System</h3>
-      <p class="desc">Requirements, flow and screens for a feature that lets a vendor sign up to our platform from the order email. In the flow diagram, manual hand-offs drop from 4 to 0. The feature was handed over before launch.</p>
-      <div class="links"><a class="primary" href="projects/order-vendor-link.html">Project page</a></div>
-    </div>
-    <figure><img src="assets/img/order/screen.png" alt="Mockup of a confirmation screen that asks a vendor whether to give its team account to a client" loading="lazy"></figure>
-  </div>
-</section>
-
-<section class="band game flip" aria-labelledby="t-game">
-  <div class="wrap grid">
-    <div class="text">
-      <span class="kicker">Solo project, 3 weeks. Pixel-art browser game</span>
-      <h3 id="t-game">Longing for the Spring Breeze 望春風</h3>
-      <p class="desc">A first-person record-shop game set in Taiwan under martial law. Testers said the first version felt like a museum display, so I rebuilt it as a game.</p>
-      <div class="links"><a class="primary" href="projects/spring-breeze-game.html">Game page</a><a href="projects/spring-breeze-design.html">Design page</a><a href="https://musicoftaiwan.liamchiang1030.workers.dev/shop/" target="_blank" rel="noopener">Play</a></div>
-    </div>
-    <figure><img src="assets/img/game/shop-interior.png" alt="The record shop in Longing for the Spring Breeze, a pixel-art game" loading="lazy"></figure>
-  </div>
-</section>
-
-<div class="wrap more"><a href="projects-hci.html">All projects &rarr;</a><a href="contact.html">Contact &rarr;</a></div>
+<div class="wrap more"><a href="contact.html">Contact &rarr;</a></div>
 <footer class="wrap site-foot">Portfolio of Chao-Yun Chiang</footer>
 </body>
 </html>
