@@ -16,9 +16,18 @@
 @media (max-width:760px){.hero{padding-block:40px 28px}.feat-grid{grid-template-columns:minmax(0,1fr)}}
 
 /* Parallax gaps between sections */
-.px{position:relative;height:200px;overflow:hidden;background:#e9e4d8}
+.px{position:relative;z-index:0;height:200px;background:#e9e4d8;overflow-x:clip;overflow-y:visible}
 .px i{position:absolute;display:block;will-change:transform}
-.px .far{opacity:.45}
-.px .mid{opacity:.75}
+.px .far{opacity:.8}
+.px .mid{opacity:.85}
+.px .near{opacity:.9}
 .hero,.feat,.about{position:relative;z-index:1;background:var(--h-bg)}
 @media (max-width:760px){.px{height:140px}}
+.px-dark{background:#161a19}
+
+.hero{position:relative;overflow:hidden}
+.hero h1,.hero .statement{position:relative;z-index:1}
+@media (max-width:760px){.hero .deco{display:none}}
+
+html,body{overflow-x:clip}
+.hero,.feat,.about{z-index:1}

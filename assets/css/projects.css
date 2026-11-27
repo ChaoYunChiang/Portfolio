@@ -33,3 +33,5 @@
 @media (max-width:640px){.plist a{grid-template-columns:minmax(0,1fr);gap:14px}}
 .cat-title{font:700 20px var(--f-head);color:var(--h-ink);margin:48px 0 12px}
 .cat:first-child .cat-title{margin-top:8px}
+.p-head{position:relative;overflow:hidden}
+.p-head h1,.p-head p{position:relative;z-index:1}

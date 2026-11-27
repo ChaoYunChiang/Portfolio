@@ -1,7 +1,7 @@
 /* Layered rectangles in the gaps between home sections. Each layer moves at its own speed. */
 (function(){
   if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  var els=[].slice.call(document.querySelectorAll('.px [data-speed]'));
+  var els=[].slice.call(document.querySelectorAll('.px [data-speed], .deco [data-speed]'));
   if(!els.length)return;
   var ticking=false;
   function update(){

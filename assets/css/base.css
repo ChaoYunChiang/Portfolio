@@ -42,3 +42,8 @@ a{color:inherit}
   .band-row{flex-direction:column;align-items:flex-start;gap:20px}
   .course-note{text-align:left}
 }
+/* Decorative layered rectangles behind a header */
+.deco{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.deco i{position:absolute;display:block;will-change:transform}
+.deco .far{opacity:.8}.deco .mid{opacity:.85}.deco .near{opacity:.9}
+@media (max-width:760px){.deco{left:55%}}
