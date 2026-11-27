@@ -14,3 +14,11 @@
 .feat-grid p{margin:8px 0 0;font-size:16px;line-height:1.5}
 .feat .more{padding-block:24px 0}
 @media (max-width:760px){.hero{padding-block:40px 28px}.feat-grid{grid-template-columns:minmax(0,1fr)}}
+
+/* Parallax gaps between sections */
+.px{position:relative;height:200px;overflow:hidden;background:#e9e4d8}
+.px i{position:absolute;display:block;will-change:transform}
+.px .far{opacity:.45}
+.px .mid{opacity:.75}
+.hero,.feat,.about{position:relative;z-index:1;background:var(--h-bg)}
+@media (max-width:760px){.px{height:140px}}
