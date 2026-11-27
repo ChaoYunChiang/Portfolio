@@ -14,3 +14,22 @@
 .feat-grid p{margin:8px 0 0;font-size:16px;line-height:1.5}
 .feat .more{padding-block:24px 0}
 @media (max-width:760px){.hero{padding-block:40px 28px}.feat-grid{grid-template-columns:minmax(0,1fr)}}
+
+/* Colour: each card takes the colour of its project page */
+.hero .statement{color:var(--h-ink);font-weight:700}
+.hero .statement::after{content:"";display:block;width:64px;height:6px;margin-top:18px;background:linear-gradient(90deg,#2f27cf 0 25%,#ebcb7b 25% 50%,#397c79 50% 75%,#a3242c 75%)}
+.feat-grid a{border:0}
+.feat-grid img{border-bottom:0}
+.feat-grid a:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,0,0,.14)}
+.feat-grid .c-order{background:#ebcb7b;color:#1f1a0e}
+.feat-grid .c-order .fk{color:#4a3d12}
+.feat-grid .c-game{background:#2b1810;color:#fdf3e1}
+.feat-grid .c-game .fk{color:#e3b9a0}
+.feat-grid .c-vr{background:#2a2f5c;color:#fff}
+.feat-grid .c-vr .fk{color:#c3c8f3}
+.feat-grid .c-brew{background:#397c79;color:#fff}
+.feat-grid .c-brew .fk{color:#ffd2a8}
+.feat-grid .c-video{background:#121316;color:#ece8e1}
+.feat-grid .c-video .fk{color:#e3b15c}
+.feat-grid .c-pet{background:#f6dcc6;color:#4b3427}
+.feat-grid .c-pet .fk{color:#a3416d}
