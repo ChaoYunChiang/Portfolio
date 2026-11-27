@@ -6,53 +6,60 @@
 <meta name="pf-view" content="default">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Chao-Yun Chiang, Portfolio</title>
-<meta name="description" content="Interactive experiences about culture and history. Selected work: Longing for the Spring Breeze and a VR tour of the Taipei Brewery.">
+<meta name="description" content="Interactive stories about Taiwan's culture and history. Selected work: Longing for the Spring Breeze, a VR tour of the Taipei Brewery, short films and a pet game.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Noto+Sans:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700&family=Pixelify+Sans:wght@400;600;700&display=swap">
 <link rel="stylesheet" href="assets/css/base.css">
 <link rel="stylesheet" href="assets/css/home.css">
+<link rel="stylesheet" href="assets/css/home-grid.css">
 <script src="assets/js/view.js" defer></script>
 </head>
 <body>
 <div class="home-nav"><div class="wrap"><a class="name" href="#top">Chao-Yun Chiang</a><nav aria-label="Main"><a href="#about">About</a><a href="projects.html">Projects</a><a href="contact.html">Contact</a></nav></div></div>
 
-<header class="intro wrap" id="top">
+<header class="hero wrap" id="top">
   <h1>Chao-Yun Chiang</h1>
   <p class="statement">I produce interactive stories about Taiwan's culture and history.</p>
 </header>
 
+<section class="feat wrap" aria-labelledby="t-work">
+  <h2 class="sec-label" id="t-work">Selected work</h2>
+  <ul class="feat-grid">
+    <li><a href="projects/spring-breeze-game.html">
+      <img src="assets/img/thumbs/spring-breeze.jpg" alt="">
+      <span class="fb"><span class="fk">Game design, solo &middot; 3 weeks</span>
+      <h3>Longing for the Spring Breeze 望春風</h3>
+      <p>A record-shop game set in Taiwan under martial law, where real regulations arrive each day.</p></span>
+    </a></li>
+    <li><a href="projects/taipei-brewery.html">
+      <img src="assets/img/thumbs/taipei-brewery.jpg" alt="">
+      <span class="fb"><span class="fk">VR production, team of 2 &middot; NTNU VR Lab</span>
+      <h3>Exploring Cultural Heritage through VR</h3>
+      <p>A virtual tour of more than 150 panoramas that preserves Taiwan's first brewery.</p></span>
+    </a></li>
+    <li><a href="projects/video-work.html">
+      <img src="assets/img/thumbs/video-work.jpg" alt="">
+      <span class="fb"><span class="fk">Video production &middot; 2023 - 2025</span>
+      <h3>Video work</h3>
+      <p>Three short films about everyday life and culture in Taiwan, including a documentary I directed.</p></span>
+    </a></li>
+    <li><a href="projects/meimei-pet-game.html">
+      <img src="assets/img/thumbs/meimei.jpg" alt="">
+      <span class="fb"><span class="fk">Game design, solo &middot; Datamana</span>
+      <h3>Meimei, a Pet Game</h3>
+      <p>A mobile pet game for an e-commerce platform, from proposal to playable prototype.</p></span>
+    </a></li>
+  </ul>
+  <div class="more"><a href="projects.html">All projects &rarr;</a></div>
+</section>
+
 <section class="about wrap" id="about">
   <h2>About</h2>
   <div class="about-text">
-    <p>I am a student of adult and continuing education, where I became interested in cultural education and media production. I make interactive experiences about culture and history, and I try to help people learn more through them.</p>
-    <p>I have liked telling stories, and hearing other people's, since I was a kid. My work spans video making, virtual reality and games.</p>
+    <p>I'm Chao-Yun, an undergraduate in adult and continuing education at National Taiwan Normal University in Taipei. My field studies adult learning outside the classroom, and it shapes the way I make interactive work. I care about bringing Taiwan's history and culture to people through experiences they can explore. My goal is to become an experience designer who creates educational and cultural experiences.</p>
   </div>
 </section>
 
-<section class="band game" aria-labelledby="t-game">
-  <div class="wrap grid">
-    <div class="text">
-      <span class="kicker">Solo project, 3 weeks. Pixel-art browser game</span>
-      <h3 id="t-game">Longing for the Spring Breeze 望春風</h3>
-      <p class="desc">A first-person record-shop game set in Taiwan under martial law. Players use their ears and clues to find the record a customer remembers, while new rules arrive each day.</p>
-      <div class="links"><a class="primary" href="projects/spring-breeze-game.html">Game page</a><a href="projects/spring-breeze-design.html">Design page</a><a href="https://musicoftaiwan.liamchiang1030.workers.dev/shop/" target="_blank" rel="noopener">Play</a></div>
-    </div>
-    <figure><img src="assets/img/game/shop-interior.png" alt="The record shop in Longing for the Spring Breeze, a pixel-art game"></figure>
-  </div>
-</section>
-
-<section class="band brewery flip" aria-labelledby="t-brew">
-  <div class="wrap grid">
-    <div class="text">
-      <span class="kicker">Research collaboration, team of 2. NTNU Virtual Reality Lab</span>
-      <h3 id="t-brew">Exploring Cultural Heritage through VR</h3>
-      <p class="desc">A virtual tour of Taiwan's first brewery, a century-old site with several designated monuments. The full version holds more than 150 panoramas.</p>
-      <div class="links"><a class="primary" href="projects/taipei-brewery.html">Project page</a></div>
-    </div>
-    <figure><img src="assets/img/brewery/thumb.jpg" alt="Exterior of the Taipei Brewery building with beer-mug sculptures in front"></figure>
-  </div>
-</section>
-
-<div class="wrap more"><a href="projects.html">All projects &rarr;</a><a href="contact.html">Contact &rarr;</a></div>
+<div class="wrap more"><a href="contact.html">Contact &rarr;</a></div>
 <footer class="wrap site-foot">Portfolio of Chao-Yun Chiang</footer>
 </body>
 </html>
