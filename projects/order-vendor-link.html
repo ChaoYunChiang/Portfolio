@@ -126,7 +126,7 @@
           <figure><img src="../assets/img/order/confirm.png" alt="Confirmation screen asking whether to give the team account to the client, with Confirm and Cancel buttons"><figcaption>The confirmation screen, from my design file. Example data.</figcaption></figure>
           <div><h4>A vendor who already has an account logs in and lands on the order</h4>
             <ul class="bul"><li><b>What:</b> if the account is not linked yet, a confirmation screen asks first. Confirm gives the account to the client. Cancel does nothing, and the link stays valid.</li>
-            <li><b>Why:</b> linking needs the vendor's consent, and login comes first, so holding the link alone is not enough.</li></ul></div>
+            <li><b>Why:</b> linking needs the vendor's consent, and login comes first, so holding the link alone is not enough. My first screen showed the Confirm button before login, so I moved login first.</li></ul></div>
         </div>
       </div>
     </div>
@@ -159,15 +159,12 @@
   </section>
 
   <section id="decisions">
-    <h2>Design decisions</h2>
+    <h2>Edge cases</h2>
     <div class="tbl-wrap"><table class="tbl nolabel">
-      <thead><tr><th>Decision</th><th>Why</th></tr></thead>
+      <thead><tr><th>Case</th><th>How the design handles it</th></tr></thead>
       <tbody>
-        <tr><td data-label="Decision"><b>Fill in, do not create</b></td><td data-label="Why">The client has already created the vendor record and entered its email. Only the team account is missing, so the link fills that gap.</td></tr>
-        <tr><td data-label="Decision"><b>Bind by code, not by email</b></td><td data-label="Why">A vendor may use a different email. The link carries a code for this client and vendor. The sign-up page locks the email and requires verification, so forwarding the link cannot bind the wrong person.</td></tr>
-        <tr><td data-label="Decision"><b>Log in before binding</b></td><td data-label="Why">My first screen showed the team account and a Confirm button before login, so anyone with the link could bind it. I changed it so login comes first.</td></tr>
-        <tr><td data-label="Decision"><b>Handle old links</b></td><td data-label="Why">Links in older transfer emails stay clickable, so they need an expired page with a next step.</td></tr>
-        <tr><td data-label="Decision"><b>No back-fill for orders already sent</b></td><td data-label="Why">Those orders were already sent by email. Transferring them again would create duplicates, so the requirements say so, to keep it from looking like a bug.</td></tr>
+        <tr><td data-label="Case"><b>Links in older transfer emails</b></td><td data-label="How the design handles it">They stay clickable and lead to an expired page with a next step.</td></tr>
+        <tr><td data-label="Case"><b>Orders sent before the vendor signed up</b></td><td data-label="How the design handles it">They stay as they are, because sending them again would create duplicates. The requirements state this so it does not look like a bug.</td></tr>
       </tbody></table></div>
   </section>
 
