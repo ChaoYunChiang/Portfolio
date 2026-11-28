@@ -71,3 +71,11 @@ main h3.sub3{margin:30px 0 10px;font-family:var(--f-head);font-weight:800;font-s
 .persona ul{margin:0;padding:14px 18px 14px 34px}
 .persona li{font-size:15px;line-height:1.5;margin:3px 0}
 @media (max-width:760px){.cards.two,.emap{grid-template-columns:minmax(0,1fr)}.persona{grid-template-columns:minmax(0,1fr)}}
+.emap4{margin-top:20px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.emap4 .q{background:var(--e-card);border:1px solid var(--e-line);padding:16px 18px;border-top:5px solid var(--e-blue)}
+.emap4 .q.pain{border-top-color:var(--e-coral)}
+.emap4 .q.gain{border-top-color:var(--e-green)}
+.emap4 h3{margin:0 0 8px;font-family:var(--f-head);font-weight:800;font-size:16px}
+.emap4 ul{margin:0;padding-left:18px}
+.emap4 li{font-size:15px;line-height:1.5;margin:4px 0}
+@media (max-width:760px){.emap4{grid-template-columns:minmax(0,1fr)}}
